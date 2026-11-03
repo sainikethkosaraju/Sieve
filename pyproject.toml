@@ -18,6 +18,8 @@ eval = ["datasets", "matplotlib", "pandas", "pyyaml"]
 dev = [
   "pytest", "pytest-cov", "hypothesis", "ruff", "mypy", "types-PyYAML",
   "fastapi", "uvicorn", "httpx", "prometheus-client", "pydantic", "pydantic-settings", "pyyaml",
+  # the eval tests render figures and tables
+  "matplotlib", "pandas",
 ]
 
 [project.scripts]
