@@ -1,5 +1,8 @@
 # Sieve
 
+**Confidence-gated LLM cascades with a certified error bound.**
+*Answer, escalate or abstain, with measured results on real GPUs, including where it does not work.*
+
 Sieve is a confidence gate and OpenAI-compatible proxy for small-to-large LLM cascades on local hardware.
 For each query it decides whether the small model's answer can be returned (**answer**), whether a larger model
 should be asked (**escalate**), or whether neither is reliable enough (**abstain**). Thresholds come from a
