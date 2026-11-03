@@ -250,3 +250,17 @@ def test_driver_dry_run_with_stand_in_server(
     assert r2.returncode == 0, r2.stdout[-3000:]
     assert "prepare-data already done" in r2.stdout
     assert '"generated": 0' in r2.stdout and '"skipped"' in r2.stdout
+
+
+def test_every_config_preregistration_is_embedded_in_the_kaggle_script() -> None:
+    """A config pinned to a pre-registration the kernel never receives fails at run time (v2 canary)."""
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location("b", KAGGLE / "build_experiment_script.py")
+    assert spec is not None and spec.loader is not None
+    b = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(b)
+    embedded = {str(p.relative_to(b.ROOT)) for p in b.repo_files()}
+    for cfg_path in sorted((ROOT / "benchmarks").glob("*.yaml")):
+        pin = yaml.safe_load(cfg_path.read_text()).get("preregistration", {}).get("path")
+        assert pin in embedded, f"{cfg_path.name} pins {pin}, which the kernel would not have"

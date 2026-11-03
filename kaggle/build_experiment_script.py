@@ -2,7 +2,7 @@
 """Generate ``kaggle/run_experiment.py`` from ``kaggle/experiment_driver.py``.
 
 The pushed Kaggle script must be a single self-contained file, so the repository (src/,
-benchmarks/, pyproject.toml, docs/PREREGISTRATION.md, README.md, LICENSE) is embedded as a
+benchmarks/, pyproject.toml, docs/PREREGISTRATION*.md, README.md, LICENSE) is embedded as a
 deterministic base64 tar.gz and the run parameters are baked in. Regenerate after any change:
 
     python kaggle/build_experiment_script.py --config t4_integration --max-minutes 40
@@ -26,7 +26,15 @@ import tarfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-INCLUDE = ("src", "benchmarks", "pyproject.toml", "docs/PREREGISTRATION.md", "README.md", "LICENSE")
+INCLUDE = (
+    "src",
+    "benchmarks",
+    "pyproject.toml",
+    "docs/PREREGISTRATION.md",
+    "docs/PREREGISTRATION_V2.md",
+    "README.md",
+    "LICENSE",
+)
 DEFAULT_STAGES = "bootstrap,binary,models,probe,prepare,run,analyse,report,sanity,emit"
 LLAMA_COMMIT = "fac3a894fc04901c3e5abaff457e024c6b52e04f"  # D-013 build
 
