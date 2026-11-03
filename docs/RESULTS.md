@@ -18,6 +18,22 @@ The cascade did not save cost: at a certified risk of 10% the small model's conf
 more than about 4% of queries on average across the 50 re-splits (none on the canonical split 0, where the certified small-tier threshold was "never"), so the system behaved almost like the large model alone, plus the price of the
 wasted small-model attempt.** That is a negative result for the cost claim, reported as measured.
 
+## The positive result: certified abstention cuts wrong answers
+
+TriviaQA, canonical split 0 test set (n = 2,000), alpha = delta = 0.10, large tier answering through the gate:
+
+| | Answers given | Correct among answered | Wrong answers as a share of ALL queries |
+|---|---|---|---|
+| 7B alone, no gate | 100% | 55.9% | about 44.1% |
+| 7B behind the certified gate | 30.8% (615 of 2,000) | 93.2% | 2.1% (42 of 2,000) |
+
+That is about 21 times fewer wrong answers, paid for with abstaining on about 69% of queries. Across the 50
+re-splits the gate answered 25.8% on average with a mean error among answered of 7.4% (maximum 12.1%); the error
+exceeded 10% in 5 of 50. Caveats: in-distribution only (see H5), one model pair, strict exact-match grading (so
+"wrong" includes some correct paraphrases), and the 44% baseline is the large tier's accuracy over all 6,000
+TriviaQA items rather than the split-0 test set alone. This is the selective-prediction property the tool is built
+for. It is distinct from the cost claim (H3), which failed.
+
 ## Verdicts on the pre-registered hypotheses
 
 | | Claim | Verdict | Evidence |

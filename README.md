@@ -9,6 +9,16 @@ should be asked (**escalate**), or whether neither is reliable enough (**abstain
 calibration procedure (Learn-then-Test) that targets a stated bound on the error rate among answered queries,
 and the gate fails closed when the model's logprobs or the calibration do not match what it was fitted on.
 
+## Headline result
+
+Asked TriviaQA questions on its own, the 7B model is wrong on about **44%** of them. Behind the Sieve gate, set to
+a 10% error target, the system answered **31%** of questions (26% on average over 50 re-splits) and **93%** of those
+answers were correct: the rate of wrong answers dropped from about 44% of all queries to about **2%**, roughly
+**21x lower**, by abstaining on the rest. The error bound held in 45 of 50 re-splits. Two honest limits come with
+it: it only holds for traffic that looks like the calibration data (on NQ-open the error rate was 0.42 against the
+0.10 target, and a drift alarm fired), and for this model pair the cascade did **not** save compute. Grading is strict
+exact match, so absolute error rates are conservative. Details: [docs/RESULTS.md](docs/RESULTS.md).
+
 > **Disclosure.** This project was built with heavy AI assistance (Anthropic's Claude, via Claude Code).
 > The git history carries `Co-Authored-By` trailers. The owner directed the work and reviews and is
 > responsible for it; see [`docs/process/`](docs/process/) for how the AI-assisted process was audited.
