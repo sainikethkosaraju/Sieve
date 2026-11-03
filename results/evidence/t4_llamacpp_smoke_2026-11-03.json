@@ -1,0 +1,683 @@
+{
+ "steps": {
+  "build": {
+   "binary": true,
+   "log": [
+    "Cloning into '/kaggle/working/llama.cpp'...\n",
+    "fac3a894fc04901c3e5abaff457e024c6b52e04f\n",
+    "SION_SUPPORTED\n-- Performing Test OPENSSL_VERSION_SUPPORTED - Success\n-- OpenSSL found: 3.0.13\n-- Generating embedded license file for target: llama-app\n-- Configuring done (3.9s)\n-- Generating done (0.6s)\n-- Build files have been written to: /kaggle/working/llama.cpp/build\nCMAKE_BUILD_TYPE=Release\n",
+    "rver-impl.dir/server-models-sched.cpp.o\n[100%] Linking CXX static library libllama-server-impl.a\n[100%] Built target llama-server-impl\n[100%] Building CXX object tools/server/CMakeFiles/llama-server.dir/main.cpp.o\n[100%] Linking CXX executable ../../bin/llama-server\n[100%] Built target llama-server\n"
+   ],
+   "rcs": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "elapsed_s": 1739.1
+  },
+  "download": {
+   "small_q4km": {
+    "rc": 0,
+    "bytes": 1117320736,
+    "tail": ""
+   },
+   "large_q4km": {
+    "rc": 0,
+    "bytes": 4683074240,
+    "tail": ""
+   },
+   "elapsed_s": 122.0
+  },
+  "small_default": {
+   "cmd": "-m /kaggle/working/small.gguf -ngl 99 -c 4096 --port 8081 --host 127.0.0.1",
+   "healthy": true,
+   "completion_wall_s": 0.351,
+   "completion_text": " Paris\n\nThe capital of France is Paris. Paris is the largest city in France and is known for its historical significance,",
+   "timings": {
+    "cache_n": 0,
+    "prompt_n": 11,
+    "prompt_ms": 49.95,
+    "prompt_per_token_ms": 4.540909090909091,
+    "prompt_per_second": 220.22022022022023,
+    "predicted_n": 24,
+    "predicted_ms": 297.302,
+    "predicted_per_token_ms": 12.92617391304348,
+    "predicted_per_second": 77.36241263092747
+   },
+   "n_prob_entries": 24,
+   "first_prob_entry": {
+    "id": 12095,
+    "token": " Paris",
+    "bytes": [
+     32,
+     80,
+     97,
+     114,
+     105,
+     115
+    ],
+    "logprob": -0.23126327991485596,
+    "top_logprobs": [
+     {
+      "id": 12095,
+      "token": " Paris",
+      "bytes": [
+       32,
+       80,
+       97,
+       114,
+       105,
+       115
+      ],
+      "logprob": -0.23126327991485596
+     },
+     {
+      "id": 576,
+      "token": " The",
+      "bytes": [
+       32,
+       84,
+       104,
+       101
+      ],
+      "logprob": -1.7854071855545044
+     },
+     {
+      "id": 9625,
+      "token": " France",
+      "bytes": [
+       32,
+       70,
+       114,
+       97,
+       110,
+       99,
+       101
+      ],
+      "logprob": -4.696576118469238
+     },
+     {
+      "id": 18374,
+      "token": " Capital",
+      "bytes": [
+       32,
+       67,
+       97,
+       112,
+       105,
+       116,
+       97,
+       108
+      ],
+      "logprob": -5.8940629959106445
+     },
+     {
+      "id": 2014,
+      "token": " To",
+      "bytes": [
+       32,
+       84,
+       111
+      ],
+      "logprob": -6.071633338928223
+     }
+    ]
+   },
+   "chat_wall_s": 0.046,
+   "chat_text": "Paris",
+   "chat_logprob_tokens": 2,
+   "chat_first_logprob": {
+    "id": 59604,
+    "token": "Paris",
+    "bytes": [
+     80,
+     97,
+     114,
+     105,
+     115
+    ],
+    "logprob": -0.006908442825078964,
+    "top_logprobs": [
+     {
+      "id": 59604,
+      "token": "Paris",
+      "bytes": [
+       80,
+       97,
+       114,
+       105,
+       115
+      ],
+      "logprob": -0.006908442825078964
+     },
+     {
+      "id": 785,
+      "token": "The",
+      "bytes": [
+       84,
+       104,
+       101
+      ],
+      "logprob": -5.881765365600586
+     },
+     {
+      "id": 106004,
+      "token": "\u5df4\u9ece",
+      "bytes": [
+       229,
+       183,
+       180,
+       233,
+       187,
+       142
+      ],
+      "logprob": -6.112152099609375
+     },
+     {
+      "id": 12095,
+      "token": " Paris",
+      "bytes": [
+       32,
+       80,
+       97,
+       114,
+       105,
+       115
+      ],
+      "logprob": -7.447853088378906
+     },
+     {
+      "id": 49000,
+      "token": "France",
+      "bytes": [
+       70,
+       114,
+       97,
+       110,
+       99,
+       101
+      ],
+      "logprob": -8.421335220336914
+     }
+    ]
+   },
+   "greedy_deterministic_text": true,
+   "gen200_wall_s": 1.558,
+   "gen200_timings": {
+    "cache_n": 0,
+    "prompt_n": 10,
+    "prompt_ms": 19.102,
+    "prompt_per_token_ms": 1.9102000000000001,
+    "prompt_per_second": 523.5053921055387,
+    "predicted_n": 200,
+    "predicted_ms": 1536.44,
+    "predicted_per_token_ms": 7.720804020100503,
+    "predicted_per_second": 129.52018952904115
+   },
+   "power_samples_n": 12,
+   "power_samples_head": [
+    [
+     1793694503.2,
+     "0, 9.84, 0, 0 | 1, 9.64, 0, 0"
+    ],
+    [
+     1793694503.75,
+     "0, 10.43, 0, 0 | 1, 10.23, 0, 0"
+    ],
+    [
+     1793694504.31,
+     "0, 10.14, 0, 0 | 1, 9.64, 0, 0"
+    ]
+   ],
+   "power_samples_peak": [
+    1793694503.2,
+    "0, 9.84, 0, 0 | 1, 9.64, 0, 0"
+   ],
+   "elapsed_s": 7.6
+  },
+  "small_kvq8_fa": {
+   "cmd": "-m /kaggle/working/small.gguf -ngl 99 -c 4096 --port 8082 --host 127.0.0.1 -fa on -ctk q8_0 -ctv q8_0",
+   "healthy": true,
+   "completion_wall_s": 0.372,
+   "completion_text": " Paris\n\nThe capital of France is Paris. Paris is a city located in the north of France and is the most populous",
+   "timings": {
+    "cache_n": 0,
+    "prompt_n": 11,
+    "prompt_ms": 49.192,
+    "prompt_per_token_ms": 4.472,
+    "prompt_per_second": 223.61359570661895,
+    "predicted_n": 24,
+    "predicted_ms": 319.085,
+    "predicted_per_token_ms": 13.873260869565216,
+    "predicted_per_second": 72.08110691508533
+   },
+   "n_prob_entries": 24,
+   "first_prob_entry": {
+    "id": 12095,
+    "token": " Paris",
+    "bytes": [
+     32,
+     80,
+     97,
+     114,
+     105,
+     115
+    ],
+    "logprob": -0.20706717669963837,
+    "top_logprobs": [
+     {
+      "id": 12095,
+      "token": " Paris",
+      "bytes": [
+       32,
+       80,
+       97,
+       114,
+       105,
+       115
+      ],
+      "logprob": -0.20706717669963837
+     },
+     {
+      "id": 576,
+      "token": " The",
+      "bytes": [
+       32,
+       84,
+       104,
+       101
+      ],
+      "logprob": -1.837766408920288
+     },
+     {
+      "id": 9625,
+      "token": " France",
+      "bytes": [
+       32,
+       70,
+       114,
+       97,
+       110,
+       99,
+       101
+      ],
+      "logprob": -5.188537120819092
+     },
+     {
+      "id": 2014,
+      "token": " To",
+      "bytes": [
+       32,
+       84,
+       111
+      ],
+      "logprob": -6.050633907318115
+     },
+     {
+      "id": 18374,
+      "token": " Capital",
+      "bytes": [
+       32,
+       67,
+       97,
+       112,
+       105,
+       116,
+       97,
+       108
+      ],
+      "logprob": -6.366918087005615
+     }
+    ]
+   },
+   "chat_wall_s": 0.05,
+   "chat_text": "Paris",
+   "chat_logprob_tokens": 2,
+   "chat_first_logprob": {
+    "id": 59604,
+    "token": "Paris",
+    "bytes": [
+     80,
+     97,
+     114,
+     105,
+     115
+    ],
+    "logprob": -0.010077178478240967,
+    "top_logprobs": [
+     {
+      "id": 59604,
+      "token": "Paris",
+      "bytes": [
+       80,
+       97,
+       114,
+       105,
+       115
+      ],
+      "logprob": -0.010077178478240967
+     },
+     {
+      "id": 785,
+      "token": "The",
+      "bytes": [
+       84,
+       104,
+       101
+      ],
+      "logprob": -5.216240406036377
+     },
+     {
+      "id": 106004,
+      "token": "\u5df4\u9ece",
+      "bytes": [
+       229,
+       183,
+       180,
+       233,
+       187,
+       142
+      ],
+      "logprob": -6.225874423980713
+     },
+     {
+      "id": 12095,
+      "token": " Paris",
+      "bytes": [
+       32,
+       80,
+       97,
+       114,
+       105,
+       115
+      ],
+      "logprob": -7.518513202667236
+     },
+     {
+      "id": 49000,
+      "token": "France",
+      "bytes": [
+       70,
+       114,
+       97,
+       110,
+       99,
+       101
+      ],
+      "logprob": -7.9871697425842285
+     }
+    ]
+   },
+   "greedy_deterministic_text": true,
+   "gen200_wall_s": 1.634,
+   "gen200_timings": {
+    "cache_n": 0,
+    "prompt_n": 10,
+    "prompt_ms": 20.303,
+    "prompt_per_token_ms": 2.0303,
+    "prompt_per_second": 492.53804856425154,
+    "predicted_n": 200,
+    "predicted_ms": 1611.336,
+    "predicted_per_token_ms": 8.097165829145728,
+    "predicted_per_second": 123.5000024824121
+   },
+   "power_samples_n": 9,
+   "power_samples_head": [
+    [
+     1793694510.8,
+     "0, 33.69, 0, 1 | 1, 33.49, 0, 0"
+    ],
+    [
+     1793694511.35,
+     "0, 27.54, 105, 0 | 1, 33.29, 105, 2"
+    ],
+    [
+     1793694511.9,
+     "0, 27.25, 515, 15 | 1, 27.74, 633, 23"
+    ]
+   ],
+   "power_samples_peak": [
+    1793694515.17,
+    "0, 47.70, 119, 41 | 1, 60.73, 119, 49"
+   ],
+   "elapsed_s": 4.6
+  },
+  "small_kvq8_fa_oldsyntax": {
+   "skipped": "new syntax worked",
+   "elapsed_s": 0.0
+  },
+  "large_default": {
+   "cmd": "-m /kaggle/working/large.gguf -ngl 99 -c 4096 --port 8084 --host 127.0.0.1",
+   "healthy": true,
+   "completion_wall_s": 0.738,
+   "completion_text": " The capital of France is Paris. \n\nTo arrive at this answer, I used my knowledge base to recall the name of",
+   "timings": {
+    "cache_n": 0,
+    "prompt_n": 11,
+    "prompt_ms": 80.414,
+    "prompt_per_token_ms": 7.310363636363636,
+    "prompt_per_second": 136.79210087795656,
+    "predicted_n": 24,
+    "predicted_ms": 654.06,
+    "predicted_per_token_ms": 28.437391304347823,
+    "predicted_per_second": 35.16496957465676
+   },
+   "n_prob_entries": 24,
+   "first_prob_entry": {
+    "id": 576,
+    "token": " The",
+    "bytes": [
+     32,
+     84,
+     104,
+     101
+    ],
+    "logprob": -0.24576014280319214,
+    "top_logprobs": [
+     {
+      "id": 576,
+      "token": " The",
+      "bytes": [
+       32,
+       84,
+       104,
+       101
+      ],
+      "logprob": -0.24576014280319214
+     },
+     {
+      "id": 12095,
+      "token": " Paris",
+      "bytes": [
+       32,
+       80,
+       97,
+       114,
+       105,
+       115
+      ],
+      "logprob": -1.5519907474517822
+     },
+     {
+      "id": 2014,
+      "token": " To",
+      "bytes": [
+       32,
+       84,
+       111
+      ],
+      "logprob": -6.427652359008789
+     },
+     {
+      "id": 1084,
+      "token": " It",
+      "bytes": [
+       32,
+       73,
+       116
+      ],
+      "logprob": -7.649431228637695
+     },
+     {
+      "id": 758,
+      "token": " In",
+      "bytes": [
+       32,
+       73,
+       110
+      ],
+      "logprob": -7.899564743041992
+     }
+    ]
+   },
+   "chat_wall_s": 0.089,
+   "chat_text": "Paris",
+   "chat_logprob_tokens": 2,
+   "chat_first_logprob": {
+    "id": 59604,
+    "token": "Paris",
+    "bytes": [
+     80,
+     97,
+     114,
+     105,
+     115
+    ],
+    "logprob": -0.00019701276323758066,
+    "top_logprobs": [
+     {
+      "id": 59604,
+      "token": "Paris",
+      "bytes": [
+       80,
+       97,
+       114,
+       105,
+       115
+      ],
+      "logprob": -0.00019701276323758066
+     },
+     {
+      "id": 106004,
+      "token": "\u5df4\u9ece",
+      "bytes": [
+       229,
+       183,
+       180,
+       233,
+       187,
+       142
+      ],
+      "logprob": -8.583218574523926
+     },
+     {
+      "id": 12095,
+      "token": " Paris",
+      "bytes": [
+       32,
+       80,
+       97,
+       114,
+       105,
+       115
+      ],
+      "logprob": -11.58691692352295
+     },
+     {
+      "id": 40858,
+      "token": " paris",
+      "bytes": [
+       32,
+       112,
+       97,
+       114,
+       105,
+       115
+      ],
+      "logprob": -14.590714454650879
+     },
+     {
+      "id": 49000,
+      "token": "France",
+      "bytes": [
+       70,
+       114,
+       97,
+       110,
+       99,
+       101
+      ],
+      "logprob": -17.211946487426758
+     }
+    ]
+   },
+   "greedy_deterministic_text": true,
+   "gen200_wall_s": 4.132,
+   "gen200_timings": {
+    "cache_n": 0,
+    "prompt_n": 10,
+    "prompt_ms": 32.39,
+    "prompt_per_token_ms": 3.239,
+    "prompt_per_second": 308.73726458783574,
+    "predicted_n": 200,
+    "predicted_ms": 4097.191,
+    "predicted_per_token_ms": 20.588899497487436,
+    "predicted_per_second": 48.56986164423382
+   },
+   "power_samples_n": 16,
+   "power_samples_head": [
+    [
+     1793694515.45,
+     "0, 37.70, 0, 5 | 1, 36.59, 0, 18"
+    ],
+    [
+     1793694515.99,
+     "0, 33.88, 105, 0 | 1, 33.69, 105, 2"
+    ],
+    [
+     1793694516.53,
+     "0, 33.98, 2101, 0 | 1, 33.49, 2279, 0"
+    ]
+   ],
+   "power_samples_peak": [
+    1793694523.09,
+    "0, 78.37, 2479, 48 | 1, 56.84, 2579, 51"
+   ],
+   "elapsed_s": 9.0
+  }
+ },
+ "errors": [],
+ "gpu": {
+  "cmd": "nvidia-smi --query-gpu=index,name,memory.total,driver_version --format=csv,noheader",
+  "rc": 0,
+  "sec": 0.0,
+  "tail": "0, Tesla T4, 15360 MiB, 580.178.04\n1, Tesla T4, 15360 MiB, 580.178.04\n"
+ },
+ "llama_cpp_commit": "fac3a894fc04901c3e5abaff457e024c6b52e04f",
+ "cuda_env": {
+  "cmd": "nvcc --version | tail -2; ls -d /usr/local/cuda* ; ls /usr/local/cuda/lib64/stubs 2>&1 | head -5",
+  "rc": 0,
+  "sec": 0.0,
+  "tail": "Cuda compilation tools, release 13.0, V13.0.88\nBuild cuda_13.0.r13.0/compiler.36424714_0\n/usr/local/cuda\n/usr/local/cuda-13\n/usr/local/cuda-13.0\n"
+ },
+ "cmake_attempts": [
+  {
+   "name": "stubs_path",
+   "rc": 1,
+   "tail": "pto.so (found version \"3.0.13\")\n-- Performing Test OPENSSL_VERSION_SUPPORTED\n-- Performing Test OPENSSL_VERSION_SUPPORTED - Success\n-- OpenSSL found: 3.0.13\n-- Generating embedded license file for target: llama-app\n-- Configuring done (5.7s)\n-- Generating done (0.6s)\nCMAKE_BUILD_TYPE=Release\nCMake Error at ggml/src/ggml-cuda/CMakeLists.txt:181 (target_link_libraries):\n  Target \"ggml-cuda\" links to:\n\n    CUDA::cuda_driver\n\n  but the target was not found.  Possible reasons include:\n\n    * There is a typo in the target name.\n    * A find_package call is missing for an IMPORTED target.\n    * An ALIAS target is missing.\n\n\n\nCMake Generate step failed.  Build files cannot be regenerated correctly.\n"
+  },
+  {
+   "name": "no_vmm",
+   "rc": 0,
+   "tail": "ES=75 CMAKE_CUDA_ARCHITECTURES_NATIVE=75-real\n-- FlashAttention K-V type combinations: f16-f16;q4_0-q4_0;q8_0-q8_0;bf16-bf16\n-- Found NCCL: /usr/lib/x86_64-linux-gnu/libnccl.so\n-- CUDA host compiler is GNU 13.3.0\n-- Including CUDA backend\n-- ggml version: 0.28.0\n-- ggml commit:  fac3a89\n-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version \"3.0.13\")\n-- Performing Test OPENSSL_VERSION_SUPPORTED\n-- Performing Test OPENSSL_VERSION_SUPPORTED - Success\n-- OpenSSL found: 3.0.13\n-- Generating embedded license file for target: llama-app\n-- Configuring done (3.9s)\n-- Generating done (0.6s)\n-- Build files have been written to: /kaggle/working/llama.cpp/build\nCMAKE_BUILD_TYPE=Release\n"
+  }
+ ],
+ "cmake_config_used": "no_vmm",
+ "_provenance": {
+  "kernel": "<kaggle-user>/sieve-llamacpp-t4-smoke",
+  "date": "2026-11-03",
+  "hardware": "Kaggle 2x Tesla T4 15GB (one used per server)",
+  "note": "raw smoke-test evidence; single runs, not benchmarks"
+ }
+}

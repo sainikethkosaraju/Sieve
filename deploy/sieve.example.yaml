@@ -1,0 +1,47 @@
+# Example Sieve server config. API keys come from the environment (SIEVE_API_KEYS='["..."]'),
+# never from this file. Backend URLs live ONLY here: no request can select or override them.
+host: 0.0.0.0            # inside a container; publish the port to loopback only (see compose)
+port: 8080
+artifact_path: /etc/sieve/artifact.json   # certified calibration artifact (hash-verified at start)
+mode: enforce            # or "shadow": serve the large model, log what the gate would do
+model_name: sieve
+
+small:
+  kind: llamaserver
+  url: http://llama-small:8080
+  model_id: qwen2.5-3b-instruct
+  model_hash: "sha256:REPLACE_WITH_GGUF_SHA256"
+  quant: Q4_K_M
+  kv_quant: f16
+  build: "REPLACE_WITH_PINNED_LLAMA_CPP_BUILD"   # compared with /props build_info
+  expected_model_file: qwen2.5-3b-instruct-q4_k_m.gguf
+  slots: 4
+large:
+  kind: llamaserver
+  url: http://llama-large:8080
+  model_id: qwen2.5-7b-instruct
+  model_hash: "sha256:REPLACE_WITH_GGUF_SHA256"
+  quant: Q4_K_M
+  kv_quant: f16
+  build: "REPLACE_WITH_PINNED_LLAMA_CPP_BUILD"
+  expected_model_file: qwen2.5-7b-instruct-q4_k_m.gguf
+  slots: 4
+
+allowed_backend_hosts: [llama-small, llama-large, 127.0.0.1, localhost]
+
+limits:
+  max_body_bytes: 1048576
+  max_concurrency: 8
+  max_queue: 32
+  request_deadline_s: 60
+guard:
+  max_escalation_rate: 0.8   # circuit breaker; untuned, set from your measured escalation rate
+  window: 200
+audit:
+  path: /var/lib/sieve/audit.jsonl
+  log_content: false         # keep false unless you have a legal basis; redaction hooks apply when true
+drift:
+  reference_path: /etc/sieve/reference_scores.json   # tier-1 calibration scores exported by the harness
+  # reference_sha256: "..."
+# expected_artifact_id: "..."   # refuse to start unless the artifact id matches
+# expected_config_pin: "..."    # refuse to start unless the effective config matches

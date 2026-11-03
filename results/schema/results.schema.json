@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "sieve.eval analysis/results.json",
+  "description": "Output of `python -m sieve.eval analyse`. Every number is computed from cached generations; for synthetic runs meta.synthetic is true and meta.synthetic_label is set. Intervals are {point, lo, hi} (95% percentile bootstrap unless stated).",
+  "type": "object",
+  "required": ["meta", "accuracy", "methods", "certs_split0", "h1", "signals", "comparisons", "oracles", "self_consistency", "shift", "quant", "hard_set", "calibration", "curves", "energy", "nondeterminism", "per_stratum", "primary_signal_by_split"],
+  "properties": {
+    "meta": {"type": "object", "required": ["name", "synthetic", "config_hash", "prereg_frozen_sha256", "commit", "hardware", "judge", "ungraded_datasets", "splits_index_hash", "dataset_hash", "n_splits", "alpha", "delta", "n_boot", "cost_unit", "timing_source"]},
+    "h1": {"type": "object", "required": ["n_splits", "n_certified", "n_empty", "n_violations", "violation_freq", "violation_ci95", "mean_test_risk", "mean_coverage", "pass_max", "fail_min"]},
+    "methods": {"type": "object", "description": "per method: {across_splits: aggregate over re-splits, split0: summary on C of re-split 0}"},
+    "signals": {"type": "object", "required": ["primary_signal", "auroc", "h2_delta_vs_max_prob"]},
+    "comparisons": {"type": "object", "required": ["gate_available"]},
+    "shift": {"type": "object", "description": "per shift dataset: risk of the certified gate, drift-alarm rates, grading state"},
+    "quant": {"type": "object"},
+    "hard_set": {"type": "object"},
+    "calibration": {"type": "object"},
+    "curves": {"type": "object", "required": ["risk_coverage", "pareto"]},
+    "energy": {"type": "object", "required": ["cells", "scope"]}
+  }
+}

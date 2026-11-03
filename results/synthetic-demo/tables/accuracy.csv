@@ -1,0 +1,13 @@
+synthetic,cell,tier,quant,kv,dataset,n,n_graded,accuracy,fail_closed_rate,mean_time_s,wasted_time_share
+SYNTHETIC,synthetic-L_q4km,L,synthetic-Q4_K_M,f16,synthetic-mmlu_redux,300,300,0.7333,0.0000,0.8555,0.0076
+SYNTHETIC,synthetic-L_q4km,L,synthetic-Q4_K_M,f16,synthetic-nq_open,300,300,0.8233,0.0000,0.9664,0.0041
+SYNTHETIC,synthetic-L_q4km,L,synthetic-Q4_K_M,f16,synthetic-simpleqa_verified,200,200,0.5050,0.0000,0.9487,0.0024
+SYNTHETIC,synthetic-L_q4km,L,synthetic-Q4_K_M,f16,synthetic-triviaqa,1200,1200,0.9017,0.0000,0.9682,0.0043
+SYNTHETIC,synthetic-S_f16,S,synthetic-f16,f16,synthetic-triviaqa,1200,1200,0.7183,0.0000,0.1565,0.0047
+SYNTHETIC,synthetic-S_q3km,S,synthetic-Q3_K_M,f16,synthetic-triviaqa,1200,1200,0.6417,0.0000,0.2190,0.0035
+SYNTHETIC,synthetic-S_q4km,S,synthetic-Q4_K_M,f16,synthetic-mmlu_redux,300,300,0.4700,0.0000,0.1705,0.0035
+SYNTHETIC,synthetic-S_q4km,S,synthetic-Q4_K_M,f16,synthetic-nq_open,300,300,0.6067,0.0000,0.2094,0.0086
+SYNTHETIC,synthetic-S_q4km,S,synthetic-Q4_K_M,f16,synthetic-simpleqa_verified,200,200,0.2100,0.0000,0.2021,0.0068
+SYNTHETIC,synthetic-S_q4km,S,synthetic-Q4_K_M,f16,synthetic-triviaqa,1200,1200,0.6992,0.0000,0.2126,0.0053
+SYNTHETIC,synthetic-S_q4km_kvq4,S,synthetic-Q4_K_M,q4_0,synthetic-triviaqa,1200,1200,0.6942,0.0000,0.2124,0.0048
+SYNTHETIC,synthetic-S_q8,S,synthetic-Q8_0,f16,synthetic-triviaqa,1200,1200,0.7142,0.0000,0.1878,0.0054

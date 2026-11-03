@@ -1,0 +1,11 @@
+method,certified_splits,empty_splits,violation_freq,mean_test_risk,mean_coverage,mean_cost_per_correct,split0_risk,split0_coverage,split0_escalation,split0_cost_per_correct
+L_only,50,0,0.0400,0.0752,0.2731,0.7918,0.0683,0.3075,1.0000,0.6828
+S_only,44,6,0.0000,0.0451,0.0505,1.3228,0.0291,0.0515,0.9485,1.2488
+gate:entropy,49,1,0.1633,0.0762,0.2575,1.2957,0.0735,0.3060,0.9500,0.8807
+gate:margin,6,44,0.8333,0.1117,0.0552,5.3228,,,,
+gate:max_softmax,0,50,,,,,,,,
+gate:mean_logprob,50,0,0.1000,0.0744,0.2577,1.3349,0.0683,0.3075,1.0000,0.9008
+gate:primary,50,0,0.1000,0.0744,0.2577,1.3349,0.0683,0.3075,1.0000,0.9008
+query_router,44,6,0.0000,0.0249,0.0728,3.4289,,,,
+random_router,50,0,0.0400,0.0752,0.2731,0.7918,0.0683,0.3075,1.0000,0.6828
+self_consistency,17,33,0.1176,0.0592,0.2208,3.7625,,,,

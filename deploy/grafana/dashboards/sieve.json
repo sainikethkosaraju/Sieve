@@ -1,0 +1,655 @@
+{
+  "uid": "sieve-overview",
+  "title": "Sieve overview",
+  "tags": [
+    "sieve"
+  ],
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "15s",
+  "time": {
+    "from": "now-3h",
+    "to": "now"
+  },
+  "editable": false,
+  "templating": {
+    "list": []
+  },
+  "annotations": {
+    "list": []
+  },
+  "panels": [
+    {
+      "id": 1,
+      "type": "stat",
+      "title": "Ready / logprob self-test / backend up",
+      "description": "1 = healthy. Ready=0 means /readyz returns 503 (identity mismatch, failed self-test or unreachable backend).",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "sieve-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 8,
+        "h": 4
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "sieve_ready",
+          "legendFormat": "ready"
+        },
+        {
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "sieve_backend_logprobs_ok",
+          "legendFormat": "logprobs ok tier {{tier}}"
+        },
+        {
+          "refId": "C",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "sieve_backend_up",
+          "legendFormat": "backend up tier {{tier}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 2,
+      "type": "stat",
+      "title": "Drift alarm",
+      "description": "KS p-value AND PSI both beyond threshold on the tier-1 score window. Detection only.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "sieve-prometheus"
+      },
+      "gridPos": {
+        "x": 8,
+        "y": 0,
+        "w": 4,
+        "h": 4
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "sieve_drift_alarm",
+          "legendFormat": "__auto"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 3,
+      "type": "stat",
+      "title": "Escalation guard open",
+      "description": "1 = escalations are being shed (circuit breaker).",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "sieve-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 0,
+        "w": 4,
+        "h": 4
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "sieve_escalation_guard_open",
+          "legendFormat": "__auto"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 4,
+      "type": "stat",
+      "title": "Inflight / queued",
+      "description": "",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "sieve-prometheus"
+      },
+      "gridPos": {
+        "x": 16,
+        "y": 0,
+        "w": 4,
+        "h": 4
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "sieve_inflight_requests",
+          "legendFormat": "inflight"
+        },
+        {
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "sieve_queued_requests",
+          "legendFormat": "queued"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 5,
+      "type": "stat",
+      "title": "Audit records dropped",
+      "description": "",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "sieve-prometheus"
+      },
+      "gridPos": {
+        "x": 20,
+        "y": 0,
+        "w": 4,
+        "h": 4
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "sieve_audit_dropped_total",
+          "legendFormat": "__auto"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 6,
+      "type": "timeseries",
+      "title": "Decisions per second",
+      "description": "",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "sieve-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 4,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "sum by (decision, tier) (rate(sieve_decisions_total[5m]))",
+          "legendFormat": "{{decision}} tier {{tier}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "reqps"
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 7,
+      "type": "timeseries",
+      "title": "Escalation rate and abstention rate",
+      "description": "",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "sieve-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 4,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "sum(rate(sieve_escalations_total[5m])) / clamp_min(sum(rate(sieve_decisions_total[5m])), 1e-9)",
+          "legendFormat": "escalation rate"
+        },
+        {
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "sum(rate(sieve_decisions_total{decision=\"abstain\"}[5m])) / clamp_min(sum(rate(sieve_decisions_total[5m])), 1e-9)",
+          "legendFormat": "abstain rate"
+        },
+        {
+          "refId": "C",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "sieve_escalation_rate_window",
+          "legendFormat": "guard window rate"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 8,
+      "type": "timeseries",
+      "title": "Fail-closed decisions by reason",
+      "description": "Any sustained non-zero rate of identity_mismatch or sampling_mismatch means the served configuration differs from the calibration artifact.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "sieve-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 12,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "sum by (reason) (rate(sieve_decisions_total{reason=~\"logprob_defect|identity_mismatch|sampling_mismatch|signal_unavailable|escalation_shed|large_unavailable\"}[5m]))",
+          "legendFormat": "{{reason}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "reqps"
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 9,
+      "type": "timeseries",
+      "title": "Request latency (p50 / p95)",
+      "description": "Includes wasted small-tier work. Streaming responses start only after the gate decision, so this is also time-to-first-token.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "sieve-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 12,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "histogram_quantile(0.5, sum by (le) (rate(sieve_request_seconds_bucket[5m])))",
+          "legendFormat": "p50"
+        },
+        {
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "histogram_quantile(0.95, sum by (le) (rate(sieve_request_seconds_bucket[5m])))",
+          "legendFormat": "p95"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 10,
+      "type": "timeseries",
+      "title": "Wasted work share",
+      "description": "Backend seconds spent on attempts whose output was not served (escalated small attempts, abstentions, consistency samples).",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "sieve-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 20,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "rate(sieve_wasted_seconds_total[5m]) / clamp_min(sum(rate(sieve_cost_seconds_total[5m])), 1e-9)",
+          "legendFormat": "wasted share"
+        },
+        {
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "sum by (tier) (rate(sieve_cost_seconds_total[5m]))",
+          "legendFormat": "backend seconds/s tier {{tier}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 11,
+      "type": "heatmap",
+      "title": "Tier-1 score distribution (heatmap)",
+      "description": "Compare against the calibration score histogram; see the drift panels.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "sieve-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 20,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "sum by (le) (rate(sieve_score_bucket{tier=\"1\"}[5m]))",
+          "legendFormat": "{{le}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "options": {
+        "calculate": false,
+        "yAxis": {
+          "unit": "short"
+        }
+      }
+    },
+    {
+      "id": 12,
+      "type": "timeseries",
+      "title": "Drift statistics",
+      "description": "",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "sieve-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 28,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "sieve_drift_ks_pvalue",
+          "legendFormat": "KS p-value"
+        },
+        {
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "sieve_drift_psi",
+          "legendFormat": "PSI"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 13,
+      "type": "timeseries",
+      "title": "Rejected requests and backend errors",
+      "description": "",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "sieve-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 28,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "sum by (reason) (rate(sieve_rejected_total[5m]))",
+          "legendFormat": "rejected {{reason}}"
+        },
+        {
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "sum by (tier) (rate(sieve_backend_errors_total[5m]))",
+          "legendFormat": "backend errors tier {{tier}}"
+        },
+        {
+          "refId": "C",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "sum by (tier) (rate(sieve_signal_defects_total[5m]))",
+          "legendFormat": "signal defects tier {{tier}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "reqps"
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 14,
+      "type": "timeseries",
+      "title": "HTTP by status class",
+      "description": "",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "sieve-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 36,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "sum by (status) (rate(sieve_http_requests_total[5m]))",
+          "legendFormat": "{{status}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "reqps"
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 15,
+      "type": "timeseries",
+      "title": "Shadow mode: what the gate would have decided",
+      "description": "",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "sieve-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 36,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sieve-prometheus"
+          },
+          "expr": "sum by (decision, tier, reason) (rate(sieve_shadow_would_decide_total[5m]))",
+          "legendFormat": "{{decision}} tier {{tier}} ({{reason}})"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "reqps"
+        },
+        "overrides": []
+      },
+      "options": {}
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Sieve: confidence gating for LLM cascades"
+type: software
+version: 0.1.0.dev0
+date-released: 2026-11-03
+authors:
+  - family-names: Kosaraju
+    given-names: Sai Niketh
+license: MIT
+repository-code: "https://github.com/sainikethkosaraju/Sieve"
+abstract: >-
+  Early-development library for answer / escalate / abstain decisions in LLM cascades with
+  calibrated selective-risk thresholds. No empirical results are claimed yet.

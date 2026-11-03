@@ -1,0 +1,19 @@
+Sieve is MIT-licensed (see LICENSE). It builds on and evaluates third-party models, data and software,
+which keep their own licences.
+
+Models (not redistributed; downloaded from Hugging Face at run time)
+- Qwen2.5-1.5B-Instruct and Qwen2.5-7B-Instruct, Alibaba Cloud / Qwen team, Apache License 2.0.
+  GGUF conversions: Qwen/Qwen2.5-1.5B-Instruct-GGUF (Apache-2.0), bartowski/Qwen2.5-7B-Instruct-GGUF (Apache-2.0).
+- Qwen2.5-3B-Instruct is under the Qwen Research License (non-commercial) and is NOT used by this project.
+
+Inference engine
+- llama.cpp (https://github.com/ggml-org/llama.cpp), MIT License. Pinned commit fac3a894fc04901c3e5abaff457e024c6b52e04f.
+
+Datasets (not redistributed; aggregate results only)
+- TriviaQA (mandarjoshi/trivia_qa): the dataset card lists no licence; check upstream terms before redistribution.
+- NQ-open (google-research-datasets/nq_open): CC BY-SA 3.0.
+- SimpleQA Verified (google/simpleqa-verified): MIT.
+- MMLU-Redux 2.0 (edinburgh-dawg/mmlu-redux-2.0): CC BY 4.0.
+
+Published results in results/ are aggregate metrics and figures only. Item text, gold answers and raw generations
+are not included because of the share-alike and unknown-licence terms above.

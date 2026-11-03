@@ -1,0 +1,77 @@
+# INTEGRATION RUN (not the pre-registered experiment): ~50 items per dataset, real S and L GGUFs,
+# real Hub data, tiny splits. It proves the plumbing end to end on Kaggle T4s and measures
+# latency/VRAM/power; at n_B = 50 certification is expected to be empty or very loose. Results from
+# this config must never be reported as the pre-registered experiment.
+# Sizes differ from docs/PREREGISTRATION.md on purpose; the frozen_sha256 pin still guards the text.
+name: sieve-v1-t4-integration
+synthetic: false
+alpha: 0.10
+delta: 0.10
+preregistration:
+  path: docs/PREREGISTRATION.md
+  frozen_sha256: 4c3ca8b5b500ec495e7d648488a097388b1c48d53cc3c16ad5fca0ad90e56bb5
+primary_dataset: triviaqa
+
+splits:
+  n_splits: 5
+  sizes: [50, 50, 50]
+  seed: 20261103
+
+datasets:
+  triviaqa:          {n: 150, seed: 20261103}
+  nq_open:           {n: 50, seed: 20261104}
+  simpleqa_verified: {n: 50, seed: 20261105}
+  mmlu_redux:        {n: 50, seed: 20261106}
+
+generation:
+  n_probs: 20
+  max_tokens: 32
+  max_attempts: 3
+
+self_consistency: {k: 5, n_items: 20, temperature: 0.7, top_p: 0.95}
+nondeterminism: {items: 10, runs: 3}
+audit: {n: 20}
+
+statistics:
+  n_boot: 500
+  seed: 20261107
+  equivalence_margin: 0.02
+  noninferiority_margin: 0.02
+  h1_pass_max: 0.15
+  h1_fail_min: 0.25
+
+energy: {abab_blocks: 2, idle_seconds: 10}
+timing_source: wall
+cost_unit: seconds
+drift_window: 25
+
+judge:
+  kind: unavailable
+  reason: "no judge model configured"
+
+backend:
+  provider: "sieve.eval.providers.llamacpp:make_provider"
+  llama_cpp_commit: "fac3a894fc04901c3e5abaff457e024c6b52e04f"
+  n_ctx: 4096
+  n_gpu_layers: 99
+  flash_attn: auto
+  stop: ["\n"]
+  gpu: {S: "0", L: "1"}
+
+cells:
+  - {name: S_q4km, tier: S, model_id: Qwen2.5-1.5B-Instruct, quant: Q4_K_M, kv_quant: f16,
+     datasets: [triviaqa, nq_open, simpleqa_verified, mmlu_redux],
+     extra: {gguf: "Qwen/Qwen2.5-1.5B-Instruct-GGUF:qwen2.5-1.5b-instruct-q4_k_m.gguf", self_consistency: true, nondeterminism: true}}
+  - {name: L_q4km, tier: L, model_id: Qwen2.5-7B-Instruct, quant: Q4_K_M, kv_quant: f16,
+     datasets: [triviaqa, nq_open, simpleqa_verified, mmlu_redux],
+     extra: {gguf: "bartowski/Qwen2.5-7B-Instruct-GGUF:Qwen2.5-7B-Instruct-Q4_K_M.gguf"}}
+  - {name: S_q4km_kvq8, tier: S, model_id: Qwen2.5-1.5B-Instruct, quant: Q4_K_M, kv_quant: q8_0, datasets: [triviaqa],
+     extra: {gguf: "Qwen/Qwen2.5-1.5B-Instruct-GGUF:qwen2.5-1.5b-instruct-q4_k_m.gguf"}}
+
+pairs:
+  - {name: main,  s_cell: S_q4km,      l_cell: L_q4km, role: main}
+  - {name: kv_q8, s_cell: S_q4km_kvq8, l_cell: L_q4km, role: quant}
+
+abab_groups:
+  - [S_q4km, L_q4km]
+  - [S_q4km_kvq8]

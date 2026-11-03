@@ -1,0 +1,15 @@
+synthetic,tier,signal,auroc,lo,hi
+SYNTHETIC,S,max_prob,0.8676,0.8293,0.9051
+SYNTHETIC,S,first_margin,0.8633,0.8241,0.9012
+SYNTHETIC,S,neg_first_entropy,0.8648,0.8263,0.9025
+SYNTHETIC,S,mean_logprob,0.8842,0.8472,0.9189
+SYNTHETIC,S,min_logprob,0.8676,0.8293,0.9051
+SYNTHETIC,S,mean_margin,0.8773,0.8390,0.9118
+SYNTHETIC,S,neg_mean_entropy,0.8800,0.8425,0.9144
+SYNTHETIC,L,max_prob,0.8690,0.8023,0.9218
+SYNTHETIC,L,first_margin,0.8676,0.8015,0.9205
+SYNTHETIC,L,neg_first_entropy,0.8690,0.8023,0.9218
+SYNTHETIC,L,mean_logprob,0.8837,0.8226,0.9315
+SYNTHETIC,L,min_logprob,0.8688,0.8023,0.9216
+SYNTHETIC,L,mean_margin,0.8818,0.8201,0.9297
+SYNTHETIC,L,neg_mean_entropy,0.8834,0.8217,0.9310

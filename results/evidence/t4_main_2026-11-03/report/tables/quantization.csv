@@ -1,0 +1,7 @@
+config,transferred_violation_freq,recalibrated_violation_freq,delta_auroc,delta_ece,auroc_equivalent,ece_equivalent
+kv_q4,0.0408,0.1200,n/a,n/a,,
+kv_q8,0.0816,0.0800,"-0.020 [-0.035, -0.006]","0.002 [-0.015, 0.020]",no,yes
+ladder_q2k,0.0408,0.0400,"-0.043 [-0.072, -0.014]","-0.025 [-0.046, -0.009]",no,no
+ladder_q3km,0.0816,0.0625,"-0.005 [-0.023, 0.014]","0.003 [-0.017, 0.021]",no,yes
+ladder_q4km,0.0816,0.1000,"-0.014 [-0.029, 0.000]","-0.000 [-0.019, 0.017]",no,yes
+ladder_q8,0.0612,0.0408,"-0.004 [-0.009, 0.001]","0.001 [-0.012, 0.011]",yes,yes

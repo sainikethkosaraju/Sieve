@@ -1,0 +1,8 @@
+synthetic,id,title,verdict,why
+SYNTHETIC,H1,validity,SUPPORTED,"violation frequency 0.020, CP95 upper bound 0.106 <= 15%"
+SYNTHETIC,H2,signal,NOT SUPPORTED,all single token signals within +-0.02 of max_prob
+SYNTHETIC,H3,cascade value,INCONCLUSIVE,not established: non-inferiority
+SYNTHETIC,H4,self-consistency,NOT SUPPORTED,no gain of >= 0.03 AUROC
+SYNTHETIC,H5,shift,NOT SUPPORTED,drift alarm rate 0.17 < 0.80
+SYNTHETIC,H6,quantization,INCONCLUSIVE,neither the shift nor the equivalence criterion is met for all configs
+SYNTHETIC,H7,hard sets,NOT SUPPORTED,AUROC 0.899

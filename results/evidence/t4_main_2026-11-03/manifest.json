@@ -1,0 +1,14 @@
+{
+ "commit": "d2b5a0f455e533ea22c240852c04d3eaa0e4ac2f",
+ "config_hash": "52b58a09e2c647540b323ef3aa7b66622018ddd766ef1a1b2016260407f34038",
+ "created": "2026-11-03T10:06:32Z",
+ "hardware": {
+  "gpu": "see nvidia-smi",
+  "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+  "python": "3.13.16"
+ },
+ "name": "sieve-v1-t4-main",
+ "prereg_frozen_sha256": "4c3ca8b5b500ec495e7d648488a097388b1c48d53cc3c16ad5fca0ad90e56bb5",
+ "synthetic": false,
+ "template_hash": "5faade81b16649e65dcff2dcc2af37ad7c0b4cf6713ac2f599a95941a07417ef"
+}

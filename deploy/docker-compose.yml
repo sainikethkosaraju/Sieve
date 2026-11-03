@@ -1,0 +1,56 @@
+# Sieve + Prometheus + Grafana. llama-server tiers are expected to run separately (GPU hosts);
+# point deploy/sieve.example.yaml at them. Ports are published to loopback only.
+#
+#   cp deploy/sieve.example.yaml deploy/sieve.yaml      # edit identities, URLs
+#   printf '%s' "$SIEVE_KEY" > deploy/sieve_api_key      # same key as below
+#   export SIEVE_API_KEYS='["'"$SIEVE_KEY"'"]' GRAFANA_ADMIN_PASSWORD=...
+#   docker compose -f deploy/docker-compose.yml up --build
+services:
+  sieve:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    environment:
+      SIEVE_API_KEYS: ${SIEVE_API_KEYS:?set SIEVE_API_KEYS to a JSON list of keys}
+    volumes:
+      - ./sieve.yaml:/etc/sieve/config.yaml:ro
+      - ./artifact.json:/etc/sieve/artifact.json:ro
+      - sieve-data:/var/lib/sieve
+    ports:
+      - "127.0.0.1:8080:8080"
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:v2.55.1
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./sieve_api_key:/etc/prometheus/sieve_api_key:ro
+      - prometheus-data:/prometheus
+    ports:
+      - "127.0.0.1:9090:9090"
+    depends_on: [sieve]
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:11.3.0
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:?set GRAFANA_ADMIN_PASSWORD}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_AUTH_ANONYMOUS_ENABLED: "false"
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - grafana-data:/var/lib/grafana
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on: [prometheus]
+    restart: unless-stopped
+
+volumes:
+  sieve-data:
+  prometheus-data:
+  grafana-data:

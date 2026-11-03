@@ -1,0 +1,59 @@
+[build-system]
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sieve-llm"
+version = "0.1.0.dev0"
+description = "Confidence gate for LLM cascades: answer, escalate or abstain, with a calibrated selective-risk certificate."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+dependencies = ["numpy>=1.26", "scipy>=1.11"]
+
+[project.optional-dependencies]
+server = ["fastapi", "uvicorn", "httpx", "prometheus-client", "pydantic", "pydantic-settings", "pyyaml"]
+eval = ["datasets", "matplotlib", "pandas", "pyyaml"]
+# dev includes the server deps: the server tests and the pydantic mypy plugin need them
+dev = [
+  "pytest", "pytest-cov", "hypothesis", "ruff", "mypy", "types-PyYAML",
+  "fastapi", "uvicorn", "httpx", "prometheus-client", "pydantic", "pydantic-settings", "pyyaml",
+]
+
+[project.scripts]
+sieve = "sieve.server.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sieve"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF", "C4", "PT", "NPY"]
+
+[tool.ruff.lint.per-file-ignores]
+# compound asserts and broad raises are idiomatic in tests
+"tests/**" = ["PT018", "PT011"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unreachable = true
+files = ["src/sieve", "tests"]
+mypy_path = "src"
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+module = ["scipy.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
+markers = ["slow: statistical simulation tests (several seconds)"]
+
+[tool.coverage.run]
+source = ["src/sieve"]

@@ -1,0 +1,3 @@
+dataset,graded,n,violation_freq,mean_risk,risk_ci95_split0,drift_alarm_rate,n_windows
+nq_open,yes,2000,1.0000,0.4223,"0.451 [0.390, 0.512]",1.0000,10
+simpleqa_verified,no,1000,,,n/a,1.0000,5

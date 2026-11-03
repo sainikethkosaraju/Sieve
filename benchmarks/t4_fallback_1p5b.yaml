@@ -1,0 +1,111 @@
+# FALLBACK (prereg: used only if the 3B ladder is unavailable): S = Qwen2.5-1.5B-Instruct.
+# Record the switch as a dated Deviation in docs/PREREGISTRATION.md before running.
+# Every number below is transcribed from docs/PREREGISTRATION.md (frozen); the
+# frozen_sha256 pin makes run, analysis and the hypothesis report refuse to proceed if the
+# frozen text changes. Changes go in the pre-registration's dated Deviations section.
+name: sieve-v1-t4-fallback-1p5b
+synthetic: false
+alpha: 0.10
+delta: 0.10
+preregistration:
+  path: docs/PREREGISTRATION.md
+  frozen_sha256: 4c3ca8b5b500ec495e7d648488a097388b1c48d53cc3c16ad5fca0ad90e56bb5
+primary_dataset: triviaqa
+
+# 50 hash-locked random re-splits of the 6000 TriviaQA items into A/B/C = 2000/2000/2000.
+splits:
+  n_splits: 50
+  sizes: [2000, 2000, 2000]
+  seed: 20261103
+
+# Pinned revisions, field names and licences live in src/sieve/eval/datasets.py (PINNED).
+datasets:
+  triviaqa:          {n: 6000, seed: 20261103}   # mandarjoshi/trivia_qa rc.nocontext validation
+  nq_open:           {n: 2000, seed: 20261104}   # test-only shift set
+  simpleqa_verified: {n: 1000, seed: 20261105}   # test-only shift set (needs a judge model)
+  mmlu_redux:        {n: 1500, seed: 20261106}   # test-only stress set (error_type == ok rows)
+
+generation:
+  n_probs: 20          # llama-server n_probs >= 20 (prereg); fail-closed self-test is the backend's job
+  max_tokens: 32
+  max_attempts: 3      # failed attempts are kept in the cache and charged as wasted time
+
+self_consistency: {k: 5, n_items: 1000, temperature: 0.7, top_p: 0.95}
+nondeterminism: {items: 300, runs: 3}
+audit: {n: 200}
+
+statistics:
+  n_boot: 10000
+  seed: 20261107
+  equivalence_margin: 0.02       # TOST margin for quantization comparisons (prereg)
+  noninferiority_margin: 0.02    # operationalises "matches" in H3 (see docs/evaluation.md)
+  h1_pass_max: 0.15
+  h1_fail_min: 0.25
+
+energy: {abab_blocks: 4, idle_seconds: 30}
+timing_source: wall        # per-item wall time of every attempted generation
+cost_unit: seconds         # switch to joules once power is measured on the target GPU
+drift_window: 200
+
+# SimpleQA needs a judge model different from S and L. 'unavailable' is an explicit state:
+# SimpleQA is then reported as ungraded and H5 stays INCONCLUSIVE. Never silently substituted.
+judge:
+  kind: unavailable
+  reason: "no judge model configured"
+  # kind: backend
+  # factory: "your_pkg.judge:make_judge"   # must return an object with the Judge protocol
+
+# Provider: src/sieve/eval/providers/llamacpp.py (local llama-server per cell, fail-closed self-test).
+# L GGUF: bartowski's single-file Q4_K_M (same file as the D-014 smoke); Qwen's own split Q4_K_M
+# is the alternative. Environment overrides: SIEVE_LLAMA_SERVER, SIEVE_MODELS_DIR,
+# SIEVE_SERVER_LOG_DIR, SIEVE_GPU_S / SIEVE_GPU_L.
+backend:
+  provider: "sieve.eval.providers.llamacpp:make_provider"
+  llama_cpp_commit: "fac3a894fc04901c3e5abaff457e024c6b52e04f"   # D-013 build (CUDA 13.0, sm_75)
+  n_ctx: 4096
+  n_gpu_layers: 99
+  flash_attn: auto             # quantised KV arms force 'on'; the flag is recorded in BackendInfo.build
+  stop: ["\n"]                 # answer span = first line (D-016); part of the recorded identity
+  gpu: {S: "0", L: "1"}        # S and L on separate T4s (CUDA_VISIBLE_DEVICES)
+
+cells:
+  - {name: S_q4km, tier: S, model_id: Qwen2.5-1.5B-Instruct, quant: Q4_K_M, kv_quant: f16,
+     datasets: [triviaqa, nq_open, simpleqa_verified, mmlu_redux],
+     extra: {gguf: "Qwen/Qwen2.5-1.5B-Instruct-GGUF:qwen2.5-1.5b-instruct-q4_k_m.gguf", self_consistency: true, nondeterminism: true}}
+  - {name: L_q4km, tier: L, model_id: Qwen2.5-7B-Instruct, quant: Q4_K_M, kv_quant: f16,
+     datasets: [triviaqa, nq_open, simpleqa_verified, mmlu_redux],
+     extra: {gguf: "bartowski/Qwen2.5-7B-Instruct-GGUF:Qwen2.5-7B-Instruct-Q4_K_M.gguf"}}
+  # Quantization ladder for S on the split dataset only (H6). Same GGUF source for every rung.
+  - {name: S_f16, tier: S, model_id: Qwen2.5-1.5B-Instruct, quant: f16, kv_quant: f16, datasets: [triviaqa],
+     extra: {gguf: "Qwen/Qwen2.5-1.5B-Instruct-GGUF:qwen2.5-1.5b-instruct-fp16.gguf"}}
+  - {name: S_q8, tier: S, model_id: Qwen2.5-1.5B-Instruct, quant: Q8_0, kv_quant: f16, datasets: [triviaqa],
+     extra: {gguf: "Qwen/Qwen2.5-1.5B-Instruct-GGUF:qwen2.5-1.5b-instruct-q8_0.gguf"}}
+  - {name: S_q3km, tier: S, model_id: Qwen2.5-1.5B-Instruct, quant: Q3_K_M, kv_quant: f16, datasets: [triviaqa],
+     extra: {gguf: "Qwen/Qwen2.5-1.5B-Instruct-GGUF:qwen2.5-1.5b-instruct-q3_k_m.gguf"}}
+  - {name: S_q2k, tier: S, model_id: Qwen2.5-1.5B-Instruct, quant: Q2_K, kv_quant: f16, datasets: [triviaqa],
+     extra: {gguf: "Qwen/Qwen2.5-1.5B-Instruct-GGUF:qwen2.5-1.5b-instruct-q2_k.gguf"}}
+  # KV-cache arms on Q4_K_M weights (research review section 4); L gets one extra KV arm.
+  - {name: S_q4km_kvq8, tier: S, model_id: Qwen2.5-1.5B-Instruct, quant: Q4_K_M, kv_quant: q8_0, datasets: [triviaqa],
+     extra: {gguf: "Qwen/Qwen2.5-1.5B-Instruct-GGUF:qwen2.5-1.5b-instruct-q4_k_m.gguf"}}
+  - {name: S_q4km_kvq4, tier: S, model_id: Qwen2.5-1.5B-Instruct, quant: Q4_K_M, kv_quant: q4_0, datasets: [triviaqa],
+     extra: {gguf: "Qwen/Qwen2.5-1.5B-Instruct-GGUF:qwen2.5-1.5b-instruct-q4_k_m.gguf"}}
+  - {name: L_q4km_kvq8, tier: L, model_id: Qwen2.5-7B-Instruct, quant: Q4_K_M, kv_quant: q8_0,
+     datasets: [triviaqa, nq_open, simpleqa_verified, mmlu_redux],
+     extra: {gguf: "bartowski/Qwen2.5-7B-Instruct-GGUF:Qwen2.5-7B-Instruct-Q4_K_M.gguf"}}
+
+pairs:
+  - {name: main,        s_cell: S_q4km,     l_cell: L_q4km, role: main}
+  - {name: ladder_f16,  s_cell: S_f16,      l_cell: L_q4km, role: quant_ref}
+  - {name: ladder_q8,   s_cell: S_q8,       l_cell: L_q4km, role: quant}
+  - {name: ladder_q4km, s_cell: S_q4km,     l_cell: L_q4km, role: quant}
+  - {name: ladder_q3km, s_cell: S_q3km,     l_cell: L_q4km, role: quant}
+  - {name: ladder_q2k,  s_cell: S_q2k,      l_cell: L_q4km, role: quant}
+  - {name: kv_q8,       s_cell: S_q4km_kvq8, l_cell: L_q4km, role: quant}
+  - {name: kv_q4,       s_cell: S_q4km_kvq4, l_cell: L_q4km, role: quant}
+
+# Cells measured against each other with ABAB-interleaved blocks (all cells of a group resident at once).
+abab_groups:
+  - [S_f16, S_q8]
+  - [S_q3km, S_q2k]
+  - [S_q4km_kvq8, S_q4km_kvq4]
+  - [S_q4km, L_q4km]

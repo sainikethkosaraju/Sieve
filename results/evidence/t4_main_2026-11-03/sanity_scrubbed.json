@@ -1,0 +1,1213 @@
+{
+ "cells": {
+  "L_q4km": {
+   "cell_id": "45d2ccc21b80fa0a",
+   "datasets": {
+    "mmlu_redux": {
+     "accuracy": 0.7433,
+     "defects": {},
+     "empty_answer": 0,
+     "finish": {
+      "stop": 1500
+     },
+     "first_token_prob_mean": 0.9283,
+     "gen_tokens_per_s_p50": 4.72,
+     "grader": "mmlu_letter",
+     "n": 1500,
+     "n_gen_mean": 1.0,
+     "n_graded": 1500,
+     "ttft_s_mean": 0.1987,
+     "wall_s": {
+      "max": 0.7928,
+      "mean": 0.2342,
+      "p50": 0.2121,
+      "p90": 0.327
+     }
+    },
+    "nq_open": {
+     "accuracy": 0.196,
+     "defects": {
+      "truncated": 3
+     },
+     "empty_answer": 0,
+     "finish": {
+      "length": 3,
+      "stop": 1997
+     },
+     "first_token_prob_mean": 0.6596,
+     "gen_tokens_per_s_p50": 15.25,
+     "grader": "alias_em",
+     "n": 2000,
+     "n_gen_mean": 4.0,
+     "n_graded": 2000,
+     "ttft_s_mean": 0.1104,
+     "wall_s": {
+      "max": 1.3234,
+      "mean": 0.2404,
+      "p50": 0.21,
+      "p90": 0.3291
+     }
+    },
+    "simpleqa_verified": {
+     "accuracy": null,
+     "defects": {
+      "truncated": 1
+     },
+     "empty_answer": 0,
+     "finish": {
+      "length": 1,
+      "stop": 999
+     },
+     "first_token_prob_mean": 0.5887,
+     "gen_tokens_per_s_p50": 16.88,
+     "grader": "ungraded (no judge)",
+     "n": 1000,
+     "n_gen_mean": 4.87,
+     "n_graded": 0,
+     "ttft_s_mean": 0.1203,
+     "wall_s": {
+      "max": 1.2761,
+      "mean": 0.2799,
+      "p50": 0.2638,
+      "p90": 0.431
+     }
+    },
+    "triviaqa": {
+     "accuracy": 0.5593,
+     "defects": {},
+     "empty_answer": 0,
+     "finish": {
+      "stop": 6000
+     },
+     "first_token_prob_mean": 0.7565,
+     "gen_tokens_per_s_p50": 11.87,
+     "grader": "alias_em",
+     "n": 6000,
+     "n_gen_mean": 2.59,
+     "n_graded": 6000,
+     "ttft_s_mean": 0.1138,
+     "wall_s": {
+      "max": 1.0841,
+      "mean": 0.1955,
+      "p50": 0.1811,
+      "p90": 0.2602
+     }
+    }
+   },
+   "n_failed_attempts": 0,
+   "n_primary_final": 10500,
+   "tier": "L"
+  },
+  "L_q4km_kvq8": {
+   "cell_id": "bc5378060dec68ca",
+   "datasets": {
+    "mmlu_redux": {
+     "accuracy": 0.7493,
+     "defects": {},
+     "empty_answer": 0,
+     "finish": {
+      "stop": 1500
+     },
+     "first_token_prob_mean": 0.9302,
+     "gen_tokens_per_s_p50": 4.52,
+     "grader": "mmlu_letter",
+     "n": 1500,
+     "n_gen_mean": 1.02,
+     "n_graded": 1500,
+     "ttft_s_mean": 0.2128,
+     "wall_s": {
+      "max": 0.8678,
+      "mean": 0.2488,
+      "p50": 0.2213,
+      "p90": 0.3416
+     }
+    },
+    "nq_open": {
+     "accuracy": 0.193,
+     "defects": {
+      "missing_logprobs": 1,
+      "truncated": 2
+     },
+     "empty_answer": 0,
+     "finish": {
+      "length": 2,
+      "stop": 1998
+     },
+     "first_token_prob_mean": 0.6584,
+     "gen_tokens_per_s_p50": 15.08,
+     "grader": "alias_em",
+     "n": 2000,
+     "n_gen_mean": 3.98,
+     "n_graded": 2000,
+     "ttft_s_mean": 0.1109,
+     "wall_s": {
+      "max": 1.2368,
+      "mean": 0.2399,
+      "p50": 0.2092,
+      "p90": 0.3185
+     }
+    },
+    "simpleqa_verified": {
+     "accuracy": null,
+     "defects": {
+      "truncated": 2
+     },
+     "empty_answer": 0,
+     "finish": {
+      "length": 2,
+      "stop": 998
+     },
+     "first_token_prob_mean": 0.5907,
+     "gen_tokens_per_s_p50": 16.95,
+     "grader": "ungraded (no judge)",
+     "n": 1000,
+     "n_gen_mean": 4.95,
+     "n_graded": 0,
+     "ttft_s_mean": 0.1205,
+     "wall_s": {
+      "max": 1.2585,
+      "mean": 0.2814,
+      "p50": 0.2662,
+      "p90": 0.4268
+     }
+    },
+    "triviaqa": {
+     "accuracy": 0.5617,
+     "defects": {
+      "truncated": 1
+     },
+     "empty_answer": 0,
+     "finish": {
+      "length": 1,
+      "stop": 5999
+     },
+     "first_token_prob_mean": 0.7573,
+     "gen_tokens_per_s_p50": 11.78,
+     "grader": "alias_em",
+     "n": 6000,
+     "n_gen_mean": 2.6,
+     "n_graded": 6000,
+     "ttft_s_mean": 0.1146,
+     "wall_s": {
+      "max": 1.2138,
+      "mean": 0.1969,
+      "p50": 0.1824,
+      "p90": 0.2632
+     }
+    }
+   },
+   "n_failed_attempts": 0,
+   "n_primary_final": 10500,
+   "tier": "L"
+  },
+  "S_f16": {
+   "cell_id": "097d347d55b039e8",
+   "datasets": {
+    "triviaqa": {
+     "accuracy": 0.3843,
+     "defects": {
+      "truncated": 5
+     },
+     "empty_answer": 0,
+     "finish": {
+      "length": 5,
+      "stop": 5995
+     },
+     "first_token_prob_mean": 0.5474,
+     "gen_tokens_per_s_p50": 26.93,
+     "grader": "alias_em",
+     "n": 6000,
+     "n_gen_mean": 2.71,
+     "n_graded": 6000,
+     "ttft_s_mean": 0.0315,
+     "wall_s": {
+      "max": 0.6278,
+      "mean": 0.0887,
+      "p50": 0.077,
+      "p90": 0.1303
+     }
+    }
+   },
+   "n_failed_attempts": 0,
+   "n_primary_final": 6000,
+   "tier": "S"
+  },
+  "S_q2k": {
+   "cell_id": "94e76bd5fadafbd2",
+   "datasets": {
+    "triviaqa": {
+     "accuracy": 0.1495,
+     "defects": {
+      "missing_logprobs": 1,
+      "truncated": 839
+     },
+     "empty_answer": 0,
+     "finish": {
+      "length": 839,
+      "stop": 5161
+     },
+     "first_token_prob_mean": 0.2893,
+     "gen_tokens_per_s_p50": 43.65,
+     "grader": "alias_em",
+     "n": 6000,
+     "n_gen_mean": 7.31,
+     "n_graded": 6000,
+     "ttft_s_mean": 0.0353,
+     "wall_s": {
+      "max": 0.5249,
+      "mean": 0.1069,
+      "p50": 0.0679,
+      "p90": 0.3193
+     }
+    }
+   },
+   "n_failed_attempts": 0,
+   "n_primary_final": 6000,
+   "tier": "S"
+  },
+  "S_q3km": {
+   "cell_id": "fb608070a75a1e3b",
+   "datasets": {
+    "triviaqa": {
+     "accuracy": 0.3183,
+     "defects": {
+      "missing_logprobs": 2,
+      "truncated": 4
+     },
+     "empty_answer": 0,
+     "finish": {
+      "length": 4,
+      "stop": 5996
+     },
+     "first_token_prob_mean": 0.5106,
+     "gen_tokens_per_s_p50": 35.93,
+     "grader": "alias_em",
+     "n": 6000,
+     "n_gen_mean": 2.66,
+     "n_graded": 6000,
+     "ttft_s_mean": 0.0316,
+     "wall_s": {
+      "max": 0.3346,
+      "mean": 0.0633,
+      "p50": 0.0589,
+      "p90": 0.0845
+     }
+    }
+   },
+   "n_failed_attempts": 0,
+   "n_primary_final": 6000,
+   "tier": "S"
+  },
+  "S_q4km": {
+   "cell_id": "ea79a34877504703",
+   "datasets": {
+    "mmlu_redux": {
+     "accuracy": 0.5953,
+     "defects": {},
+     "empty_answer": 0,
+     "finish": {
+      "stop": 1500
+     },
+     "first_token_prob_mean": 0.7997,
+     "gen_tokens_per_s_p50": 16.92,
+     "grader": "mmlu_letter",
+     "n": 1500,
+     "n_gen_mean": 1.09,
+     "n_graded": 1500,
+     "ttft_s_mean": 0.0464,
+     "wall_s": {
+      "max": 0.2028,
+      "mean": 0.0656,
+      "p50": 0.0594,
+      "p90": 0.0901
+     }
+    },
+    "nq_open": {
+     "accuracy": 0.1195,
+     "defects": {
+      "missing_logprobs": 2,
+      "truncated": 29,
+      "utf8_gap": 1
+     },
+     "empty_answer": 0,
+     "finish": {
+      "length": 29,
+      "stop": 1971
+     },
+     "first_token_prob_mean": 0.4664,
+     "gen_tokens_per_s_p50": 47.42,
+     "grader": "alias_em",
+     "n": 2000,
+     "n_gen_mean": 4.12,
+     "n_graded": 2000,
+     "ttft_s_mean": 0.0279,
+     "wall_s": {
+      "max": 0.3502,
+      "mean": 0.0745,
+      "p50": 0.0642,
+      "p90": 0.0957
+     }
+    },
+    "simpleqa_verified": {
+     "accuracy": null,
+     "defects": {
+      "truncated": 8
+     },
+     "empty_answer": 0,
+     "finish": {
+      "length": 8,
+      "stop": 992
+     },
+     "first_token_prob_mean": 0.4864,
+     "gen_tokens_per_s_p50": 55.55,
+     "grader": "ungraded (no judge)",
+     "n": 1000,
+     "n_gen_mean": 5.29,
+     "n_graded": 0,
+     "ttft_s_mean": 0.0303,
+     "wall_s": {
+      "max": 0.3526,
+      "mean": 0.0892,
+      "p50": 0.0837,
+      "p90": 0.1364
+     }
+    },
+    "triviaqa": {
+     "accuracy": 0.3658,
+     "defects": {
+      "missing_logprobs": 1,
+      "truncated": 6
+     },
+     "empty_answer": 0,
+     "finish": {
+      "length": 6,
+      "stop": 5994
+     },
+     "first_token_prob_mean": 0.5256,
+     "gen_tokens_per_s_p50": 36.65,
+     "grader": "alias_em",
+     "n": 6000,
+     "n_gen_mean": 2.71,
+     "n_graded": 6000,
+     "ttft_s_mean": 0.0295,
+     "wall_s": {
+      "max": 0.4824,
+      "mean": 0.0629,
+      "p50": 0.0575,
+      "p90": 0.0842
+     }
+    }
+   },
+   "n_failed_attempts": 0,
+   "n_primary_final": 10500,
+   "tier": "S"
+  },
+  "S_q4km_kvq4": {
+   "cell_id": "c8695334eb6a8731",
+   "datasets": {
+    "triviaqa": {
+     "accuracy": 0.0,
+     "defects": {
+      "empty_answer": 1,
+      "missing_logprobs": 2,
+      "truncated": 5838
+     },
+     "empty_answer": 3,
+     "finish": {
+      "length": 5838,
+      "stop": 162
+     },
+     "first_token_prob_mean": 0.2455,
+     "gen_tokens_per_s_p50": 92.56,
+     "grader": "alias_em",
+     "n": 6000,
+     "n_gen_mean": 31.34,
+     "n_graded": 6000,
+     "ttft_s_mean": 0.0303,
+     "wall_s": {
+      "max": 0.6969,
+      "mean": 0.3407,
+      "p50": 0.3455,
+      "p90": 0.3533
+     }
+    }
+   },
+   "n_failed_attempts": 0,
+   "n_primary_final": 6000,
+   "tier": "S"
+  },
+  "S_q4km_kvq8": {
+   "cell_id": "6c855c09032e7c81",
+   "datasets": {
+    "triviaqa": {
+     "accuracy": 0.3665,
+     "defects": {
+      "missing_logprobs": 1,
+      "truncated": 6
+     },
+     "empty_answer": 0,
+     "finish": {
+      "length": 6,
+      "stop": 5994
+     },
+     "first_token_prob_mean": 0.5234,
+     "gen_tokens_per_s_p50": 35.41,
+     "grader": "alias_em",
+     "n": 6000,
+     "n_gen_mean": 2.68,
+     "n_graded": 6000,
+     "ttft_s_mean": 0.0311,
+     "wall_s": {
+      "max": 0.3468,
+      "mean": 0.0644,
+      "p50": 0.0593,
+      "p90": 0.0862
+     }
+    }
+   },
+   "n_failed_attempts": 0,
+   "n_primary_final": 6000,
+   "tier": "S"
+  },
+  "S_q8": {
+   "cell_id": "8b8e678140ae075f",
+   "datasets": {
+    "triviaqa": {
+     "accuracy": 0.383,
+     "defects": {
+      "truncated": 5
+     },
+     "empty_answer": 0,
+     "finish": {
+      "length": 5,
+      "stop": 5995
+     },
+     "first_token_prob_mean": 0.5471,
+     "gen_tokens_per_s_p50": 32.16,
+     "grader": "alias_em",
+     "n": 6000,
+     "n_gen_mean": 2.72,
+     "n_graded": 6000,
+     "ttft_s_mean": 0.032,
+     "wall_s": {
+      "max": 0.4315,
+      "mean": 0.0727,
+      "p50": 0.0659,
+      "p90": 0.0999
+     }
+    }
+   },
+   "n_failed_attempts": 0,
+   "n_primary_final": 6000,
+   "tier": "S"
+  }
+ },
+ "config": "sieve-v1-t4-main",
+ "energy": [
+  {
+   "block": 0,
+   "cell": "S_f16",
+   "complete": true,
+   "duration_s": 130.18486686099993,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 5017.936429448919,
+   "joules_net": 3768.6667964110316,
+   "mean_watts_net": 28.9485781817858,
+   "n_generated": 1500,
+   "n_samples": 1830,
+   "peak_vram_mib": 5153.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 0,
+   "cell": "S_q8",
+   "complete": true,
+   "duration_s": 108.80209346000004,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 4179.81719602324,
+   "joules_net": 3135.7392271479866,
+   "mean_watts_net": 28.820578055336856,
+   "n_generated": 1500,
+   "n_samples": 1536,
+   "peak_vram_mib": 5165.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 1,
+   "cell": "S_f16",
+   "complete": true,
+   "duration_s": 133.680652109,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 5098.664601505853,
+   "joules_net": 3815.8489929698217,
+   "mean_watts_net": 28.544512109788858,
+   "n_generated": 1500,
+   "n_samples": 1886,
+   "peak_vram_mib": 5171.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 1,
+   "cell": "S_q8",
+   "complete": true,
+   "duration_s": 108.7871390790001,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 4156.528235897058,
+   "joules_net": 3112.593771059674,
+   "mean_watts_net": 28.611780743671737,
+   "n_generated": 1500,
+   "n_samples": 1536,
+   "peak_vram_mib": 5175.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 2,
+   "cell": "S_f16",
+   "complete": true,
+   "duration_s": 136.37091308699996,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 5160.104855995827,
+   "joules_net": 3851.4731796955557,
+   "mean_watts_net": 28.24262954988391,
+   "n_generated": 1500,
+   "n_samples": 1923,
+   "peak_vram_mib": 5175.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 2,
+   "cell": "S_q8",
+   "complete": true,
+   "duration_s": 111.12153146800006,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 4269.026404494647,
+   "joules_net": 3202.6908296550832,
+   "mean_watts_net": 28.821514492691904,
+   "n_generated": 1500,
+   "n_samples": 1570,
+   "peak_vram_mib": 5175.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 3,
+   "cell": "S_f16",
+   "complete": true,
+   "duration_s": 134.57779422,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 5114.035469315755,
+   "joules_net": 3822.6107772294176,
+   "mean_watts_net": 28.40446894961315,
+   "n_generated": 1500,
+   "n_samples": 1899,
+   "peak_vram_mib": 5175.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 3,
+   "cell": "S_q8",
+   "complete": true,
+   "duration_s": 109.74812952899993,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 4199.253002220217,
+   "joules_net": 3146.0967574957285,
+   "mean_watts_net": 28.66651824498204,
+   "n_generated": 1500,
+   "n_samples": 1549,
+   "peak_vram_mib": 5175.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 0,
+   "cell": "S_q3km",
+   "complete": true,
+   "duration_s": 95.2257405119999,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 3655.3303541068403,
+   "joules_net": 2741.532700250458,
+   "mean_watts_net": 28.78982810225543,
+   "n_generated": 1500,
+   "n_samples": 1348,
+   "peak_vram_mib": 2051.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 0,
+   "cell": "S_q2k",
+   "complete": true,
+   "duration_s": 161.773359626,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 6214.495300914845,
+   "joules_net": 4662.098693780297,
+   "mean_watts_net": 28.81870478896212,
+   "n_generated": 1500,
+   "n_samples": 2290,
+   "peak_vram_mib": 2063.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 1,
+   "cell": "S_q3km",
+   "complete": true,
+   "duration_s": 94.73028911400002,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 3621.4541978706943,
+   "joules_net": 2712.4109551919823,
+   "mean_watts_net": 28.632985083871343,
+   "n_generated": 1500,
+   "n_samples": 1342,
+   "peak_vram_mib": 2067.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 1,
+   "cell": "S_q2k",
+   "complete": true,
+   "duration_s": 156.23235192800007,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 5977.302311539454,
+   "joules_net": 4478.077880406987,
+   "mean_watts_net": 28.662935846160188,
+   "n_generated": 1500,
+   "n_samples": 2214,
+   "peak_vram_mib": 2071.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 2,
+   "cell": "S_q3km",
+   "complete": true,
+   "duration_s": 96.47537910600022,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 3704.0414164248873,
+   "joules_net": 2778.252080390702,
+   "mean_watts_net": 28.797524364616987,
+   "n_generated": 1500,
+   "n_samples": 1368,
+   "peak_vram_mib": 2071.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 2,
+   "cell": "S_q2k",
+   "complete": true,
+   "duration_s": 162.14594142499982,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 6226.8117349319145,
+   "joules_net": 4670.83978806291,
+   "mean_watts_net": 28.806393468833104,
+   "n_generated": 1500,
+   "n_samples": 2298,
+   "peak_vram_mib": 2071.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 3,
+   "cell": "S_q3km",
+   "complete": true,
+   "duration_s": 95.69345196700033,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 3664.652939930298,
+   "joules_net": 2746.3670707241254,
+   "mean_watts_net": 28.69963424113077,
+   "n_generated": 1500,
+   "n_samples": 1358,
+   "peak_vram_mib": 2071.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 3,
+   "cell": "S_q2k",
+   "complete": true,
+   "duration_s": 165.2822897599999,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 6308.225798795427,
+   "joules_net": 4722.157076256421,
+   "mean_watts_net": 28.570254460494734,
+   "n_generated": 1500,
+   "n_samples": 2341,
+   "peak_vram_mib": 2071.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 0,
+   "cell": "S_q4km_kvq8",
+   "complete": true,
+   "duration_s": 96.39141565799991,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 3683.5143130947426,
+   "joules_net": 2758.530700401535,
+   "mean_watts_net": 28.618012107933943,
+   "n_generated": 1500,
+   "n_samples": 1365,
+   "peak_vram_mib": 2377.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 0,
+   "cell": "S_q4km_kvq4",
+   "complete": true,
+   "duration_s": 510.67575164599975,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 19690.65999753343,
+   "joules_net": 14790.154092025103,
+   "mean_watts_net": 28.96192749382319,
+   "n_generated": 1500,
+   "n_samples": 7250,
+   "peak_vram_mib": 2391.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 1,
+   "cell": "S_q4km_kvq8",
+   "complete": true,
+   "duration_s": 96.45897396400005,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 3670.514662998266,
+   "joules_net": 2744.8827526789173,
+   "mean_watts_net": 28.456478851862443,
+   "n_generated": 1500,
+   "n_samples": 1366,
+   "peak_vram_mib": 2395.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 1,
+   "cell": "S_q4km_kvq4",
+   "complete": true,
+   "duration_s": 513.8119350360002,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 19786.91955327625,
+   "joules_net": 14856.318454929968,
+   "mean_watts_net": 28.913922472215557,
+   "n_generated": 1500,
+   "n_samples": 7293,
+   "peak_vram_mib": 2399.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 2,
+   "cell": "S_q4km_kvq8",
+   "complete": true,
+   "duration_s": 99.30585206299975,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 3803.0020691246277,
+   "joules_net": 2850.0511743196375,
+   "mean_watts_net": 28.69973032920116,
+   "n_generated": 1500,
+   "n_samples": 1403,
+   "peak_vram_mib": 2399.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 2,
+   "cell": "S_q4km_kvq4",
+   "complete": true,
+   "duration_s": 511.315396468,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 19677.415584375904,
+   "joules_net": 14770.771570258472,
+   "mean_watts_net": 28.887789556680953,
+   "n_generated": 1500,
+   "n_samples": 7256,
+   "peak_vram_mib": 2399.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 3,
+   "cell": "S_q4km_kvq8",
+   "complete": true,
+   "duration_s": 96.89502783399985,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 3710.576236449067,
+   "joules_net": 2780.7599007714234,
+   "mean_watts_net": 28.698685195027856,
+   "n_generated": 1500,
+   "n_samples": 1373,
+   "peak_vram_mib": 2399.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 3,
+   "cell": "S_q4km_kvq4",
+   "complete": true,
+   "duration_s": 520.1681801520008,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 19880.38890244952,
+   "joules_net": 14888.79251183134,
+   "mean_watts_net": 28.623035933264152,
+   "n_generated": 1500,
+   "n_samples": 7400,
+   "peak_vram_mib": 2399.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 0,
+   "cell": "S_q4km",
+   "complete": true,
+   "duration_s": 279.9923624080002,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 13137.971262397054,
+   "joules_net": 10451.130892445879,
+   "mean_watts_net": 37.32648563183543,
+   "n_generated": 4025,
+   "n_samples": 4266,
+   "peak_vram_mib": 4665.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 0,
+   "cell": "L_q4km",
+   "complete": true,
+   "duration_s": 575.2291511209996,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 26500.043107563684,
+   "joules_net": 20980.07502017529,
+   "mean_watts_net": 36.47255181572348,
+   "n_generated": 2625,
+   "n_samples": 8686,
+   "peak_vram_mib": 4729.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 1,
+   "cell": "S_q4km",
+   "complete": true,
+   "duration_s": 275.79985991599915,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 13463.984576353509,
+   "joules_net": 10817.375964332268,
+   "mean_watts_net": 39.22183270008526,
+   "n_generated": 4025,
+   "n_samples": 4179,
+   "peak_vram_mib": 4729.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 1,
+   "cell": "L_q4km",
+   "complete": true,
+   "duration_s": 569.5596190349997,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 26205.44977618355,
+   "joules_net": 20739.8872002755,
+   "mean_watts_net": 36.4139003313032,
+   "n_generated": 2625,
+   "n_samples": 8606,
+   "peak_vram_mib": 4729.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 2,
+   "cell": "S_q4km",
+   "complete": true,
+   "duration_s": 272.02925163300006,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 13264.57338996901,
+   "joules_net": 10654.1479883286,
+   "mean_watts_net": 39.16544976090408,
+   "n_generated": 4025,
+   "n_samples": 4126,
+   "peak_vram_mib": 4729.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 2,
+   "cell": "L_q4km",
+   "complete": true,
+   "duration_s": 567.8847964719998,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 26080.729609211376,
+   "joules_net": 20631.238831962666,
+   "mean_watts_net": 36.329972135431014,
+   "n_generated": 2625,
+   "n_samples": 8575,
+   "peak_vram_mib": 4729.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 3,
+   "cell": "S_q4km",
+   "complete": true,
+   "duration_s": 275.33939244700014,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 13439.838533151982,
+   "joules_net": 10797.64862232,
+   "mean_watts_net": 39.215778484723835,
+   "n_generated": 4025,
+   "n_samples": 4176,
+   "peak_vram_mib": 4729.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 3,
+   "cell": "L_q4km",
+   "complete": true,
+   "duration_s": 576.7616178819999,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 26476.002825059517,
+   "joules_net": 20941.329002401588,
+   "mean_watts_net": 36.308464976055305,
+   "n_generated": 2625,
+   "n_samples": 8709,
+   "peak_vram_mib": 4729.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 0,
+   "cell": "L_q4km_kvq8",
+   "complete": true,
+   "duration_s": 582.1242657929997,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 21591.305774303222,
+   "joules_net": 16005.171337601427,
+   "mean_watts_net": 27.494423919604788,
+   "n_generated": 2625,
+   "n_samples": 8206,
+   "peak_vram_mib": 4631.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 1,
+   "cell": "L_q4km_kvq8",
+   "complete": true,
+   "duration_s": 578.4676647220003,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 21405.990653832712,
+   "joules_net": 15854.945400599612,
+   "mean_watts_net": 27.408524914213093,
+   "n_generated": 2625,
+   "n_samples": 8156,
+   "peak_vram_mib": 4631.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 2,
+   "cell": "L_q4km_kvq8",
+   "complete": true,
+   "duration_s": 577.8982462669992,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 21394.919461249203,
+   "joules_net": 15849.33841596497,
+   "mean_watts_net": 27.425828886565434,
+   "n_generated": 2625,
+   "n_samples": 8147,
+   "peak_vram_mib": 4631.0,
+   "state": "measured",
+   "throttled": true
+  },
+  {
+   "block": 3,
+   "cell": "L_q4km_kvq8",
+   "complete": true,
+   "duration_s": 582.6633956009991,
+   "idle_watts": 4.798060109289617,
+   "joules_gross": 21580.623905275203,
+   "joules_net": 15989.315914122424,
+   "mean_watts_net": 27.441771758512377,
+   "n_generated": 2625,
+   "n_samples": 8214,
+   "peak_vram_mib": 4631.0,
+   "state": "measured",
+   "throttled": true
+  }
+ ],
+ "gates": {
+  "ablation_findings": {
+   "S_q2k": {
+    "n": 6000,
+    "stop_rate": 0.8601666666666666
+   },
+   "S_q4km_kvq4": {
+    "n": 6000,
+    "stop_rate": 0.027
+   }
+  },
+  "failures": [],
+  "max_mismatch_rate": 0.02,
+  "min_stop_rate": 0.95,
+  "ok": true,
+  "tiers": {
+   "L": {
+    "mismatch_rate": 0.0,
+    "n": 10500,
+    "stop_rate": 0.9996190476190476
+   },
+   "S": {
+    "mismatch_rate": 0.00038095238095238096,
+    "n": 10500,
+    "stop_rate": 0.995904761904762
+   }
+  }
+ },
+ "server": {
+  "L_q4km": {
+   "backend_build": "llama.cpp@fac3a894fc04901c3e5abaff457e024c6b52e04f|b1-fac3a89|fa=auto|ngl=99|stop=\"\\n\"",
+   "build_info": "b1-fac3a89",
+   "gpu": "1",
+   "log_flash_attn": null,
+   "model_hash": "65b8fcd92af6b4fe",
+   "self_test": {
+    "count_matches_tokens": true,
+    "finite_nonpositive": true,
+    "greedy_deterministic": true,
+    "top_k_contains_chosen": true,
+    "utf8_reassembles": false
+   },
+   "server_start_s": 3.292
+  },
+  "L_q4km_kvq8": {
+   "backend_build": "llama.cpp@fac3a894fc04901c3e5abaff457e024c6b52e04f|b1-fac3a89|fa=on|ngl=99|stop=\"\\n\"",
+   "build_info": "b1-fac3a89",
+   "gpu": "1",
+   "log_flash_attn": null,
+   "model_hash": "65b8fcd92af6b4fe",
+   "self_test": {
+    "count_matches_tokens": true,
+    "finite_nonpositive": true,
+    "greedy_deterministic": true,
+    "top_k_contains_chosen": true,
+    "utf8_reassembles": false
+   },
+   "server_start_s": 2.226
+  },
+  "S_f16": {
+   "backend_build": "llama.cpp@fac3a894fc04901c3e5abaff457e024c6b52e04f|b1-fac3a89|fa=auto|ngl=99|stop=\"\\n\"",
+   "build_info": "b1-fac3a89",
+   "gpu": "0",
+   "log_flash_attn": null,
+   "model_hash": "fc89e330deb3fd8f",
+   "self_test": {
+    "count_matches_tokens": true,
+    "finite_nonpositive": true,
+    "greedy_deterministic": true,
+    "top_k_contains_chosen": true,
+    "utf8_reassembles": true
+   },
+   "server_start_s": 2.724
+  },
+  "S_q2k": {
+   "backend_build": "llama.cpp@fac3a894fc04901c3e5abaff457e024c6b52e04f|b1-fac3a89|fa=auto|ngl=99|stop=\"\\n\"",
+   "build_info": "b1-fac3a89",
+   "gpu": "0",
+   "log_flash_attn": null,
+   "model_hash": "5ede348e91ce1e7a",
+   "self_test": {
+    "count_matches_tokens": true,
+    "finite_nonpositive": true,
+    "greedy_deterministic": true,
+    "top_k_contains_chosen": true,
+    "utf8_reassembles": true
+   },
+   "server_start_s": 1.63
+  },
+  "S_q3km": {
+   "backend_build": "llama.cpp@fac3a894fc04901c3e5abaff457e024c6b52e04f|b1-fac3a89|fa=auto|ngl=99|stop=\"\\n\"",
+   "build_info": "b1-fac3a89",
+   "gpu": "0",
+   "log_flash_attn": null,
+   "model_hash": "58cb5c05ecef48e8",
+   "self_test": {
+    "count_matches_tokens": true,
+    "finite_nonpositive": true,
+    "greedy_deterministic": true,
+    "top_k_contains_chosen": true,
+    "utf8_reassembles": true
+   },
+   "server_start_s": 1.639
+  },
+  "S_q4km": {
+   "backend_build": "llama.cpp@fac3a894fc04901c3e5abaff457e024c6b52e04f|b1-fac3a89|fa=auto|ngl=99|stop=\"\\n\"",
+   "build_info": "b1-fac3a89",
+   "gpu": "0",
+   "log_flash_attn": null,
+   "model_hash": "6a1a2eb6d15622bf",
+   "self_test": {
+    "count_matches_tokens": true,
+    "finite_nonpositive": true,
+    "greedy_deterministic": true,
+    "top_k_contains_chosen": true,
+    "utf8_reassembles": true
+   },
+   "server_start_s": 1.614
+  },
+  "S_q4km_kvq4": {
+   "backend_build": "llama.cpp@fac3a894fc04901c3e5abaff457e024c6b52e04f|b1-fac3a89|fa=on|ngl=99|stop=\"\\n\"",
+   "build_info": "b1-fac3a89",
+   "gpu": "0",
+   "log_flash_attn": null,
+   "model_hash": "6a1a2eb6d15622bf",
+   "self_test": {
+    "count_matches_tokens": true,
+    "finite_nonpositive": true,
+    "greedy_deterministic": true,
+    "top_k_contains_chosen": true,
+    "utf8_reassembles": true
+   },
+   "server_start_s": 1.63
+  },
+  "S_q4km_kvq8": {
+   "backend_build": "llama.cpp@fac3a894fc04901c3e5abaff457e024c6b52e04f|b1-fac3a89|fa=on|ngl=99|stop=\"\\n\"",
+   "build_info": "b1-fac3a89",
+   "gpu": "0",
+   "log_flash_attn": null,
+   "model_hash": "6a1a2eb6d15622bf",
+   "self_test": {
+    "count_matches_tokens": true,
+    "finite_nonpositive": true,
+    "greedy_deterministic": true,
+    "top_k_contains_chosen": true,
+    "utf8_reassembles": true
+   },
+   "server_start_s": 2.198
+  },
+  "S_q8": {
+   "backend_build": "llama.cpp@fac3a894fc04901c3e5abaff457e024c6b52e04f|b1-fac3a89|fa=auto|ngl=99|stop=\"\\n\"",
+   "build_info": "b1-fac3a89",
+   "gpu": "0",
+   "log_flash_attn": null,
+   "model_hash": "d7efb072e7724d25",
+   "self_test": {
+    "count_matches_tokens": true,
+    "finite_nonpositive": true,
+    "greedy_deterministic": true,
+    "top_k_contains_chosen": true,
+    "utf8_reassembles": true
+   },
+   "server_start_s": 1.648
+  }
+ }
+}

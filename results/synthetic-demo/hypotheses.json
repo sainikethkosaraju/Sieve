@@ -1,0 +1,412 @@
+{
+ "alpha": 0.1,
+ "delta": 0.1,
+ "deviations": "## Deviations\n### 2026-11-03 (before any headline experiment; no real generation had been produced)\n1. **Small tier: Qwen2.5-3B-Instruct replaced by Qwen2.5-1.5B-Instruct.** Reason: licence. The 3B is under the Qwen research licence (non-commercial); the 1.5B and 7B are Apache-2.0, matching Sieve's MIT licence. The full ladder (f16, Q8_0, Q4_K_M, Q3_K_M, Q2_K) exists for the 1.5B. This is the fallback the pre-registration already named, now primary.\n2. **Large tier file:** bartowski's single-file Qwen2.5-7B-Instruct Q4_K_M (an importance-matrix quant), instead of Qwen's split files. SHA-256 is verified against the Hub at download.\n3. **Prompt:** a fixed few-shot QA prompt (`qa-v2-fewshot`) with an `Answer:` prefix replaces the earlier raw prompt (`qa-v1`), because the T4 smoke test showed the 7B opening with a preamble (D-016). Decoding is greedy, generation stops at the first newline, `-np 1 -c 4096 -ngl 99`, flash-attention on for quantised KV, `cache_prompt` off.\n4. **Threshold path:** the fixed-sequence path is the split-A Pareto frontier of (threshold pair) points ordered by split-A coverage, with points below 5% A-coverage dropped, fixed before split B is read. This is a specific choice within the LTT framework; validity does not depend on it, power does.\n5. **Operational choices the document left open** (listed in `docs/evaluation.md`): H3 \"matches\" read as a +-0.02 non-inferiority margin; \"matched coverage\" uses split-A-derived thresholds; H5 \"before violation\" means the label-free drift alarm fires; re-split 0 is the canonical split for bootstraps; MMLU-Redux uses `error_type == \"ok\"` rows only; the SimpleQA judge prompt is our own wording; the query-only router is TF-IDF plus logistic regression.",
+ "negative_outcomes": [
+  "bootstrap CI spans zero: delta-AUROC(mean_margin - max_prob)",
+  "bootstrap CI spans zero: delta-AUROC(min_logprob - max_prob)"
+ ],
+ "preregistration_frozen_sha256": "4c3ca8b5b500ec495e7d648488a097388b1c48d53cc3c16ad5fca0ad90e56bb5",
+ "synthetic": true,
+ "synthetic_label": "SYNTHETIC DATA: produced by the offline fake backend; not a measurement of any LLM",
+ "verdicts": [
+  {
+   "id": "H1",
+   "numbers": {
+    "max_test_risk": 0.11557788944723618,
+    "mean_coverage": 0.8898,
+    "mean_test_risk": 0.05588057168411051,
+    "n_certified": 50,
+    "n_empty": 0,
+    "n_violations": 1,
+    "violation_ci95": [
+     0.0005062279830408294,
+     0.1064695457114999
+    ],
+    "violation_freq": 0.02
+   },
+   "rule": "Across 50 re-splits, test risk on C > alpha=0.1 in <= 15% of certified splits (SUPPORTED); > 25% (NOT SUPPORTED: bug or non-exchangeability); in between or fewer than 10 certified splits: INCONCLUSIVE.",
+   "title": "validity",
+   "verdict": "SUPPORTED",
+   "why": "violation frequency 0.020, CP95 upper bound 0.106 <= 15%"
+  },
+  {
+   "id": "H2",
+   "numbers": {
+    "first_margin": {
+     "hi": -0.0007371152258521779,
+     "lo": -0.00899584174487868,
+     "point": -0.004315838257444193
+    },
+    "mean_logprob": {
+     "hi": 0.021778287284048493,
+     "lo": 0.011421230906160368,
+     "point": 0.016626115166261113
+    },
+    "mean_margin": {
+     "hi": 0.01934557522292242,
+     "lo": -0.0006578016235995048,
+     "point": 0.009761325454756054
+    },
+    "min_logprob": {
+     "hi": 0.0,
+     "lo": 0.0,
+     "point": 0.0
+    },
+    "neg_first_entropy": {
+     "hi": -0.0008069351725912839,
+     "lo": -0.005631826743857524,
+     "point": -0.002809639670953601
+    },
+    "neg_mean_entropy": {
+     "hi": 0.01999038960292225,
+     "lo": 0.003971980492259037,
+     "point": 0.012455103695979575
+    }
+   },
+   "rule": "SUPPORTED if mean_logprob or a margin signal beats max_prob by >= 0.02 AUROC with a paired 95% CI excluding 0; NOT SUPPORTED if every single-token signal is within +-0.02 of max_prob; otherwise INCONCLUSIVE.",
+   "title": "signal",
+   "verdict": "NOT SUPPORTED",
+   "why": "all single token signals within +-0.02 of max_prob"
+  },
+  {
+   "id": "H3",
+   "numbers": {
+    "noninferiority_vs_L_only": {
+     "L_only_cost_per_correct": 1.1425479440895898,
+     "acc_on_answered_diff": {
+      "hi": -0.008355965645311145,
+      "lo": -0.0393258426966292,
+      "point": -0.022222222222222254
+     },
+     "acc_on_answered_non_inferior": false,
+     "cheaper_per_correct": true,
+     "correct_answer_rate_diff": {
+      "hi": -0.007500000000000062,
+      "lo": -0.03500000000000003,
+      "point": -0.020000000000000018
+     },
+     "cost_per_correct_diff": {
+      "hi": -0.09714555868368567,
+      "lo": -0.20617025432801034,
+      "point": -0.15417076647062478
+     },
+     "cost_unit": "seconds",
+     "gate_cost_per_correct": 0.988377177618965,
+     "margin": 0.02,
+     "non_inferior": false
+    },
+    "random_matched_thresholds": [
+     0.5598255254726336,
+     2.5645742925439863
+    ],
+    "vs_query_matched": {
+     "hi": 0.06164113706607093,
+     "lo": 0.010214017478735774,
+     "point": 0.0345129375951293
+    },
+    "vs_random_matched": {
+     "hi": 0.13663840860089513,
+     "lo": 0.05985780296498676,
+     "point": 0.09928095670602477
+    }
+   },
+   "rule": "SUPPORTED if (a) the correct-answer rate (answered and correct, per item, i.e. coverage-aware) vs L-only is non-inferior (lower paired CI >= -0.02; accuracy-on-answered at differing coverage is reported but not decisive), (b) cost per correct answer incl. wasted S attempts is lower with the CI below 0, (c) the gate beats the matched-coverage random router and (d) query-only router (paired CI of accuracy-on-answered difference > 0). NOT SUPPORTED if indistinguishable from the random router (CI includes 0 or below) or the point estimate of the cost advantage is lost. Otherwise INCONCLUSIVE.",
+   "title": "cascade value",
+   "verdict": "INCONCLUSIVE",
+   "why": "not established: non-inferiority"
+  },
+  {
+   "id": "H4",
+   "numbers": {
+    "best_token_signal": "mean_margin",
+    "delta_auroc_vs_best_token_signal": {
+     "hi": -0.04433746991657581,
+     "lo": -0.1762805738748119,
+     "point": -0.10864283234987859
+    },
+    "k": 5,
+    "k_times_cost_S_below_cost_L": false,
+    "mean_time_s": {
+     "L": 0.9662755723699258,
+     "S_greedy": 0.21341601217225883,
+     "S_k_samples": 1.0313922994285762
+    },
+    "n_items_in_C0": 110,
+    "state": "run"
+   },
+   "rule": "SUPPORTED if k=5 self-consistency adds >= 0.03 AUROC over the best token signal (paired CI lower bound > 0; the frontier benefit additionally needs k x cost_S < cost_L, reported); NOT SUPPORTED if the CI upper bound is below the margin; else INCONCLUSIVE.",
+   "title": "self-consistency",
+   "verdict": "NOT SUPPORTED",
+   "why": "no gain of >= 0.03 AUROC"
+  },
+  {
+   "id": "H5",
+   "numbers": {
+    "nq_open": {
+     "across_splits": {
+      "alpha": 0.1,
+      "empty_fraction": 0.0,
+      "max_test_risk": 0.18,
+      "mean_cost_per_correct": 1.3818450041836825,
+      "mean_coverage": 0.7886666666666668,
+      "mean_escalation_rate": 0.8269333333333333,
+      "mean_test_risk": 0.07688872267339651,
+      "n_certified": 50,
+      "n_empty": 0,
+      "n_splits": 50,
+      "n_violations": 1,
+      "violation_ci95": [
+       0.0005062279830408294,
+       0.1064695457114999
+      ],
+      "violation_freq": 0.02
+     },
+     "drift": {
+      "alarm_rate": 0.16666666666666666,
+      "alarm_rate_on_violating": 0.16666666666666666,
+      "n_violating_windows": 6,
+      "n_windows": 6,
+      "window": 50
+     },
+     "graded": true,
+     "judge": "simpleqa-judge:SYNTHETIC-test-double",
+     "n_items": 300,
+     "risk_ci95_split0": {
+      "hi": 0.12555300390666244,
+      "lo": 0.05394190871369295,
+      "point": 0.08713692946058091
+     },
+     "split0": {
+      "accuracy_on_answered": 0.9128630705394191,
+      "certified": true,
+      "cost_per_correct": 1.2044476525580343,
+      "cost_per_item": 0.8832616118758919,
+      "cost_total": 264.97848356276756,
+      "coverage": 0.8033333333333333,
+      "escalation_rate": 0.7,
+      "label": "gate:primary",
+      "n": 300,
+      "n_answered": 241,
+      "n_wrong_answered": 21,
+      "note": "",
+      "per_stratum": {
+       "topic0": {
+        "n_answered": 56,
+        "n_wrong": 3
+       },
+       "topic1": {
+        "n_answered": 48,
+        "n_wrong": 4
+       },
+       "topic2": {
+        "n_answered": 45,
+        "n_wrong": 5
+       },
+       "topic3": {
+        "n_answered": 48,
+        "n_wrong": 5
+       },
+       "topic4": {
+        "n_answered": 44,
+        "n_wrong": 4
+       }
+      },
+      "risk": 0.08713692946058091,
+      "violates_alpha": false
+     }
+    },
+    "simpleqa_verified": {
+     "across_splits": {
+      "alpha": 0.1,
+      "empty_fraction": 0.0,
+      "max_test_risk": 0.45698924731182794,
+      "mean_cost_per_correct": 3.632390889222309,
+      "mean_coverage": 0.37749999999999995,
+      "mean_escalation_rate": 0.9863,
+      "mean_test_risk": 0.1343858746244332,
+      "n_certified": 50,
+      "n_empty": 0,
+      "n_splits": 50,
+      "n_violations": 37,
+      "violation_ci95": [
+       0.5965523212719344,
+       0.8536994156034454
+      ],
+      "violation_freq": 0.74
+     },
+     "drift": {
+      "alarm_rate": 1.0,
+      "alarm_rate_on_violating": 1.0,
+      "n_violating_windows": 4,
+      "n_windows": 4,
+      "window": 50
+     },
+     "graded": true,
+     "judge": "simpleqa-judge:SYNTHETIC-test-double",
+     "n_items": 200,
+     "risk_ci95_split0": {
+      "hi": 0.22225490196078426,
+      "lo": 0.0714075630252101,
+      "point": 0.14285714285714285
+     },
+     "split0": {
+      "accuracy_on_answered": 0.8571428571428571,
+      "certified": true,
+      "cost_per_correct": 3.4275141709759067,
+      "cost_per_item": 1.1310796764220492,
+      "cost_total": 226.21593528440985,
+      "coverage": 0.385,
+      "escalation_rate": 0.98,
+      "label": "gate:primary",
+      "n": 200,
+      "n_answered": 77,
+      "n_wrong_answered": 11,
+      "note": "",
+      "per_stratum": {
+       "topic0": {
+        "n_answered": 21,
+        "n_wrong": 1
+       },
+       "topic1": {
+        "n_answered": 19,
+        "n_wrong": 1
+       },
+       "topic2": {
+        "n_answered": 17,
+        "n_wrong": 3
+       },
+       "topic3": {
+        "n_answered": 8,
+        "n_wrong": 3
+       },
+       "topic4": {
+        "n_answered": 12,
+        "n_wrong": 3
+       }
+      },
+      "risk": 0.14285714285714285,
+      "violates_alpha": true
+     }
+    }
+   },
+   "rule": "SUPPORTED if the certified policy's risk exceeds alpha=0.1 on NQ-open (95% CI lower bound > alpha), exceeds NQ-open's risk on SimpleQA Verified, and the label-free drift alarm (KS on 50-query windows) fires on >= 80% of shifted windows. NOT SUPPORTED if the guarantee holds on NQ-open (CI upper bound <= alpha) or the alarm is blind (< 80% of shifted windows). 'Before violation' is operationalised as: the alarm uses scores only and is therefore available before any label.",
+   "title": "shift",
+   "verdict": "NOT SUPPORTED",
+   "why": "drift alarm rate 0.17 < 0.80"
+  },
+  {
+   "id": "H6",
+   "numbers": {
+    "ladder_kvq4": {
+     "auroc_equivalent": false,
+     "delta_auroc": {
+      "hi": 0.023349320139759128,
+      "lo": -0.03044644535146209,
+      "point": -0.0021454314807890507
+     },
+     "delta_ece": {
+      "hi": 0.05042834066685892,
+      "lo": -0.018938932765274905,
+      "point": 0.004070738608696126
+     },
+     "ece_equivalent": false,
+     "recalibrated_violation_freq": 0.04,
+     "transferred_violation_freq": 0.04
+    },
+    "ladder_q3km": {
+     "auroc_equivalent": false,
+     "delta_auroc": {
+      "hi": 0.029827764704774117,
+      "lo": -0.04343425820391645,
+      "point": -0.00490848224896312
+     },
+     "delta_ece": {
+      "hi": 0.06352309208089911,
+      "lo": -0.014064886902197798,
+      "point": 0.021735013628345914
+     },
+     "ece_equivalent": false,
+     "recalibrated_violation_freq": 0.04,
+     "transferred_violation_freq": 0.04
+    },
+    "ladder_q4km": {
+     "auroc_equivalent": false,
+     "delta_auroc": {
+      "hi": 0.028470149643191826,
+      "lo": -0.01650151107951252,
+      "point": 0.004966879924110712
+     },
+     "delta_ece": {
+      "hi": 0.03386787732261777,
+      "lo": -0.04084491183657334,
+      "point": -0.014605376945504137
+     },
+     "ece_equivalent": false,
+     "recalibrated_violation_freq": 0.02,
+     "transferred_violation_freq": 0.04
+    },
+    "ladder_q8": {
+     "auroc_equivalent": false,
+     "delta_auroc": {
+      "hi": 0.020702791533211525,
+      "lo": -0.02928855041991273,
+      "point": -0.003928523187497812
+     },
+     "delta_ece": {
+      "hi": 0.03872171850044969,
+      "lo": -0.029475976238581336,
+      "point": -0.005284214050603336
+     },
+     "ece_equivalent": false,
+     "recalibrated_violation_freq": 0.06,
+     "transferred_violation_freq": 0.04
+    }
+   },
+   "rule": "SUPPORTED if a threshold fitted on the f16 reference violates alpha in > delta of re-splits on some quantized config while per-config recalibration does not (<= delta). NOT SUPPORTED if for all configs delta-AUROC and delta-ECE are equivalent within +-0.02 (90% paired-bootstrap CI inside the margin, TOST) and transferred thresholds hold in >= 1-delta of re-splits. Otherwise INCONCLUSIVE (partial support is reported in the numbers).",
+   "title": "quantization",
+   "verdict": "INCONCLUSIVE",
+   "why": "neither the shift nor the equivalence criterion is met for all configs"
+  },
+  {
+   "id": "H7",
+   "numbers": {
+    "accuracy_L": 0.7333333333333333,
+    "accuracy_S": 0.47,
+    "auroc": {
+     "L": {
+      "max_prob": {
+       "hi": 0.9210726086956522,
+       "lo": 0.8472334103836638,
+       "point": 0.8852272727272728
+      },
+      "mean_margin": {
+       "hi": 0.9170801009342675,
+       "lo": 0.8409192185331008,
+       "point": 0.88
+      }
+     },
+     "S": {
+      "max_prob": {
+       "hi": 0.92905114629771,
+       "lo": 0.8568225070028438,
+       "point": 0.8944645167045809
+      },
+      "mean_margin": {
+       "hi": 0.9298005962195605,
+       "lo": 0.867008609658401,
+       "point": 0.8991257415584994
+      }
+     }
+    },
+    "n": 300,
+    "primary_signal": "mean_margin",
+    "state": "run"
+   },
+   "rule": "SUPPORTED if gate AUROC on MMLU-Redux < 0.6 (95% CI upper bound < 0.6); NOT SUPPORTED if the CI lower bound >= 0.6; otherwise INCONCLUSIVE. Reported as a limitation either way.",
+   "title": "hard sets",
+   "verdict": "NOT SUPPORTED",
+   "why": "AUROC 0.899"
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+id,title,verdict,why
+H1,validity,INCONCLUSIVE,"SUPPORTED-WEAK: violation frequency 0.100 <= 15% but the Clopper-Pearson 95% upper bound 0.218 exceeds it, so the re-splits cannot exclude a higher violation rate (reported as INCONCLUSIVE)"
+H2,signal,SUPPORTED,a candidate signal clears +0.02 with CI above 0
+H3,cascade value,NOT SUPPORTED,not distinguishable from (or worse than) the matched random router; no cost-per-correct advantage over L-only once wasted S attempts are charged
+H4,self-consistency,NOT SUPPORTED,no gain of >= 0.03 AUROC
+H5,shift,INCONCLUSIVE,SimpleQA Verified risk unavailable (judge: simpleqa-judge:unavailable)
+H6,quantization,INCONCLUSIVE,neither the shift nor the equivalence criterion is met for all configs
+H7,hard sets,NOT SUPPORTED,AUROC 0.792

@@ -218,3 +218,15 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Sieve local tooling
+.venv/
+.mypy_cache/
+.hypothesis/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Kaggle run outputs (raw artefacts are archived selectively)
+kaggle_out/
+.venv/
