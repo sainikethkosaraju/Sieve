@@ -1,4 +1,3 @@
-# NOT FROZEN: the pre-registration does not exist yet; frozen_sha256 is filled in at the freeze commit.
 # Sieve v2 (SQuAD 2.0) main experiment. See docs/PREREGISTRATION_V2.md. Generated from t4_main.yaml; same backend, models, gate and statistics.
 name: sieve-v2-t4-squad
 synthetic: false
@@ -6,7 +5,7 @@ alpha: 0.1
 delta: 0.1
 preregistration:
   path: docs/PREREGISTRATION_V2.md
-  frozen_sha256: PENDING-FREEZE
+  frozen_sha256: ceee9dadba355cd3a57230472b52be9ba3d4a0d8b7ddf0848f379e7554b67c6f
 primary_dataset: squad_v2
 splits:
   n_splits: 50
@@ -21,7 +20,7 @@ datasets:
     seed: 20261108
 generation:
   n_probs: 20
-  max_tokens: 32
+  max_tokens: 96
   max_attempts: 3
 self_consistency:
   k: 5

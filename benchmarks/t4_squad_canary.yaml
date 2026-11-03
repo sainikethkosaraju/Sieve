@@ -20,7 +20,7 @@ datasets:
     seed: 1
 generation:
   n_probs: 20
-  max_tokens: 32
+  max_tokens: 96
   max_attempts: 3
 self_consistency:
   k: 5

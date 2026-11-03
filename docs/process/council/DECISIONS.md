@@ -49,3 +49,9 @@ Audits: reviews/governance-audit.md, eval-audit.md, redteam-code-audit.md.
 | D-021 | B-once / C-hash is documented as a DETECTION control (tripwire), hardened (recomputed hashes, atomic ledger, once-only C, code and config recorded), not as an access-control guarantee. |
 | D-022 | No real headline run until: real-server canary passes (>=95% finish==stop per tier, tokens join to text), F-01/F-02/F-03 fixed, eval deviations recorded, H3/H6/H1 verdict logic fixed. |
 | D-023 | Release gate: `results/mock` regenerated and labelled SYNTHETIC in every artefact; every public claim traceable to evidence. |
+
+## v2 experiment (2026-11-03, owner chose option 2)
+| ID | Decision |
+|---|---|
+| D-024 | v2 = SQuAD 2.0 reading comprehension, same models and gate, pre-registered in `docs/PREREGISTRATION_V2.md` BEFORE any real v2 generation. Success iff validity (H1 rule) AND cost per correct answer lower than the large tier alone (CI upper bound < 0, point saving >= 10%, non-inferior). Otherwise published as a negative. |
+| D-025 | Canary (150 items, seed 1, plumbing and prompt only) showed 6% of small-tier generations truncated at 32 tokens; generation limit raised to 96 before the freeze (dated Deviation 1). Canary data discarded. v1 is not edited. |
