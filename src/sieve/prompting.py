@@ -39,14 +39,45 @@ MCQ_TEMPLATE = (
 )
 
 
+SQUAD_VERSION = "squad-v1-fewshot"
+SQUAD_TEMPLATE = (
+    "Read the passage and answer the question with a short phrase copied from the passage. "
+    "If the passage does not contain the answer, reply: unanswerable\n\n"
+    "Passage: The Eiffel Tower was completed in 1889 for the World's Fair in Paris. "
+    "It was designed by the engineering company of Gustave Eiffel.\n"
+    "Question: In which year was the Eiffel Tower completed?\nAnswer: 1889\n\n"
+    "Passage: The Amazon River flows through Brazil, Peru and Colombia. It is the largest river "
+    "in the world by discharge volume.\n"
+    "Question: Who designed the Amazon River?\nAnswer: unanswerable\n\n"
+    "Passage: Marie Curie won the Nobel Prize in Physics in 1903 and the Nobel Prize in Chemistry "
+    "in 1911.\n"
+    "Question: In which year did Marie Curie win the Nobel Prize in Chemistry?\nAnswer: 1911\n\n"
+    "Passage: {context}\nQuestion: {question}\nAnswer:"
+)
+
+
 def template_hash() -> str:
     """Full sha256 hex of the calibration template (identical in eval and server)."""
     body = f"{TEMPLATE_VERSION}\n{QA_TEMPLATE}\n{MCQ_TEMPLATE}"
     return hashlib.sha256(body.encode("utf-8")).hexdigest()
 
 
-def render_calibration_prompt(question: str, choices: Sequence[str] | None = None) -> str:
+def template_hash_for(datasets: Sequence[str]) -> str:
+    """Template hash for a set of datasets: the SQuAD template hashes separately, and v1's
+    TriviaQA/NQ/MMLU hash (and every cache key derived from it) is unchanged."""
+    if "squad_v2" in datasets:
+        if any(d != "squad_v2" for d in datasets):
+            raise ValueError("squad_v2 uses its own template; do not mix it with other datasets")
+        return hashlib.sha256(f"{SQUAD_VERSION}\n{SQUAD_TEMPLATE}".encode()).hexdigest()
+    return template_hash()
+
+
+def render_calibration_prompt(
+    question: str, choices: Sequence[str] | None = None, context: str = ""
+) -> str:
     """The exact prompt string sent to ``/completion`` for one question."""
+    if context:
+        return SQUAD_TEMPLATE.format(context=context, question=question)
     if choices:
         a, b, c, d = choices
         return MCQ_TEMPLATE.format(question=question, a=a, b=b, c=c, d=d)

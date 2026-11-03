@@ -427,7 +427,7 @@ class LlamaCppProvider:
                 quant=cell.quant,
                 kv_quant=cell.kv_quant,
                 build=build,
-                template_hash=prompts.template_hash(),
+                template_hash=prompts.template_hash_for(cell.datasets),
             )
             self.log_dir.mkdir(parents=True, exist_ok=True)
             backend = EvalLlamaBackend(

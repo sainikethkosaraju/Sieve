@@ -367,3 +367,22 @@ def test_analysis_survives_truncated_generations(tmp_path: Path) -> None:
     pipeline.run_mock(tmp_path, cfg_dict=d, provider=FakeProvider(sim), clock=sim, do_report=True)
     res = _results(tmp_path)
     assert "curves" in res and res["accuracy"]["S_q4km_kvq4"]
+
+
+def test_analysis_runs_on_a_minimal_single_dataset_config(tmp_path: Path) -> None:
+    """v2 shape: one dataset, one pair, no shift sets, ablations or self-consistency."""
+    sim = SimClock()
+    d = pipeline.mock_config(small=True)
+    d["cells"] = [c for c in d["cells"] if c["name"] in ("S_q4km", "L_q4km")]
+    for c in d["cells"]:
+        c["datasets"] = ["triviaqa"]
+        c["extra"] = {k: v for k, v in c.get("extra", {}).items() if k != "self_consistency"}
+    d["pairs"] = [p for p in d["pairs"] if p["name"] == "main"]
+    d["abab_groups"] = [["S_q4km", "L_q4km"]]
+    d["datasets"] = {"triviaqa": d["datasets"]["triviaqa"]}
+    d["self_consistency"] = {**d["self_consistency"], "n_items": 0}
+    pipeline.run_mock(tmp_path, cfg_dict=d, provider=FakeProvider(sim), clock=sim, do_report=True)
+    res = _results(tmp_path)
+    assert res["methods"]["gate:primary"]["across_splits"]["n_certified"] >= 0
+    hyp = json.loads((tmp_path / "analysis" / "hypotheses.json").read_text())
+    assert {v["id"] for v in hyp["verdicts"]} >= {"H1", "H3"}

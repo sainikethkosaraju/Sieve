@@ -12,20 +12,28 @@ from sieve.eval.datasets import PromptItem
 from sieve.prompting import (
     MCQ_TEMPLATE,
     QA_TEMPLATE,
+    SQUAD_TEMPLATE,
+    SQUAD_VERSION,
     TEMPLATE_VERSION,
     find_answer_start,
     template_hash,
+    template_hash_for,
 )
 
 __all__ = [
     "MCQ_TEMPLATE",
     "QA_TEMPLATE",
+    "SQUAD_TEMPLATE",
+    "SQUAD_VERSION",
     "TEMPLATE_VERSION",
     "find_answer_start",
     "render_prompt",
     "template_hash",
+    "template_hash_for",
 ]
 
 
 def render_prompt(item: PromptItem) -> str:
-    return prompting.render_calibration_prompt(item.question, item.choices or None)
+    return prompting.render_calibration_prompt(
+        item.question, item.choices or None, getattr(item, "context", "")
+    )

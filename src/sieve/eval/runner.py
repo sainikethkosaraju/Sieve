@@ -33,7 +33,7 @@ def cell_id(cell: CellSpec, sampling: SamplingParams) -> str:
         "tier": cell.tier,
         "sampling_key": [str(x) for x in sampling.key()],
         "max_tokens": sampling.max_tokens,
-        "template": prompts.template_hash(),
+        "template": prompts.template_hash_for(cell.datasets),
     }
     return sha256_obj(ident)[:16]
 
@@ -267,7 +267,9 @@ def write_run_manifest(
         "prereg_frozen_sha256": prereg_hash,
         "commit": git_commit(),
         "hardware": hardware,
-        "template_hash": prompts.template_hash(),
+        "template_hash": prompts.template_hash_for(
+            sorted({d for c in cfg.cells for d in c.datasets})
+        ),
         "created": "synthetic-run"
         if cfg.synthetic
         else time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),

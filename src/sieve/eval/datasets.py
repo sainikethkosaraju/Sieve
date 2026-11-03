@@ -44,9 +44,10 @@ class Item:
     answers: tuple[str, ...]  # gold + aliases; for MCQ the single gold letter
     choices: tuple[str, ...] = ()
     stratum: str = ""
+    context: str = ""  # reading-comprehension passage (SQuAD); empty for closed-book datasets
 
     def to_dict(self) -> dict[str, Any]:
-        return {
+        d: dict[str, Any] = {
             "item_id": self.item_id,
             "dataset": self.dataset,
             "question": self.question,
@@ -54,6 +55,9 @@ class Item:
             "choices": list(self.choices),
             "stratum": self.stratum,
         }
+        if self.context:  # only when set, so every existing dataset hash is unchanged
+            d["context"] = self.context
+        return d
 
     @staticmethod
     def from_dict(d: dict[str, Any]) -> Item:
@@ -64,11 +68,12 @@ class Item:
             answers=tuple(str(a) for a in d["answers"]),
             choices=tuple(str(c) for c in d.get("choices", [])),
             stratum=str(d.get("stratum", "")),
+            context=str(d.get("context", "")),
         )
 
     def prompt_view(self) -> PromptItem:
         """What the generation runner may see: no gold answers."""
-        return PromptItem(self.item_id, self.dataset, self.question, self.choices)
+        return PromptItem(self.item_id, self.dataset, self.question, self.choices, self.context)
 
 
 @dataclass(frozen=True)
@@ -77,6 +82,7 @@ class PromptItem:
     dataset: str
     question: str
     choices: tuple[str, ...] = ()
+    context: str = ""
 
 
 @dataclass(frozen=True)
@@ -96,6 +102,19 @@ class DatasetSpec:
 
 #: Pinned from the Hub API on 2026-11-03 (``sha`` field of /api/datasets/<repo>).
 PINNED: dict[str, DatasetSpec] = {
+    # v2 experiment (docs/PREREGISTRATION_V2.md): reading comprehension with unanswerable questions.
+    "squad_v2": DatasetSpec(
+        "squad_v2",
+        "rajpurkar/squad_v2",
+        "squad_v2",
+        "validation",
+        "3ffb306f725f7d2ce8394bc1873b24868140c412",
+        "CC-BY-SA-4.0",
+        6000,
+        20261108,
+        "primary",
+        "alias_em",
+    ),
     "triviaqa": DatasetSpec(
         "triviaqa",
         "mandarjoshi/trivia_qa",
@@ -246,6 +265,30 @@ def parse_triviaqa(rows: Iterable[dict[str, Any]]) -> list[Item]:
     return out
 
 
+def parse_squad_v2(rows: Iterable[dict[str, Any]]) -> list[Item]:
+    """SQuAD 2.0: answerable items keep their gold spans; unanswerable items have the single gold
+    string ``unanswerable`` (the model is told to say it), so one exact-match grader scores both.
+    The stratum records which kind each item is, for per-stratum risk."""
+    out: list[Item] = []
+    for r in rows:
+        texts = [str(t) for t in (r.get("answers") or {}).get("text", [])]
+        if texts:
+            golds, stratum = tuple(dict.fromkeys(texts)), "answerable"
+        else:
+            golds, stratum = ("unanswerable",), "unanswerable"
+        out.append(
+            Item(
+                f"squad_v2:{r['id']}",
+                "squad_v2",
+                str(r["question"]),
+                golds,
+                stratum=stratum,
+                context=str(r["context"]),
+            )
+        )
+    return out
+
+
 def parse_nq_open(rows: Iterable[dict[str, Any]]) -> list[Item]:
     out: list[Item] = []
     for i, r in enumerate(rows):
@@ -303,6 +346,8 @@ def load_dataset_items(spec: DatasetSpec, fetch: RowFetcher = hf_fetch) -> list[
     """Load *all* eligible items of a dataset (before sampling)."""
     if spec.name == "triviaqa":
         return parse_triviaqa(fetch(spec.repo, spec.config, spec.split, spec.revision))
+    if spec.name == "squad_v2":
+        return parse_squad_v2(fetch(spec.repo, spec.config, spec.split, spec.revision))
     if spec.name == "nq_open":
         return parse_nq_open(fetch(spec.repo, spec.config, spec.split, spec.revision))
     if spec.name == "simpleqa_verified":

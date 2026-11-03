@@ -1,0 +1,92 @@
+# NOT FROZEN: the pre-registration does not exist yet; frozen_sha256 is filled in at the freeze commit.
+# Sieve v2 (SQuAD 2.0) main experiment. See docs/PREREGISTRATION_V2.md. Generated from t4_main.yaml; same backend, models, gate and statistics.
+name: sieve-v2-t4-squad
+synthetic: false
+alpha: 0.1
+delta: 0.1
+preregistration:
+  path: docs/PREREGISTRATION_V2.md
+  frozen_sha256: PENDING-FREEZE
+primary_dataset: squad_v2
+splits:
+  n_splits: 50
+  sizes:
+  - 2000
+  - 2000
+  - 2000
+  seed: 20261108
+datasets:
+  squad_v2:
+    n: 6000
+    seed: 20261108
+generation:
+  n_probs: 20
+  max_tokens: 32
+  max_attempts: 3
+self_consistency:
+  k: 5
+  n_items: 0
+  temperature: 0.7
+  top_p: 0.95
+nondeterminism:
+  items: 100
+  runs: 3
+audit:
+  n: 200
+statistics:
+  n_boot: 10000
+  seed: 20261107
+  equivalence_margin: 0.02
+  noninferiority_margin: 0.02
+  h1_pass_max: 0.15
+  h1_fail_min: 0.25
+energy:
+  abab_blocks: 4
+  idle_seconds: 30
+timing_source: wall
+cost_unit: seconds
+drift_window: 200
+judge:
+  kind: unavailable
+  reason: no judge model configured
+backend:
+  provider: sieve.eval.providers.llamacpp:make_provider
+  llama_cpp_commit: fac3a894fc04901c3e5abaff457e024c6b52e04f
+  n_ctx: 4096
+  n_gpu_layers: 99
+  flash_attn: auto
+  stop:
+  - '
+
+    '
+  gpu:
+    S: '0'
+    L: '1'
+cells:
+- name: S_q4km
+  tier: S
+  model_id: Qwen2.5-1.5B-Instruct
+  quant: Q4_K_M
+  kv_quant: f16
+  datasets:
+  - squad_v2
+  extra:
+    gguf: Qwen/Qwen2.5-1.5B-Instruct-GGUF:qwen2.5-1.5b-instruct-q4_k_m.gguf
+    nondeterminism: true
+- name: L_q4km
+  tier: L
+  model_id: Qwen2.5-7B-Instruct
+  quant: Q4_K_M
+  kv_quant: f16
+  datasets:
+  - squad_v2
+  extra:
+    gguf: bartowski/Qwen2.5-7B-Instruct-GGUF:Qwen2.5-7B-Instruct-Q4_K_M.gguf
+pairs:
+- name: main
+  s_cell: S_q4km
+  l_cell: L_q4km
+  role: main
+abab_groups:
+- - S_q4km
+  - L_q4km
