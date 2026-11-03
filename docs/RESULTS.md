@@ -106,6 +106,44 @@ Correctness AUROC on TriviaQA (split 0 test): S 0.81 (max-softmax) to 0.84 (min-
 * Not implemented: cross-template transfer, quantization null control, contamination probe, length-bias
   stratification, SimpleQA judging, per-request backend identity checks.
 
+## v2 follow-up: reading comprehension (SQuAD 2.0), pre-registered. Result: negative
+
+Pre-registration: [`PREREGISTRATION_V2.md`](PREREGISTRATION_V2.md), frozen before any real v2 generation. Same two
+models, gate, statistics and cost accounting as v1; 6,000 SQuAD 2.0 validation items (answerable and unanswerable
+mixed), 50 re-splits, strict exact match with `unanswerable` as the gold for unanswerable items. Evidence:
+`results/evidence/v2_squad_2026-11-03/`. The question was whether a task where the answer is in the passage lets
+the small model certify enough queries to make the cascade cheaper than the large model alone.
+
+**By the frozen rule, v2 is a negative.**
+
+* **V2-V (validity): not met.** The pre-registered primary gate (the signal is chosen per split by the coded rule)
+  was certified in 1 of 50 re-splits; the feasible set was empty in 49. One certified split cannot support a validity claim.
+* **V2-P (cost): not met.** No certified gate exists on canonical split 0 (`comparisons.gate_available = false`), so the
+  non-inferiority and cost-per-correct comparison cannot be computed.
+* The generic hypothesis report refused to run (its guard compares v1's coded criteria with the v1 document), so the
+  verdict applies the frozen v2 rule to `analysis/results.json`, using the fields the pre-registration names.
+
+**Context numbers.** Exact-match accuracy: small 0.542, large 0.711. Correctness AUROC of mean log-probability: small
+0.669 (95% CI 0.645 to 0.692), large 0.763 (0.741 to 0.785), much weaker than on TriviaQA (0.84 and 0.87). Mean time
+per item: small 0.171 s, large 0.493 s, a ratio of 2.9, so the cascade needs the small tier to resolve more than about
+35% of queries to break even. Sanity gate passed (clean stops: small 97.1%, large 99.7%); 200 repeated greedy
+generations showed no text flips.
+
+**Exploratory, after the fact, not part of the verdict.** The coded rule picked mean-margin as the primary signal in 47
+of 50 splits. Gates built on mean log-probability or entropy were certified in 29 and 30 of 50 splits, at about 32%
+coverage with mean test risk 7.7% and 7.8% (one split above 10% in each). But their escalation rate was 0.995 and
+0.998: the small tier resolved only about 0.5% of queries, so these gates are the 7B model alone plus a wasted
+small-model attempt, and with a break-even above 35% there is no cost saving to find.
+
+**Reading (inference).** Moving from trivia to reading comprehension did not make the 1.5B model's confidence
+usable: its ranking quality fell, and unanswerable questions in particular draw confident wrong answers. The binding
+constraint is the small model's certifiable coverage, not the dataset. A different, stronger small tier is the next
+thing to test; this run does not show that it would work.
+
+**Process notes.** A 150-item canary on different items raised the generation limit from 32 to 96 tokens before the
+freeze (dated Deviation 1 in the v2 document). The first launch failed after 32 s because the script builder did not
+embed the v2 document; it produced no generations, so rerunning was allowed by the rules.
+
 ## Reproduce
 
 `docs/reproduce.md` (mock pipeline, no network) and `docs/kaggle.md` (this run). The generation caches are not

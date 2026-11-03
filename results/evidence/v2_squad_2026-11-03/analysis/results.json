@@ -1,0 +1,4575 @@
+{
+ "accuracy": {
+  "L_q4km": {
+   "backend": {
+    "build": "llama.cpp@fac3a894fc04901c3e5abaff457e024c6b52e04f|b1-fac3a89|fa=auto|ngl=99|stop=\"\\n\"",
+    "kv_quant": "f16",
+    "model_id": "Qwen2.5-7B-Instruct",
+    "quant": "Q4_K_M"
+   },
+   "datasets": {
+    "squad_v2": {
+     "accuracy": 0.7106666666666667,
+     "fail_closed_rate": 0.0031666666666666666,
+     "grade_state": "graded",
+     "mean_time_s": 0.49273029115950107,
+     "n": 6000,
+     "n_graded": 6000,
+     "wasted_time_share": 0.0
+    }
+   },
+   "failed_attempts": 0,
+   "tier": "L"
+  },
+  "S_q4km": {
+   "backend": {
+    "build": "llama.cpp@fac3a894fc04901c3e5abaff457e024c6b52e04f|b1-fac3a89|fa=auto|ngl=99|stop=\"\\n\"",
+    "kv_quant": "f16",
+    "model_id": "Qwen2.5-1.5B-Instruct",
+    "quant": "Q4_K_M"
+   },
+   "datasets": {
+    "squad_v2": {
+     "accuracy": 0.5416666666666666,
+     "fail_closed_rate": 0.029833333333333333,
+     "grade_state": "graded",
+     "mean_time_s": 0.17092981292950238,
+     "n": 6000,
+     "n_graded": 6000,
+     "wasted_time_share": 0.0
+    }
+   },
+   "failed_attempts": 0,
+   "tier": "S"
+  }
+ },
+ "calibration": {
+  "L": {
+   "bins": [
+    {
+     "mean_p": 0.37733205866090636,
+     "mean_y": 0.41044776119402987,
+     "n": 134
+    },
+    {
+     "mean_p": 0.5463828983819996,
+     "mean_y": 0.43609022556390975,
+     "n": 133
+    },
+    {
+     "mean_p": 0.6246719727628104,
+     "mean_y": 0.48872180451127817,
+     "n": 133
+    },
+    {
+     "mean_p": 0.6692510193619811,
+     "mean_y": 0.5639097744360902,
+     "n": 133
+    },
+    {
+     "mean_p": 0.6993960246207468,
+     "mean_y": 0.7518796992481203,
+     "n": 133
+    },
+    {
+     "mean_p": 0.7179828785197503,
+     "mean_y": 0.6616541353383458,
+     "n": 133
+    },
+    {
+     "mean_p": 0.7343020936669881,
+     "mean_y": 0.7142857142857143,
+     "n": 133
+    },
+    {
+     "mean_p": 0.7503812143196312,
+     "mean_y": 0.7443609022556391,
+     "n": 133
+    },
+    {
+     "mean_p": 0.7660137982310441,
+     "mean_y": 0.7744360902255639,
+     "n": 133
+    },
+    {
+     "mean_p": 0.778542994420283,
+     "mean_y": 0.8345864661654135,
+     "n": 133
+    },
+    {
+     "mean_p": 0.79050111551716,
+     "mean_y": 0.8270676691729323,
+     "n": 133
+    },
+    {
+     "mean_p": 0.800676327465276,
+     "mean_y": 0.9097744360902256,
+     "n": 133
+    },
+    {
+     "mean_p": 0.8125557611277936,
+     "mean_y": 0.8646616541353384,
+     "n": 133
+    },
+    {
+     "mean_p": 0.8325582907268065,
+     "mean_y": 0.8270676691729323,
+     "n": 133
+    },
+    {
+     "mean_p": 0.8928901010358725,
+     "mean_y": 0.7894736842105263,
+     "n": 133
+    }
+   ],
+   "brier": 0.18880297851651032,
+   "ece": 0.059366325472334114,
+   "n": 1996
+  },
+  "S": {
+   "bins": [
+    {
+     "mean_p": 0.2499929423765234,
+     "mean_y": 0.36153846153846153,
+     "n": 130
+    },
+    {
+     "mean_p": 0.34424278734293035,
+     "mean_y": 0.4307692307692308,
+     "n": 130
+    },
+    {
+     "mean_p": 0.4058029425752824,
+     "mean_y": 0.3923076923076923,
+     "n": 130
+    },
+    {
+     "mean_p": 0.45713687144800436,
+     "mean_y": 0.36153846153846153,
+     "n": 130
+    },
+    {
+     "mean_p": 0.49576855605846276,
+     "mean_y": 0.3769230769230769,
+     "n": 130
+    },
+    {
+     "mean_p": 0.5278706242334021,
+     "mean_y": 0.4153846153846154,
+     "n": 130
+    },
+    {
+     "mean_p": 0.5587534599542988,
+     "mean_y": 0.46511627906976744,
+     "n": 129
+    },
+    {
+     "mean_p": 0.5945067711460001,
+     "mean_y": 0.5503875968992248,
+     "n": 129
+    },
+    {
+     "mean_p": 0.6274511778449594,
+     "mean_y": 0.7054263565891473,
+     "n": 129
+    },
+    {
+     "mean_p": 0.645297804041554,
+     "mean_y": 0.6976744186046512,
+     "n": 129
+    },
+    {
+     "mean_p": 0.6569979450263492,
+     "mean_y": 0.5426356589147286,
+     "n": 129
+    },
+    {
+     "mean_p": 0.6690532388423585,
+     "mean_y": 0.7131782945736435,
+     "n": 129
+    },
+    {
+     "mean_p": 0.6816249006134446,
+     "mean_y": 0.7596899224806202,
+     "n": 129
+    },
+    {
+     "mean_p": 0.69738353423058,
+     "mean_y": 0.7596899224806202,
+     "n": 129
+    },
+    {
+     "mean_p": 0.7252822070109997,
+     "mean_y": 0.875968992248062,
+     "n": 129
+    }
+   ],
+   "brier": 0.22568774488384466,
+   "ece": 0.08376195252161556,
+   "n": 1941
+  },
+  "method": "Platt scaling fitted on split A",
+  "signal": "mean_margin"
+ },
+ "certs_split0": {
+  "L_only": {
+   "a_cost_per_answered": null,
+   "a_coverage": null,
+   "feasibility_floor": 0.019995499372304937,
+   "k": 0,
+   "k_wrong_B": 0,
+   "method": "L_only",
+   "n_B": 2000,
+   "n_answered_B": 0,
+   "n_grid": 10,
+   "n_valid": 0,
+   "note": "",
+   "outcome": "empty",
+   "pair": "main",
+   "signal": "mean_margin",
+   "t1": null,
+   "t2": null,
+   "upper_bound_B": null
+  },
+  "S_only": {
+   "a_cost_per_answered": null,
+   "a_coverage": null,
+   "feasibility_floor": 0.008716862321546781,
+   "k": 0,
+   "k_wrong_B": 0,
+   "method": "S_only",
+   "n_B": 2000,
+   "n_answered_B": 0,
+   "n_grid": 11,
+   "n_valid": 0,
+   "note": "",
+   "outcome": "empty",
+   "pair": "main",
+   "signal": "mean_margin",
+   "t1": null,
+   "t2": null,
+   "upper_bound_B": null
+  },
+  "gate:entropy": {
+   "a_cost_per_answered": 2.9885504584324774,
+   "a_coverage": 0.222,
+   "feasibility_floor": 0.004659667902823794,
+   "k": 0,
+   "k_wrong_B": 33,
+   "method": "gate:entropy",
+   "n_B": 2000,
+   "n_answered_B": 469,
+   "n_grid": 30,
+   "n_valid": 2,
+   "note": "",
+   "outcome": "feasible",
+   "pair": "main",
+   "signal": "neg_mean_entropy",
+   "t1": null,
+   "t2": -0.0013406889230156923,
+   "upper_bound_B": 0.08798638301899699
+  },
+  "gate:margin": {
+   "a_cost_per_answered": null,
+   "a_coverage": null,
+   "feasibility_floor": 0.019995499372304937,
+   "k": 0,
+   "k_wrong_B": 0,
+   "method": "gate:margin",
+   "n_B": 2000,
+   "n_answered_B": 0,
+   "n_grid": 30,
+   "n_valid": 0,
+   "note": "",
+   "outcome": "empty",
+   "pair": "main",
+   "signal": "mean_margin",
+   "t1": null,
+   "t2": null,
+   "upper_bound_B": null
+  },
+  "gate:max_softmax": {
+   "a_cost_per_answered": null,
+   "a_coverage": null,
+   "feasibility_floor": 0.004982308510353195,
+   "k": 0,
+   "k_wrong_B": 0,
+   "method": "gate:max_softmax",
+   "n_B": 2000,
+   "n_answered_B": 0,
+   "n_grid": 22,
+   "n_valid": 0,
+   "note": "",
+   "outcome": "empty",
+   "pair": "main",
+   "signal": "max_prob",
+   "t1": null,
+   "t2": null,
+   "upper_bound_B": null
+  },
+  "gate:mean_logprob": {
+   "a_cost_per_answered": 2.9885504584324774,
+   "a_coverage": 0.222,
+   "feasibility_floor": 0.004726623599752733,
+   "k": 0,
+   "k_wrong_B": 33,
+   "method": "gate:mean_logprob",
+   "n_B": 2000,
+   "n_answered_B": 462,
+   "n_grid": 34,
+   "n_valid": 2,
+   "note": "",
+   "outcome": "feasible",
+   "pair": "main",
+   "signal": "mean_logprob",
+   "t1": null,
+   "t2": -0.00013536409662022336,
+   "upper_bound_B": 0.08930663400147533
+  },
+  "gate:primary": {
+   "a_cost_per_answered": null,
+   "a_coverage": null,
+   "feasibility_floor": 0.019995499372304937,
+   "k": 0,
+   "k_wrong_B": 0,
+   "method": "gate:primary",
+   "n_B": 2000,
+   "n_answered_B": 0,
+   "n_grid": 30,
+   "n_valid": 0,
+   "note": "",
+   "outcome": "empty",
+   "pair": "main",
+   "signal": "mean_margin",
+   "t1": null,
+   "t2": null,
+   "upper_bound_B": null
+  },
+  "query_router": {
+   "a_cost_per_answered": null,
+   "a_coverage": null,
+   "feasibility_floor": 0.031910537422223495,
+   "k": 0,
+   "k_wrong_B": 0,
+   "method": "query_router",
+   "n_B": 2000,
+   "n_answered_B": 0,
+   "n_grid": 42,
+   "n_valid": 0,
+   "note": "",
+   "outcome": "empty",
+   "pair": "main",
+   "signal": "mean_margin",
+   "t1": null,
+   "t2": null,
+   "upper_bound_B": null
+  },
+  "random_router": {
+   "a_cost_per_answered": null,
+   "a_coverage": null,
+   "feasibility_floor": 0.019995499372304937,
+   "k": 0,
+   "k_wrong_B": 0,
+   "method": "random_router",
+   "n_B": 2000,
+   "n_answered_B": 0,
+   "n_grid": 28,
+   "n_valid": 0,
+   "note": "",
+   "outcome": "empty",
+   "pair": "main",
+   "signal": "mean_margin",
+   "t1": null,
+   "t2": null,
+   "upper_bound_B": null
+  }
+ },
+ "comparisons": {
+  "gate_available": false,
+  "reason": "primary gate has an empty certified set on re-split 0"
+ },
+ "curves": {
+  "pareto": {
+   "certified": {},
+   "sweep": {
+    "L_only": [
+     {
+      "acc_on_answered": 0.7071213640922769,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.997
+     },
+     {
+      "acc_on_answered": 0.7323177366702938,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.919
+     },
+     {
+      "acc_on_answered": 0.7590936195587359,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.8385
+     },
+     {
+      "acc_on_answered": 0.7851949768671513,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.7565
+     },
+     {
+      "acc_on_answered": 0.792341678939617,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.679
+     },
+     {
+      "acc_on_answered": 0.8130921619293712,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.5805
+     },
+     {
+      "acc_on_answered": 0.8259979529170931,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.4885
+     },
+     {
+      "acc_on_answered": 0.8391089108910891,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.404
+     },
+     {
+      "acc_on_answered": 0.8436532507739938,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.323
+     },
+     {
+      "acc_on_answered": 0.8426724137931034,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.232
+     },
+     {
+      "acc_on_answered": 0.8074074074074074,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.135
+     },
+     {
+      "acc_on_answered": 0.7946428571428572,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.056
+     }
+    ],
+    "S_only": [
+     {
+      "acc_on_answered": 0.5600206079340546,
+      "cost_per_item": 0.17134610644499815,
+      "coverage": 0.9705
+     },
+     {
+      "acc_on_answered": 0.5763187429854096,
+      "cost_per_item": 0.17134610644499815,
+      "coverage": 0.891
+     },
+     {
+      "acc_on_answered": 0.5919753086419752,
+      "cost_per_item": 0.17134610644499815,
+      "coverage": 0.81
+     },
+     {
+      "acc_on_answered": 0.6113744075829384,
+      "cost_per_item": 0.17134610644499815,
+      "coverage": 0.7385
+     },
+     {
+      "acc_on_answered": 0.6468774094063223,
+      "cost_per_item": 0.17134610644499815,
+      "coverage": 0.6485
+     },
+     {
+      "acc_on_answered": 0.6882406563354604,
+      "cost_per_item": 0.17134610644499815,
+      "coverage": 0.5485
+     },
+     {
+      "acc_on_answered": 0.722943722943723,
+      "cost_per_item": 0.17134610644499815,
+      "coverage": 0.462
+     },
+     {
+      "acc_on_answered": 0.7247706422018348,
+      "cost_per_item": 0.17134610644499815,
+      "coverage": 0.3815
+     },
+     {
+      "acc_on_answered": 0.7487266553480476,
+      "cost_per_item": 0.17134610644499815,
+      "coverage": 0.2945
+     },
+     {
+      "acc_on_answered": 0.7941176470588236,
+      "cost_per_item": 0.17134610644499815,
+      "coverage": 0.221
+     },
+     {
+      "acc_on_answered": 0.8222222222222222,
+      "cost_per_item": 0.17134610644499815,
+      "coverage": 0.135
+     }
+    ],
+    "gate:primary": [
+     {
+      "acc_on_answered": 0.5617808904452226,
+      "cost_per_item": 0.18891012269549867,
+      "coverage": 0.9995
+     },
+     {
+      "acc_on_answered": 0.562468640240843,
+      "cost_per_item": 0.18891012269549867,
+      "coverage": 0.9965
+     },
+     {
+      "acc_on_answered": 0.5616507297433316,
+      "cost_per_item": 0.18891012269549867,
+      "coverage": 0.9935
+     },
+     {
+      "acc_on_answered": 0.5625630676084763,
+      "cost_per_item": 0.18891012269549867,
+      "coverage": 0.991
+     },
+     {
+      "acc_on_answered": 0.5621840242669363,
+      "cost_per_item": 0.18891012269549867,
+      "coverage": 0.989
+     },
+     {
+      "acc_on_answered": 0.5629441624365482,
+      "cost_per_item": 0.18891012269549867,
+      "coverage": 0.985
+     },
+     {
+      "acc_on_answered": 0.5625635808748728,
+      "cost_per_item": 0.18891012269549867,
+      "coverage": 0.983
+     },
+     {
+      "acc_on_answered": 0.5627551020408164,
+      "cost_per_item": 0.18891012269549867,
+      "coverage": 0.98
+     },
+     {
+      "acc_on_answered": 0.5625319040326697,
+      "cost_per_item": 0.18891012269549867,
+      "coverage": 0.9795
+     },
+     {
+      "acc_on_answered": 0.5614754098360656,
+      "cost_per_item": 0.18891012269549867,
+      "coverage": 0.976
+     },
+     {
+      "acc_on_answered": 0.5609254498714653,
+      "cost_per_item": 0.18891012269549867,
+      "coverage": 0.9725
+     },
+     {
+      "acc_on_answered": 0.5604734945959856,
+      "cost_per_item": 0.18891012269549867,
+      "coverage": 0.9715
+     },
+     {
+      "acc_on_answered": 0.5600206079340546,
+      "cost_per_item": 0.18891012269549867,
+      "coverage": 0.9705
+     },
+     {
+      "acc_on_answered": 0.5817908954477239,
+      "cost_per_item": 0.22143243711449964,
+      "coverage": 0.9995
+     },
+     {
+      "acc_on_answered": 0.5868109222050489,
+      "cost_per_item": 0.22143243711449964,
+      "coverage": 0.9705
+     },
+     {
+      "acc_on_answered": 0.5856992639327024,
+      "cost_per_item": 0.22143243711449964,
+      "coverage": 0.951
+     },
+     {
+      "acc_on_answered": 0.5850159404888416,
+      "cost_per_item": 0.22143243711449964,
+      "coverage": 0.941
+     },
+     {
+      "acc_on_answered": 0.5836012861736335,
+      "cost_per_item": 0.22143243711449964,
+      "coverage": 0.933
+     },
+     {
+      "acc_on_answered": 0.583739837398374,
+      "cost_per_item": 0.22143243711449964,
+      "coverage": 0.9225
+     },
+     {
+      "acc_on_answered": 0.5829694323144106,
+      "cost_per_item": 0.22143243711449964,
+      "coverage": 0.916
+     },
+     {
+      "acc_on_answered": 0.5817281232801321,
+      "cost_per_item": 0.22143243711449964,
+      "coverage": 0.9085
+     },
+     {
+      "acc_on_answered": 0.5805739514348787,
+      "cost_per_item": 0.22143243711449964,
+      "coverage": 0.906
+     },
+     {
+      "acc_on_answered": 0.5781858653311074,
+      "cost_per_item": 0.22143243711449964,
+      "coverage": 0.8985
+     },
+     {
+      "acc_on_answered": 0.5772676371780515,
+      "cost_per_item": 0.22143243711449964,
+      "coverage": 0.893
+     },
+     {
+      "acc_on_answered": 0.5767937219730942,
+      "cost_per_item": 0.22143243711449964,
+      "coverage": 0.892
+     },
+     {
+      "acc_on_answered": 0.5763187429854096,
+      "cost_per_item": 0.22143243711449964,
+      "coverage": 0.891
+     },
+     {
+      "acc_on_answered": 0.6008004002001001,
+      "cost_per_item": 0.25910783733700077,
+      "coverage": 0.9995
+     },
+     {
+      "acc_on_answered": 0.6067708333333333,
+      "cost_per_item": 0.25910783733700077,
+      "coverage": 0.96
+     },
+     {
+      "acc_on_answered": 0.6098484848484849,
+      "cost_per_item": 0.25910783733700077,
+      "coverage": 0.924
+     },
+     {
+      "acc_on_answered": 0.6098505810736027,
+      "cost_per_item": 0.25910783733700077,
+      "coverage": 0.9035
+     },
+     {
+      "acc_on_answered": 0.6077441077441077,
+      "cost_per_item": 0.25910783733700077,
+      "coverage": 0.891
+     },
+     {
+      "acc_on_answered": 0.6074712643678161,
+      "cost_per_item": 0.25910783733700077,
+      "coverage": 0.87
+     },
+     {
+      "acc_on_answered": 0.6047869235259777,
+      "cost_per_item": 0.25910783733700077,
+      "coverage": 0.8565
+     },
+     {
+      "acc_on_answered": 0.6029585798816568,
+      "cost_per_item": 0.25910783733700077,
+      "coverage": 0.845
+     },
+     {
+      "acc_on_answered": 0.6001195457262403,
+      "cost_per_item": 0.25910783733700077,
+      "coverage": 0.8365
+     },
+     {
+      "acc_on_answered": 0.597213809812235,
+      "cost_per_item": 0.25910783733700077,
+      "coverage": 0.8255
+     },
+     {
+      "acc_on_answered": 0.5948592411260709,
+      "cost_per_item": 0.25910783733700077,
+      "coverage": 0.817
+     },
+     {
+      "acc_on_answered": 0.5932307692307692,
+      "cost_per_item": 0.25910783733700077,
+      "coverage": 0.8125
+     },
+     {
+      "acc_on_answered": 0.5919753086419752,
+      "cost_per_item": 0.25910783733700077,
+      "coverage": 0.81
+     },
+     {
+      "acc_on_answered": 0.6229344016024037,
+      "cost_per_item": 0.2939068767830015,
+      "coverage": 0.9985
+     },
+     {
+      "acc_on_answered": 0.6308337703198741,
+      "cost_per_item": 0.2939068767830015,
+      "coverage": 0.9535
+     },
+     {
+      "acc_on_answered": 0.6335710367526056,
+      "cost_per_item": 0.2939068767830015,
+      "coverage": 0.9115
+     },
+     {
+      "acc_on_answered": 0.6352807714123653,
+      "cost_per_item": 0.2939068767830015,
+      "coverage": 0.8815
+     },
+     {
+      "acc_on_answered": 0.6322505800464038,
+      "cost_per_item": 0.2939068767830015,
+      "coverage": 0.862
+     },
+     {
+      "acc_on_answered": 0.6321150389454764,
+      "cost_per_item": 0.2939068767830015,
+      "coverage": 0.8345
+     },
+     {
+      "acc_on_answered": 0.6300613496932516,
+      "cost_per_item": 0.2939068767830015,
+      "coverage": 0.815
+     },
+     {
+      "acc_on_answered": 0.6274264245460238,
+      "cost_per_item": 0.2939068767830015,
+      "coverage": 0.7985
+     },
+     {
+      "acc_on_answered": 0.6234843650287173,
+      "cost_per_item": 0.2939068767830015,
+      "coverage": 0.7835
+     },
+     {
+      "acc_on_answered": 0.6195439739413681,
+      "cost_per_item": 0.2939068767830015,
+      "coverage": 0.7675
+     },
+     {
+      "acc_on_answered": 0.6152823920265781,
+      "cost_per_item": 0.2939068767830015,
+      "coverage": 0.7525
+     },
+     {
+      "acc_on_answered": 0.612231182795699,
+      "cost_per_item": 0.2939068767830015,
+      "coverage": 0.744
+     },
+     {
+      "acc_on_answered": 0.6113744075829384,
+      "cost_per_item": 0.2939068767830015,
+      "coverage": 0.7385
+     },
+     {
+      "acc_on_answered": 0.6492985971943888,
+      "cost_per_item": 0.34085922438650224,
+      "coverage": 0.998
+     },
+     {
+      "acc_on_answered": 0.6587802313354364,
+      "cost_per_item": 0.34085922438650224,
+      "coverage": 0.951
+     },
+     {
+      "acc_on_answered": 0.6662965019433649,
+      "cost_per_item": 0.34085922438650224,
+      "coverage": 0.9005
+     },
+     {
+      "acc_on_answered": 0.6716937354988399,
+      "cost_per_item": 0.34085922438650224,
+      "coverage": 0.862
+     },
+     {
+      "acc_on_answered": 0.6694610778443113,
+      "cost_per_item": 0.34085922438650224,
+      "coverage": 0.835
+     },
+     {
+      "acc_on_answered": 0.6687697160883281,
+      "cost_per_item": 0.34085922438650224,
+      "coverage": 0.7925
+     },
+     {
+      "acc_on_answered": 0.666883963494133,
+      "cost_per_item": 0.34085922438650224,
+      "coverage": 0.767
+     },
+     {
+      "acc_on_answered": 0.6646464646464647,
+      "cost_per_item": 0.34085922438650224,
+      "coverage": 0.7425
+     },
+     {
+      "acc_on_answered": 0.6622654621264767,
+      "cost_per_item": 0.34085922438650224,
+      "coverage": 0.7195
+     },
+     {
+      "acc_on_answered": 0.6575735821966977,
+      "cost_per_item": 0.34085922438650224,
+      "coverage": 0.6965
+     },
+     {
+      "acc_on_answered": 0.6513693560325684,
+      "cost_per_item": 0.34085922438650224,
+      "coverage": 0.6755
+     },
+     {
+      "acc_on_answered": 0.6472809667673716,
+      "cost_per_item": 0.34085922438650224,
+      "coverage": 0.662
+     },
+     {
+      "acc_on_answered": 0.6468774094063223,
+      "cost_per_item": 0.34085922438650224,
+      "coverage": 0.6485
+     },
+     {
+      "acc_on_answered": 0.6743486973947896,
+      "cost_per_item": 0.39388053341400103,
+      "coverage": 0.998
+     },
+     {
+      "acc_on_answered": 0.6863468634686347,
+      "cost_per_item": 0.39388053341400103,
+      "coverage": 0.9485
+     },
+     {
+      "acc_on_answered": 0.6985994397759103,
+      "cost_per_item": 0.39388053341400103,
+      "coverage": 0.8925
+     },
+     {
+      "acc_on_answered": 0.707028942705257,
+      "cost_per_item": 0.39388053341400103,
+      "coverage": 0.8465
+     },
+     {
+      "acc_on_answered": 0.7057739557739557,
+      "cost_per_item": 0.39388053341400103,
+      "coverage": 0.814
+     },
+     {
+      "acc_on_answered": 0.7074607329842932,
+      "cost_per_item": 0.39388053341400103,
+      "coverage": 0.764
+     },
+     {
+      "acc_on_answered": 0.7071330589849109,
+      "cost_per_item": 0.39388053341400103,
+      "coverage": 0.729
+     },
+     {
+      "acc_on_answered": 0.7087238644556597,
+      "cost_per_item": 0.39388053341400103,
+      "coverage": 0.6935
+     },
+     {
+      "acc_on_answered": 0.7058823529411764,
+      "cost_per_item": 0.39388053341400103,
+      "coverage": 0.663
+     },
+     {
+      "acc_on_answered": 0.700395256916996,
+      "cost_per_item": 0.39388053341400103,
+      "coverage": 0.6325
+     },
+     {
+      "acc_on_answered": 0.6921797004991681,
+      "cost_per_item": 0.39388053341400103,
+      "coverage": 0.601
+     },
+     {
+      "acc_on_answered": 0.6907665505226481,
+      "cost_per_item": 0.39388053341400103,
+      "coverage": 0.574
+     },
+     {
+      "acc_on_answered": 0.6882406563354604,
+      "cost_per_item": 0.39388053341400103,
+      "coverage": 0.5485
+     },
+     {
+      "acc_on_answered": 0.6933867735470942,
+      "cost_per_item": 0.43965503063550243,
+      "coverage": 0.998
+     },
+     {
+      "acc_on_answered": 0.7071240105540897,
+      "cost_per_item": 0.43965503063550243,
+      "coverage": 0.9475
+     },
+     {
+      "acc_on_answered": 0.72,
+      "cost_per_item": 0.43965503063550243,
+      "coverage": 0.8875
+     },
+     {
+      "acc_on_answered": 0.7324955116696589,
+      "cost_per_item": 0.43965503063550243,
+      "coverage": 0.8355
+     },
+     {
+      "acc_on_answered": 0.7324120603015075,
+      "cost_per_item": 0.43965503063550243,
+      "coverage": 0.796
+     },
+     {
+      "acc_on_answered": 0.735593220338983,
+      "cost_per_item": 0.43965503063550243,
+      "coverage": 0.7375
+     },
+     {
+      "acc_on_answered": 0.7370317002881844,
+      "cost_per_item": 0.43965503063550243,
+      "coverage": 0.694
+     },
+     {
+      "acc_on_answered": 0.7404287901990811,
+      "cost_per_item": 0.43965503063550243,
+      "coverage": 0.653
+     },
+     {
+      "acc_on_answered": 0.740470397404704,
+      "cost_per_item": 0.43965503063550243,
+      "coverage": 0.6165
+     },
+     {
+      "acc_on_answered": 0.7348877374784111,
+      "cost_per_item": 0.43965503063550243,
+      "coverage": 0.579
+     },
+     {
+      "acc_on_answered": 0.7271880819366853,
+      "cost_per_item": 0.43965503063550243,
+      "coverage": 0.537
+     },
+     {
+      "acc_on_answered": 0.7252747252747253,
+      "cost_per_item": 0.43965503063550243,
+      "coverage": 0.5005
+     },
+     {
+      "acc_on_answered": 0.722943722943723,
+      "cost_per_item": 0.43965503063550243,
+      "coverage": 0.462
+     },
+     {
+      "acc_on_answered": 0.6928857715430862,
+      "cost_per_item": 0.4793221967860038,
+      "coverage": 0.998
+     },
+     {
+      "acc_on_answered": 0.7093517534537725,
+      "cost_per_item": 0.4793221967860038,
+      "coverage": 0.941
+     },
+     {
+      "acc_on_answered": 0.7254566210045662,
+      "cost_per_item": 0.4793221967860038,
+      "coverage": 0.876
+     },
+     {
+      "acc_on_answered": 0.7400611620795108,
+      "cost_per_item": 0.4793221967860038,
+      "coverage": 0.8175
+     },
+     {
+      "acc_on_answered": 0.7420609202851588,
+      "cost_per_item": 0.4793221967860038,
+      "coverage": 0.7715
+     },
+     {
+      "acc_on_answered": 0.7473385379701916,
+      "cost_per_item": 0.4793221967860038,
+      "coverage": 0.7045
+     },
+     {
+      "acc_on_answered": 0.749618320610687,
+      "cost_per_item": 0.4793221967860038,
+      "coverage": 0.655
+     },
+     {
+      "acc_on_answered": 0.7530864197530864,
+      "cost_per_item": 0.4793221967860038,
+      "coverage": 0.6075
+     },
+     {
+      "acc_on_answered": 0.7528786536758193,
+      "cost_per_item": 0.4793221967860038,
+      "coverage": 0.5645
+     },
+     {
+      "acc_on_answered": 0.7454545454545455,
+      "cost_per_item": 0.4793221967860038,
+      "coverage": 0.5225
+     },
+     {
+      "acc_on_answered": 0.7330508474576272,
+      "cost_per_item": 0.4793221967860038,
+      "coverage": 0.472
+     },
+     {
+      "acc_on_answered": 0.7296037296037297,
+      "cost_per_item": 0.4793221967860038,
+      "coverage": 0.429
+     },
+     {
+      "acc_on_answered": 0.7247706422018348,
+      "cost_per_item": 0.4793221967860038,
+      "coverage": 0.3815
+     },
+     {
+      "acc_on_answered": 0.699749373433584,
+      "cost_per_item": 0.5238409019690032,
+      "coverage": 0.9975
+     },
+     {
+      "acc_on_answered": 0.7189507494646681,
+      "cost_per_item": 0.5238409019690032,
+      "coverage": 0.934
+     },
+     {
+      "acc_on_answered": 0.7375722543352601,
+      "cost_per_item": 0.5238409019690032,
+      "coverage": 0.865
+     },
+     {
+      "acc_on_answered": 0.755944931163955,
+      "cost_per_item": 0.5238409019690032,
+      "coverage": 0.799
+     },
+     {
+      "acc_on_answered": 0.7585513078470825,
+      "cost_per_item": 0.5238409019690032,
+      "coverage": 0.7455
+     },
+     {
+      "acc_on_answered": 0.7682020802377414,
+      "cost_per_item": 0.5238409019690032,
+      "coverage": 0.673
+     },
+     {
+      "acc_on_answered": 0.7719155844155844,
+      "cost_per_item": 0.5238409019690032,
+      "coverage": 0.616
+     },
+     {
+      "acc_on_answered": 0.7774798927613941,
+      "cost_per_item": 0.5238409019690032,
+      "coverage": 0.5595
+     },
+     {
+      "acc_on_answered": 0.7783251231527093,
+      "cost_per_item": 0.5238409019690032,
+      "coverage": 0.5075
+     },
+     {
+      "acc_on_answered": 0.7739801543550165,
+      "cost_per_item": 0.5238409019690032,
+      "coverage": 0.4535
+     },
+     {
+      "acc_on_answered": 0.7576142131979695,
+      "cost_per_item": 0.5238409019690032,
+      "coverage": 0.394
+     },
+     {
+      "acc_on_answered": 0.7536231884057971,
+      "cost_per_item": 0.5238409019690032,
+      "coverage": 0.345
+     },
+     {
+      "acc_on_answered": 0.7487266553480476,
+      "cost_per_item": 0.5238409019690032,
+      "coverage": 0.2945
+     },
+     {
+      "acc_on_answered": 0.7056168505516549,
+      "cost_per_item": 0.5626445136965024,
+      "coverage": 0.997
+     },
+     {
+      "acc_on_answered": 0.7266846361185983,
+      "cost_per_item": 0.5626445136965024,
+      "coverage": 0.9275
+     },
+     {
+      "acc_on_answered": 0.7469316189362946,
+      "cost_per_item": 0.5626445136965024,
+      "coverage": 0.8555
+     },
+     {
+      "acc_on_answered": 0.7673677501593372,
+      "cost_per_item": 0.5626445136965024,
+      "coverage": 0.7845
+     },
+     {
+      "acc_on_answered": 0.7698686938493435,
+      "cost_per_item": 0.5626445136965024,
+      "coverage": 0.7235
+     },
+     {
+      "acc_on_answered": 0.78027950310559,
+      "cost_per_item": 0.5626445136965024,
+      "coverage": 0.644
+     },
+     {
+      "acc_on_answered": 0.7901554404145078,
+      "cost_per_item": 0.5626445136965024,
+      "coverage": 0.579
+     },
+     {
+      "acc_on_answered": 0.8015488867376573,
+      "cost_per_item": 0.5626445136965024,
+      "coverage": 0.5165
+     },
+     {
+      "acc_on_answered": 0.8046103183315039,
+      "cost_per_item": 0.5626445136965024,
+      "coverage": 0.4555
+     },
+     {
+      "acc_on_answered": 0.8030495552731893,
+      "cost_per_item": 0.5626445136965024,
+      "coverage": 0.3935
+     },
+     {
+      "acc_on_answered": 0.790273556231003,
+      "cost_per_item": 0.5626445136965024,
+      "coverage": 0.329
+     },
+     {
+      "acc_on_answered": 0.7915904936014625,
+      "cost_per_item": 0.5626445136965024,
+      "coverage": 0.2735
+     },
+     {
+      "acc_on_answered": 0.7941176470588236,
+      "cost_per_item": 0.5626445136965024,
+      "coverage": 0.221
+     },
+     {
+      "acc_on_answered": 0.7086258776328986,
+      "cost_per_item": 0.6015256477895022,
+      "coverage": 0.997
+     },
+     {
+      "acc_on_answered": 0.7322493224932249,
+      "cost_per_item": 0.6015256477895022,
+      "coverage": 0.9225
+     },
+     {
+      "acc_on_answered": 0.7545722713864307,
+      "cost_per_item": 0.6015256477895022,
+      "coverage": 0.8475
+     },
+     {
+      "acc_on_answered": 0.776843467011643,
+      "cost_per_item": 0.6015256477895022,
+      "coverage": 0.773
+     },
+     {
+      "acc_on_answered": 0.781715095676825,
+      "cost_per_item": 0.6015256477895022,
+      "coverage": 0.7055
+     },
+     {
+      "acc_on_answered": 0.7965964343598055,
+      "cost_per_item": 0.6015256477895022,
+      "coverage": 0.617
+     },
+     {
+      "acc_on_answered": 0.8073732718894009,
+      "cost_per_item": 0.6015256477895022,
+      "coverage": 0.5425
+     },
+     {
+      "acc_on_answered": 0.8193411264612115,
+      "cost_per_item": 0.6015256477895022,
+      "coverage": 0.4705
+     },
+     {
+      "acc_on_answered": 0.8242574257425743,
+      "cost_per_item": 0.6015256477895022,
+      "coverage": 0.404
+     },
+     {
+      "acc_on_answered": 0.8239757207890743,
+      "cost_per_item": 0.6015256477895022,
+      "coverage": 0.3295
+     },
+     {
+      "acc_on_answered": 0.807843137254902,
+      "cost_per_item": 0.6015256477895022,
+      "coverage": 0.255
+     },
+     {
+      "acc_on_answered": 0.8131578947368421,
+      "cost_per_item": 0.6015256477895022,
+      "coverage": 0.19
+     },
+     {
+      "acc_on_answered": 0.8222222222222222,
+      "cost_per_item": 0.6015256477895022,
+      "coverage": 0.135
+     },
+     {
+      "acc_on_answered": 0.7091273821464393,
+      "cost_per_item": 0.6411177595355025,
+      "coverage": 0.997
+     },
+     {
+      "acc_on_answered": 0.7336956521739131,
+      "cost_per_item": 0.6411177595355025,
+      "coverage": 0.92
+     },
+     {
+      "acc_on_answered": 0.7601190476190476,
+      "cost_per_item": 0.6411177595355025,
+      "coverage": 0.84
+     },
+     {
+      "acc_on_answered": 0.7844940867279895,
+      "cost_per_item": 0.6411177595355025,
+      "coverage": 0.761
+     },
+     {
+      "acc_on_answered": 0.7909686817188638,
+      "cost_per_item": 0.6411177595355025,
+      "coverage": 0.6865
+     },
+     {
+      "acc_on_answered": 0.8099662162162162,
+      "cost_per_item": 0.6411177595355025,
+      "coverage": 0.592
+     },
+     {
+      "acc_on_answered": 0.8229475766567755,
+      "cost_per_item": 0.6411177595355025,
+      "coverage": 0.5055
+     },
+     {
+      "acc_on_answered": 0.8362779740871613,
+      "cost_per_item": 0.6411177595355025,
+      "coverage": 0.4245
+     },
+     {
+      "acc_on_answered": 0.8416547788873039,
+      "cost_per_item": 0.6411177595355025,
+      "coverage": 0.3505
+     },
+     {
+      "acc_on_answered": 0.8439849624060151,
+      "cost_per_item": 0.6411177595355025,
+      "coverage": 0.266
+     },
+     {
+      "acc_on_answered": 0.8268156424581006,
+      "cost_per_item": 0.6411177595355025,
+      "coverage": 0.179
+     },
+     {
+      "acc_on_answered": 0.8436018957345972,
+      "cost_per_item": 0.6411177595355025,
+      "coverage": 0.1055
+     },
+     {
+      "acc_on_answered": 0.7071213640922769,
+      "cost_per_item": 0.6618551559570031,
+      "coverage": 0.997
+     },
+     {
+      "acc_on_answered": 0.7323177366702938,
+      "cost_per_item": 0.6618551559570031,
+      "coverage": 0.919
+     },
+     {
+      "acc_on_answered": 0.7590936195587359,
+      "cost_per_item": 0.6618551559570031,
+      "coverage": 0.8385
+     },
+     {
+      "acc_on_answered": 0.7851949768671513,
+      "cost_per_item": 0.6618551559570031,
+      "coverage": 0.7565
+     },
+     {
+      "acc_on_answered": 0.792341678939617,
+      "cost_per_item": 0.6618551559570031,
+      "coverage": 0.679
+     },
+     {
+      "acc_on_answered": 0.8130921619293712,
+      "cost_per_item": 0.6618551559570031,
+      "coverage": 0.5805
+     },
+     {
+      "acc_on_answered": 0.8259979529170931,
+      "cost_per_item": 0.6618551559570031,
+      "coverage": 0.4885
+     },
+     {
+      "acc_on_answered": 0.8391089108910891,
+      "cost_per_item": 0.6618551559570031,
+      "coverage": 0.404
+     },
+     {
+      "acc_on_answered": 0.8436532507739938,
+      "cost_per_item": 0.6618551559570031,
+      "coverage": 0.323
+     },
+     {
+      "acc_on_answered": 0.8426724137931034,
+      "cost_per_item": 0.6618551559570031,
+      "coverage": 0.232
+     },
+     {
+      "acc_on_answered": 0.8074074074074074,
+      "cost_per_item": 0.6618551559570031,
+      "coverage": 0.135
+     },
+     {
+      "acc_on_answered": 0.7946428571428572,
+      "cost_per_item": 0.6618551559570031,
+      "coverage": 0.056
+     }
+    ],
+    "query_router": [
+     {
+      "acc_on_answered": 0.544,
+      "cost_per_item": 0.17159233806499805,
+      "coverage": 1.0
+     },
+     {
+      "acc_on_answered": 0.5437718859429714,
+      "cost_per_item": 0.17159233806499805,
+      "coverage": 0.9995
+     },
+     {
+      "acc_on_answered": 0.5435435435435436,
+      "cost_per_item": 0.17159233806499805,
+      "coverage": 0.999
+     },
+     {
+      "acc_on_answered": 0.5435435435435436,
+      "cost_per_item": 0.17159233806499805,
+      "coverage": 0.999
+     },
+     {
+      "acc_on_answered": 0.5435435435435436,
+      "cost_per_item": 0.17159233806499805,
+      "coverage": 0.999
+     },
+     {
+      "acc_on_answered": 0.5435435435435436,
+      "cost_per_item": 0.17159233806499805,
+      "coverage": 0.999
+     },
+     {
+      "acc_on_answered": 0.5435435435435436,
+      "cost_per_item": 0.17159233806499805,
+      "coverage": 0.999
+     },
+     {
+      "acc_on_answered": 0.5435435435435436,
+      "cost_per_item": 0.17159233806499805,
+      "coverage": 0.999
+     },
+     {
+      "acc_on_answered": 0.5435435435435436,
+      "cost_per_item": 0.17159233806499805,
+      "coverage": 0.999
+     },
+     {
+      "acc_on_answered": 0.5435435435435436,
+      "cost_per_item": 0.17159233806499805,
+      "coverage": 0.999
+     },
+     {
+      "acc_on_answered": 0.5435435435435436,
+      "cost_per_item": 0.17159233806499805,
+      "coverage": 0.999
+     },
+     {
+      "acc_on_answered": 0.5435435435435436,
+      "cost_per_item": 0.17159233806499805,
+      "coverage": 0.999
+     },
+     {
+      "acc_on_answered": 0.5435435435435436,
+      "cost_per_item": 0.17159233806499805,
+      "coverage": 0.999
+     },
+     {
+      "acc_on_answered": 0.5542771385692846,
+      "cost_per_item": 0.18604169750949956,
+      "coverage": 0.9995
+     },
+     {
+      "acc_on_answered": 0.5545500251382605,
+      "cost_per_item": 0.18604169750949956,
+      "coverage": 0.9945
+     },
+     {
+      "acc_on_answered": 0.5553869499241275,
+      "cost_per_item": 0.18604169750949956,
+      "coverage": 0.9885
+     },
+     {
+      "acc_on_answered": 0.5562880324543611,
+      "cost_per_item": 0.18604169750949956,
+      "coverage": 0.986
+     },
+     {
+      "acc_on_answered": 0.5555555555555556,
+      "cost_per_item": 0.18604169750949956,
+      "coverage": 0.981
+     },
+     {
+      "acc_on_answered": 0.5536723163841808,
+      "cost_per_item": 0.18604169750949956,
+      "coverage": 0.9735
+     },
+     {
+      "acc_on_answered": 0.5517063081695968,
+      "cost_per_item": 0.18604169750949956,
+      "coverage": 0.967
+     },
+     {
+      "acc_on_answered": 0.5520455722423614,
+      "cost_per_item": 0.18604169750949956,
+      "coverage": 0.9655
+     },
+     {
+      "acc_on_answered": 0.5514018691588785,
+      "cost_per_item": 0.18604169750949956,
+      "coverage": 0.963
+     },
+     {
+      "acc_on_answered": 0.5495307612095933,
+      "cost_per_item": 0.18604169750949956,
+      "coverage": 0.959
+     },
+     {
+      "acc_on_answered": 0.5486910994764398,
+      "cost_per_item": 0.18604169750949956,
+      "coverage": 0.955
+     },
+     {
+      "acc_on_answered": 0.5473186119873816,
+      "cost_per_item": 0.18604169750949956,
+      "coverage": 0.951
+     },
+     {
+      "acc_on_answered": 0.5469409282700421,
+      "cost_per_item": 0.18604169750949956,
+      "coverage": 0.948
+     },
+     {
+      "acc_on_answered": 0.5732866433216608,
+      "cost_per_item": 0.20856548453500035,
+      "coverage": 0.9995
+     },
+     {
+      "acc_on_answered": 0.574457344775366,
+      "cost_per_item": 0.20856548453500035,
+      "coverage": 0.9905
+     },
+     {
+      "acc_on_answered": 0.5750128008192524,
+      "cost_per_item": 0.20856548453500035,
+      "coverage": 0.9765
+     },
+     {
+      "acc_on_answered": 0.5743034055727554,
+      "cost_per_item": 0.20856548453500035,
+      "coverage": 0.969
+     },
+     {
+      "acc_on_answered": 0.5735140771637122,
+      "cost_per_item": 0.20856548453500035,
+      "coverage": 0.959
+     },
+     {
+      "acc_on_answered": 0.5711252653927813,
+      "cost_per_item": 0.20856548453500035,
+      "coverage": 0.942
+     },
+     {
+      "acc_on_answered": 0.567741935483871,
+      "cost_per_item": 0.20856548453500035,
+      "coverage": 0.93
+     },
+     {
+      "acc_on_answered": 0.5667752442996743,
+      "cost_per_item": 0.20856548453500035,
+      "coverage": 0.921
+     },
+     {
+      "acc_on_answered": 0.5641447368421053,
+      "cost_per_item": 0.20856548453500035,
+      "coverage": 0.912
+     },
+     {
+      "acc_on_answered": 0.560908084163898,
+      "cost_per_item": 0.20856548453500035,
+      "coverage": 0.903
+     },
+     {
+      "acc_on_answered": 0.5579182988248461,
+      "cost_per_item": 0.20856548453500035,
+      "coverage": 0.8935
+     },
+     {
+      "acc_on_answered": 0.5558690744920993,
+      "cost_per_item": 0.20856548453500035,
+      "coverage": 0.886
+     },
+     {
+      "acc_on_answered": 0.5545402627070246,
+      "cost_per_item": 0.20856548453500035,
+      "coverage": 0.8755
+     },
+     {
+      "acc_on_answered": 0.5840840840840841,
+      "cost_per_item": 0.2322254055315007,
+      "coverage": 0.999
+     },
+     {
+      "acc_on_answered": 0.5874872838250254,
+      "cost_per_item": 0.2322254055315007,
+      "coverage": 0.983
+     },
+     {
+      "acc_on_answered": 0.5901041666666667,
+      "cost_per_item": 0.2322254055315007,
+      "coverage": 0.96
+     },
+     {
+      "acc_on_answered": 0.589540412044374,
+      "cost_per_item": 0.2322254055315007,
+      "coverage": 0.9465
+     },
+     {
+      "acc_on_answered": 0.5895922746781116,
+      "cost_per_item": 0.2322254055315007,
+      "coverage": 0.932
+     },
+     {
+      "acc_on_answered": 0.5895027624309392,
+      "cost_per_item": 0.2322254055315007,
+      "coverage": 0.905
+     },
+     {
+      "acc_on_answered": 0.5863431151241535,
+      "cost_per_item": 0.2322254055315007,
+      "coverage": 0.886
+     },
+     {
+      "acc_on_answered": 0.5842889908256881,
+      "cost_per_item": 0.2322254055315007,
+      "coverage": 0.872
+     },
+     {
+      "acc_on_answered": 0.5807962529274004,
+      "cost_per_item": 0.2322254055315007,
+      "coverage": 0.854
+     },
+     {
+      "acc_on_answered": 0.5740740740740741,
+      "cost_per_item": 0.2322254055315007,
+      "coverage": 0.837
+     },
+     {
+      "acc_on_answered": 0.5665445665445665,
+      "cost_per_item": 0.2322254055315007,
+      "coverage": 0.819
+     },
+     {
+      "acc_on_answered": 0.5625774473358116,
+      "cost_per_item": 0.2322254055315007,
+      "coverage": 0.807
+     },
+     {
+      "acc_on_answered": 0.5601764335223692,
+      "cost_per_item": 0.2322254055315007,
+      "coverage": 0.7935
+     },
+     {
+      "acc_on_answered": 0.6036036036036037,
+      "cost_per_item": 0.26444304502750104,
+      "coverage": 0.999
+     },
+     {
+      "acc_on_answered": 0.6087179487179487,
+      "cost_per_item": 0.26444304502750104,
+      "coverage": 0.975
+     },
+     {
+      "acc_on_answered": 0.6139978791092259,
+      "cost_per_item": 0.26444304502750104,
+      "coverage": 0.943
+     },
+     {
+      "acc_on_answered": 0.6137105549510338,
+      "cost_per_item": 0.26444304502750104,
+      "coverage": 0.919
+     },
+     {
+      "acc_on_answered": 0.6146123814835471,
+      "cost_per_item": 0.26444304502750104,
+      "coverage": 0.8965
+     },
+     {
+      "acc_on_answered": 0.6141367323290846,
+      "cost_per_item": 0.26444304502750104,
+      "coverage": 0.863
+     },
+     {
+      "acc_on_answered": 0.6100478468899522,
+      "cost_per_item": 0.26444304502750104,
+      "coverage": 0.836
+     },
+     {
+      "acc_on_answered": 0.6062653562653563,
+      "cost_per_item": 0.26444304502750104,
+      "coverage": 0.814
+     },
+     {
+      "acc_on_answered": 0.600253807106599,
+      "cost_per_item": 0.26444304502750104,
+      "coverage": 0.788
+     },
+     {
+      "acc_on_answered": 0.5907007203667322,
+      "cost_per_item": 0.26444304502750104,
+      "coverage": 0.7635
+     },
+     {
+      "acc_on_answered": 0.5789115646258504,
+      "cost_per_item": 0.26444304502750104,
+      "coverage": 0.735
+     },
+     {
+      "acc_on_answered": 0.5724331926863573,
+      "cost_per_item": 0.26444304502750104,
+      "coverage": 0.711
+     },
+     {
+      "acc_on_answered": 0.5676066522053507,
+      "cost_per_item": 0.26444304502750104,
+      "coverage": 0.6915
+     },
+     {
+      "acc_on_answered": 0.6194291437155733,
+      "cost_per_item": 0.30233649272700064,
+      "coverage": 0.9985
+     },
+     {
+      "acc_on_answered": 0.6284974093264248,
+      "cost_per_item": 0.30233649272700064,
+      "coverage": 0.965
+     },
+     {
+      "acc_on_answered": 0.6383324309691392,
+      "cost_per_item": 0.30233649272700064,
+      "coverage": 0.9235
+     },
+     {
+      "acc_on_answered": 0.6409244644870349,
+      "cost_per_item": 0.30233649272700064,
+      "coverage": 0.887
+     },
+     {
+      "acc_on_answered": 0.641895845523698,
+      "cost_per_item": 0.30233649272700064,
+      "coverage": 0.8545
+     },
+     {
+      "acc_on_answered": 0.6429894996911674,
+      "cost_per_item": 0.30233649272700064,
+      "coverage": 0.8095
+     },
+     {
+      "acc_on_answered": 0.6392282958199357,
+      "cost_per_item": 0.30233649272700064,
+      "coverage": 0.7775
+     },
+     {
+      "acc_on_answered": 0.6358768406961178,
+      "cost_per_item": 0.30233649272700064,
+      "coverage": 0.747
+     },
+     {
+      "acc_on_answered": 0.625970359915314,
+      "cost_per_item": 0.30233649272700064,
+      "coverage": 0.7085
+     },
+     {
+      "acc_on_answered": 0.612639405204461,
+      "cost_per_item": 0.30233649272700064,
+      "coverage": 0.6725
+     },
+     {
+      "acc_on_answered": 0.5990566037735849,
+      "cost_per_item": 0.30233649272700064,
+      "coverage": 0.636
+     },
+     {
+      "acc_on_answered": 0.5899339933993399,
+      "cost_per_item": 0.30233649272700064,
+      "coverage": 0.606
+     },
+     {
+      "acc_on_answered": 0.5841924398625429,
+      "cost_per_item": 0.30233649272700064,
+      "coverage": 0.582
+     },
+     {
+      "acc_on_answered": 0.6354531797696545,
+      "cost_per_item": 0.3358809836350006,
+      "coverage": 0.9985
+     },
+     {
+      "acc_on_answered": 0.6488469601677149,
+      "cost_per_item": 0.3358809836350006,
+      "coverage": 0.954
+     },
+     {
+      "acc_on_answered": 0.6609513274336283,
+      "cost_per_item": 0.3358809836350006,
+      "coverage": 0.904
+     },
+     {
+      "acc_on_answered": 0.6635568513119534,
+      "cost_per_item": 0.3358809836350006,
+      "coverage": 0.8575
+     },
+     {
+      "acc_on_answered": 0.6638089406001224,
+      "cost_per_item": 0.3358809836350006,
+      "coverage": 0.8165
+     },
+     {
+      "acc_on_answered": 0.6655716162943495,
+      "cost_per_item": 0.3358809836350006,
+      "coverage": 0.761
+     },
+     {
+      "acc_on_answered": 0.6618156618156619,
+      "cost_per_item": 0.3358809836350006,
+      "coverage": 0.7215
+     },
+     {
+      "acc_on_answered": 0.6585724797645327,
+      "cost_per_item": 0.3358809836350006,
+      "coverage": 0.6795
+     },
+     {
+      "acc_on_answered": 0.6458498023715415,
+      "cost_per_item": 0.3358809836350006,
+      "coverage": 0.6325
+     },
+     {
+      "acc_on_answered": 0.6275684931506849,
+      "cost_per_item": 0.3358809836350006,
+      "coverage": 0.584
+     },
+     {
+      "acc_on_answered": 0.6103896103896104,
+      "cost_per_item": 0.3358809836350006,
+      "coverage": 0.539
+     },
+     {
+      "acc_on_answered": 0.5980099502487561,
+      "cost_per_item": 0.3358809836350006,
+      "coverage": 0.5025
+     },
+     {
+      "acc_on_answered": 0.5911949685534591,
+      "cost_per_item": 0.3358809836350006,
+      "coverage": 0.477
+     },
+     {
+      "acc_on_answered": 0.6581453634085213,
+      "cost_per_item": 0.3776378873884999,
+      "coverage": 0.9975
+     },
+     {
+      "acc_on_answered": 0.6728427739544733,
+      "cost_per_item": 0.3776378873884999,
+      "coverage": 0.9445
+     },
+     {
+      "acc_on_answered": 0.6861971830985916,
+      "cost_per_item": 0.3776378873884999,
+      "coverage": 0.8875
+     },
+     {
+      "acc_on_answered": 0.6954682779456194,
+      "cost_per_item": 0.3776378873884999,
+      "coverage": 0.8275
+     },
+     {
+      "acc_on_answered": 0.6961290322580644,
+      "cost_per_item": 0.3776378873884999,
+      "coverage": 0.775
+     },
+     {
+      "acc_on_answered": 0.7,
+      "cost_per_item": 0.3776378873884999,
+      "coverage": 0.71
+     },
+     {
+      "acc_on_answered": 0.6987032799389779,
+      "cost_per_item": 0.3776378873884999,
+      "coverage": 0.6555
+     },
+     {
+      "acc_on_answered": 0.6963394342762064,
+      "cost_per_item": 0.3776378873884999,
+      "coverage": 0.601
+     },
+     {
+      "acc_on_answered": 0.6834400731930467,
+      "cost_per_item": 0.3776378873884999,
+      "coverage": 0.5465
+     },
+     {
+      "acc_on_answered": 0.6632231404958677,
+      "cost_per_item": 0.3776378873884999,
+      "coverage": 0.484
+     },
+     {
+      "acc_on_answered": 0.6414435389988359,
+      "cost_per_item": 0.3776378873884999,
+      "coverage": 0.4295
+     },
+     {
+      "acc_on_answered": 0.6248382923673997,
+      "cost_per_item": 0.3776378873884999,
+      "coverage": 0.3865
+     },
+     {
+      "acc_on_answered": 0.6148459383753502,
+      "cost_per_item": 0.3776378873884999,
+      "coverage": 0.357
+     },
+     {
+      "acc_on_answered": 0.6735205616850551,
+      "cost_per_item": 0.4049395767629991,
+      "coverage": 0.997
+     },
+     {
+      "acc_on_answered": 0.6901333333333333,
+      "cost_per_item": 0.4049395767629991,
+      "coverage": 0.9375
+     },
+     {
+      "acc_on_answered": 0.7062857142857143,
+      "cost_per_item": 0.4049395767629991,
+      "coverage": 0.875
+     },
+     {
+      "acc_on_answered": 0.7189623224212477,
+      "cost_per_item": 0.4049395767629991,
+      "coverage": 0.8095
+     },
+     {
+      "acc_on_answered": 0.7203728362183754,
+      "cost_per_item": 0.4049395767629991,
+      "coverage": 0.751
+     },
+     {
+      "acc_on_answered": 0.7261287934863064,
+      "cost_per_item": 0.4049395767629991,
+      "coverage": 0.6755
+     },
+     {
+      "acc_on_answered": 0.7279411764705883,
+      "cost_per_item": 0.4049395767629991,
+      "coverage": 0.612
+     },
+     {
+      "acc_on_answered": 0.7261146496815287,
+      "cost_per_item": 0.4049395767629991,
+      "coverage": 0.5495
+     },
+     {
+      "acc_on_answered": 0.7132579650565263,
+      "cost_per_item": 0.4049395767629991,
+      "coverage": 0.4865
+     },
+     {
+      "acc_on_answered": 0.6917562724014337,
+      "cost_per_item": 0.4049395767629991,
+      "coverage": 0.4185
+     },
+     {
+      "acc_on_answered": 0.6610169491525424,
+      "cost_per_item": 0.4049395767629991,
+      "coverage": 0.354
+     },
+     {
+      "acc_on_answered": 0.6386138613861386,
+      "cost_per_item": 0.4049395767629991,
+      "coverage": 0.303
+     },
+     {
+      "acc_on_answered": 0.6256983240223464,
+      "cost_per_item": 0.4049395767629991,
+      "coverage": 0.2685
+     },
+     {
+      "acc_on_answered": 0.683049147442327,
+      "cost_per_item": 0.43469867536300183,
+      "coverage": 0.997
+     },
+     {
+      "acc_on_answered": 0.7025862068965517,
+      "cost_per_item": 0.43469867536300183,
+      "coverage": 0.928
+     },
+     {
+      "acc_on_answered": 0.7228704784130688,
+      "cost_per_item": 0.43469867536300183,
+      "coverage": 0.857
+     },
+     {
+      "acc_on_answered": 0.7390476190476191,
+      "cost_per_item": 0.43469867536300183,
+      "coverage": 0.7875
+     },
+     {
+      "acc_on_answered": 0.7416897506925209,
+      "cost_per_item": 0.43469867536300183,
+      "coverage": 0.722
+     },
+     {
+      "acc_on_answered": 0.7523584905660378,
+      "cost_per_item": 0.43469867536300183,
+      "coverage": 0.636
+     },
+     {
+      "acc_on_answered": 0.7586821015138023,
+      "cost_per_item": 0.43469867536300183,
+      "coverage": 0.5615
+     },
+     {
+      "acc_on_answered": 0.7604485219164119,
+      "cost_per_item": 0.43469867536300183,
+      "coverage": 0.4905
+     },
+     {
+      "acc_on_answered": 0.7482185273159145,
+      "cost_per_item": 0.43469867536300183,
+      "coverage": 0.421
+     },
+     {
+      "acc_on_answered": 0.7294964028776978,
+      "cost_per_item": 0.43469867536300183,
+      "coverage": 0.3475
+     },
+     {
+      "acc_on_answered": 0.6927272727272727,
+      "cost_per_item": 0.43469867536300183,
+      "coverage": 0.275
+     },
+     {
+      "acc_on_answered": 0.6573426573426573,
+      "cost_per_item": 0.43469867536300183,
+      "coverage": 0.2145
+     },
+     {
+      "acc_on_answered": 0.6332378223495703,
+      "cost_per_item": 0.43469867536300183,
+      "coverage": 0.1745
+     },
+     {
+      "acc_on_answered": 0.6915747241725175,
+      "cost_per_item": 0.45936561730150227,
+      "coverage": 0.997
+     },
+     {
+      "acc_on_answered": 0.7141310232809962,
+      "cost_per_item": 0.45936561730150227,
+      "coverage": 0.9235
+     },
+     {
+      "acc_on_answered": 0.7367491166077739,
+      "cost_per_item": 0.45936561730150227,
+      "coverage": 0.849
+     },
+     {
+      "acc_on_answered": 0.7561290322580645,
+      "cost_per_item": 0.45936561730150227,
+      "coverage": 0.775
+     },
+     {
+      "acc_on_answered": 0.759601706970128,
+      "cost_per_item": 0.45936561730150227,
+      "coverage": 0.703
+     },
+     {
+      "acc_on_answered": 0.7736928104575164,
+      "cost_per_item": 0.45936561730150227,
+      "coverage": 0.612
+     },
+     {
+      "acc_on_answered": 0.7821596244131456,
+      "cost_per_item": 0.45936561730150227,
+      "coverage": 0.5325
+     },
+     {
+      "acc_on_answered": 0.7872105843439912,
+      "cost_per_item": 0.45936561730150227,
+      "coverage": 0.4535
+     },
+     {
+      "acc_on_answered": 0.7808764940239044,
+      "cost_per_item": 0.45936561730150227,
+      "coverage": 0.3765
+     },
+     {
+      "acc_on_answered": 0.767402376910017,
+      "cost_per_item": 0.45936561730150227,
+      "coverage": 0.2945
+     },
+     {
+      "acc_on_answered": 0.7231503579952268,
+      "cost_per_item": 0.45936561730150227,
+      "coverage": 0.2095
+     },
+     {
+      "acc_on_answered": 0.6795774647887324,
+      "cost_per_item": 0.45936561730150227,
+      "coverage": 0.142
+     },
+     {
+      "acc_on_answered": 0.6358974358974359,
+      "cost_per_item": 0.45936561730150227,
+      "coverage": 0.0975
+     },
+     {
+      "acc_on_answered": 0.7011033099297894,
+      "cost_per_item": 0.48031963186950316,
+      "coverage": 0.997
+     },
+     {
+      "acc_on_answered": 0.7249050461204558,
+      "cost_per_item": 0.48031963186950316,
+      "coverage": 0.9215
+     },
+     {
+      "acc_on_answered": 0.7501483679525223,
+      "cost_per_item": 0.48031963186950316,
+      "coverage": 0.8425
+     },
+     {
+      "acc_on_answered": 0.7742782152230971,
+      "cost_per_item": 0.48031963186950316,
+      "coverage": 0.762
+     },
+     {
+      "acc_on_answered": 0.7802919708029197,
+      "cost_per_item": 0.48031963186950316,
+      "coverage": 0.685
+     },
+     {
+      "acc_on_answered": 0.7986406117247239,
+      "cost_per_item": 0.48031963186950316,
+      "coverage": 0.5885
+     },
+     {
+      "acc_on_answered": 0.8107569721115537,
+      "cost_per_item": 0.48031963186950316,
+      "coverage": 0.502
+     },
+     {
+      "acc_on_answered": 0.8210023866348448,
+      "cost_per_item": 0.48031963186950316,
+      "coverage": 0.419
+     },
+     {
+      "acc_on_answered": 0.8215339233038348,
+      "cost_per_item": 0.48031963186950316,
+      "coverage": 0.339
+     },
+     {
+      "acc_on_answered": 0.8143712574850299,
+      "cost_per_item": 0.48031963186950316,
+      "coverage": 0.2505
+     },
+     {
+      "acc_on_answered": 0.7721518987341772,
+      "cost_per_item": 0.48031963186950316,
+      "coverage": 0.158
+     },
+     {
+      "acc_on_answered": 0.7261904761904762,
+      "cost_per_item": 0.48031963186950316,
+      "coverage": 0.084
+     },
+     {
+      "acc_on_answered": 0.7071213640922769,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.997
+     },
+     {
+      "acc_on_answered": 0.7323177366702938,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.919
+     },
+     {
+      "acc_on_answered": 0.7590936195587359,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.8385
+     },
+     {
+      "acc_on_answered": 0.7851949768671513,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.7565
+     },
+     {
+      "acc_on_answered": 0.792341678939617,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.679
+     },
+     {
+      "acc_on_answered": 0.8130921619293712,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.5805
+     },
+     {
+      "acc_on_answered": 0.8259979529170931,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.4885
+     },
+     {
+      "acc_on_answered": 0.8391089108910891,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.404
+     },
+     {
+      "acc_on_answered": 0.8436532507739938,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.323
+     },
+     {
+      "acc_on_answered": 0.8426724137931034,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.232
+     },
+     {
+      "acc_on_answered": 0.8074074074074074,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.135
+     },
+     {
+      "acc_on_answered": 0.7946428571428572,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.056
+     }
+    ],
+    "random_router": [
+     {
+      "acc_on_answered": 0.5435,
+      "cost_per_item": 0.171113420089998,
+      "coverage": 1.0
+     },
+     {
+      "acc_on_answered": 0.5435,
+      "cost_per_item": 0.171113420089998,
+      "coverage": 1.0
+     },
+     {
+      "acc_on_answered": 0.5435,
+      "cost_per_item": 0.171113420089998,
+      "coverage": 1.0
+     },
+     {
+      "acc_on_answered": 0.5437718859429714,
+      "cost_per_item": 0.171113420089998,
+      "coverage": 0.9995
+     },
+     {
+      "acc_on_answered": 0.5437718859429714,
+      "cost_per_item": 0.171113420089998,
+      "coverage": 0.9995
+     },
+     {
+      "acc_on_answered": 0.5437718859429714,
+      "cost_per_item": 0.171113420089998,
+      "coverage": 0.9995
+     },
+     {
+      "acc_on_answered": 0.5437718859429714,
+      "cost_per_item": 0.171113420089998,
+      "coverage": 0.9995
+     },
+     {
+      "acc_on_answered": 0.5437718859429714,
+      "cost_per_item": 0.171113420089998,
+      "coverage": 0.9995
+     },
+     {
+      "acc_on_answered": 0.5437718859429714,
+      "cost_per_item": 0.171113420089998,
+      "coverage": 0.9995
+     },
+     {
+      "acc_on_answered": 0.5437718859429714,
+      "cost_per_item": 0.171113420089998,
+      "coverage": 0.9995
+     },
+     {
+      "acc_on_answered": 0.5437718859429714,
+      "cost_per_item": 0.171113420089998,
+      "coverage": 0.9995
+     },
+     {
+      "acc_on_answered": 0.5437718859429714,
+      "cost_per_item": 0.171113420089998,
+      "coverage": 0.9995
+     },
+     {
+      "acc_on_answered": 0.5437718859429714,
+      "cost_per_item": 0.171113420089998,
+      "coverage": 0.9995
+     },
+     {
+      "acc_on_answered": 0.5549999999999999,
+      "cost_per_item": 0.19735937938950193,
+      "coverage": 1.0
+     },
+     {
+      "acc_on_answered": 0.5568410462776661,
+      "cost_per_item": 0.19735937938950193,
+      "coverage": 0.994
+     },
+     {
+      "acc_on_answered": 0.5574683544303798,
+      "cost_per_item": 0.19735937938950193,
+      "coverage": 0.9875
+     },
+     {
+      "acc_on_answered": 0.5572012257405516,
+      "cost_per_item": 0.19735937938950193,
+      "coverage": 0.979
+     },
+     {
+      "acc_on_answered": 0.5569230769230769,
+      "cost_per_item": 0.19735937938950193,
+      "coverage": 0.975
+     },
+     {
+      "acc_on_answered": 0.5561303673047078,
+      "cost_per_item": 0.19735937938950193,
+      "coverage": 0.9665
+     },
+     {
+      "acc_on_answered": 0.5534689619196662,
+      "cost_per_item": 0.19735937938950193,
+      "coverage": 0.9585
+     },
+     {
+      "acc_on_answered": 0.5505263157894738,
+      "cost_per_item": 0.19735937938950193,
+      "coverage": 0.95
+     },
+     {
+      "acc_on_answered": 0.54753053637812,
+      "cost_per_item": 0.19735937938950193,
+      "coverage": 0.9415
+     },
+     {
+      "acc_on_answered": 0.5446762974852862,
+      "cost_per_item": 0.19735937938950193,
+      "coverage": 0.9345
+     },
+     {
+      "acc_on_answered": 0.541036717062635,
+      "cost_per_item": 0.19735937938950193,
+      "coverage": 0.926
+     },
+     {
+      "acc_on_answered": 0.5388798259923872,
+      "cost_per_item": 0.19735937938950193,
+      "coverage": 0.9195
+     },
+     {
+      "acc_on_answered": 0.5382096069868996,
+      "cost_per_item": 0.19735937938950193,
+      "coverage": 0.916
+     },
+     {
+      "acc_on_answered": 0.5707853926963482,
+      "cost_per_item": 0.22870162386850107,
+      "coverage": 0.9995
+     },
+     {
+      "acc_on_answered": 0.5743174924165824,
+      "cost_per_item": 0.22870162386850107,
+      "coverage": 0.989
+     },
+     {
+      "acc_on_answered": 0.5761316872427984,
+      "cost_per_item": 0.22870162386850107,
+      "coverage": 0.972
+     },
+     {
+      "acc_on_answered": 0.5765013054830288,
+      "cost_per_item": 0.22870162386850107,
+      "coverage": 0.9575
+     },
+     {
+      "acc_on_answered": 0.5745243128964059,
+      "cost_per_item": 0.22870162386850107,
+      "coverage": 0.946
+     },
+     {
+      "acc_on_answered": 0.5728155339805825,
+      "cost_per_item": 0.22870162386850107,
+      "coverage": 0.927
+     },
+     {
+      "acc_on_answered": 0.5686813186813187,
+      "cost_per_item": 0.22870162386850107,
+      "coverage": 0.91
+     },
+     {
+      "acc_on_answered": 0.5639013452914798,
+      "cost_per_item": 0.22870162386850107,
+      "coverage": 0.892
+     },
+     {
+      "acc_on_answered": 0.5581527936145951,
+      "cost_per_item": 0.22870162386850107,
+      "coverage": 0.877
+     },
+     {
+      "acc_on_answered": 0.5522648083623694,
+      "cost_per_item": 0.22870162386850107,
+      "coverage": 0.861
+     },
+     {
+      "acc_on_answered": 0.5437239738251041,
+      "cost_per_item": 0.22870162386850107,
+      "coverage": 0.8405
+     },
+     {
+      "acc_on_answered": 0.5386940749697702,
+      "cost_per_item": 0.22870162386850107,
+      "coverage": 0.827
+     },
+     {
+      "acc_on_answered": 0.5354957160342717,
+      "cost_per_item": 0.22870162386850107,
+      "coverage": 0.817
+     },
+     {
+      "acc_on_answered": 0.5902951475737869,
+      "cost_per_item": 0.2539359969004994,
+      "coverage": 0.9995
+     },
+     {
+      "acc_on_answered": 0.5939887926642893,
+      "cost_per_item": 0.2539359969004994,
+      "coverage": 0.9815
+     },
+     {
+      "acc_on_answered": 0.5974973931178311,
+      "cost_per_item": 0.2539359969004994,
+      "coverage": 0.959
+     },
+     {
+      "acc_on_answered": 0.5988279168886521,
+      "cost_per_item": 0.2539359969004994,
+      "coverage": 0.9385
+     },
+     {
+      "acc_on_answered": 0.5955362003266195,
+      "cost_per_item": 0.2539359969004994,
+      "coverage": 0.9185
+     },
+     {
+      "acc_on_answered": 0.593505039193729,
+      "cost_per_item": 0.2539359969004994,
+      "coverage": 0.893
+     },
+     {
+      "acc_on_answered": 0.5878962536023055,
+      "cost_per_item": 0.2539359969004994,
+      "coverage": 0.8675
+     },
+     {
+      "acc_on_answered": 0.5810089020771514,
+      "cost_per_item": 0.2539359969004994,
+      "coverage": 0.8425
+     },
+     {
+      "acc_on_answered": 0.572300183038438,
+      "cost_per_item": 0.2539359969004994,
+      "coverage": 0.8195
+     },
+     {
+      "acc_on_answered": 0.5634422110552764,
+      "cost_per_item": 0.2539359969004994,
+      "coverage": 0.796
+     },
+     {
+      "acc_on_answered": 0.5504885993485342,
+      "cost_per_item": 0.2539359969004994,
+      "coverage": 0.7675
+     },
+     {
+      "acc_on_answered": 0.5433911882510014,
+      "cost_per_item": 0.2539359969004994,
+      "coverage": 0.749
+     },
+     {
+      "acc_on_answered": 0.5384092454112848,
+      "cost_per_item": 0.2539359969004994,
+      "coverage": 0.7355
+     },
+     {
+      "acc_on_answered": 0.6003001500750376,
+      "cost_per_item": 0.28318524504950043,
+      "coverage": 0.9995
+     },
+     {
+      "acc_on_answered": 0.6046153846153846,
+      "cost_per_item": 0.28318524504950043,
+      "coverage": 0.975
+     },
+     {
+      "acc_on_answered": 0.6092014806980434,
+      "cost_per_item": 0.28318524504950043,
+      "coverage": 0.9455
+     },
+     {
+      "acc_on_answered": 0.6124454148471616,
+      "cost_per_item": 0.28318524504950043,
+      "coverage": 0.916
+     },
+     {
+      "acc_on_answered": 0.6089887640449438,
+      "cost_per_item": 0.28318524504950043,
+      "coverage": 0.89
+     },
+     {
+      "acc_on_answered": 0.6065573770491803,
+      "cost_per_item": 0.28318524504950043,
+      "coverage": 0.854
+     },
+     {
+      "acc_on_answered": 0.6013390139987826,
+      "cost_per_item": 0.28318524504950043,
+      "coverage": 0.8215
+     },
+     {
+      "acc_on_answered": 0.5931558935361216,
+      "cost_per_item": 0.28318524504950043,
+      "coverage": 0.789
+     },
+     {
+      "acc_on_answered": 0.5811345646437995,
+      "cost_per_item": 0.28318524504950043,
+      "coverage": 0.758
+     },
+     {
+      "acc_on_answered": 0.5687757909215956,
+      "cost_per_item": 0.28318524504950043,
+      "coverage": 0.727
+     },
+     {
+      "acc_on_answered": 0.5490196078431373,
+      "cost_per_item": 0.28318524504950043,
+      "coverage": 0.6885
+     },
+     {
+      "acc_on_answered": 0.5393343419062027,
+      "cost_per_item": 0.28318524504950043,
+      "coverage": 0.661
+     },
+     {
+      "acc_on_answered": 0.5314685314685315,
+      "cost_per_item": 0.28318524504950043,
+      "coverage": 0.6435
+     },
+     {
+      "acc_on_answered": 0.6166166166166166,
+      "cost_per_item": 0.3105803334675021,
+      "coverage": 0.999
+     },
+     {
+      "acc_on_answered": 0.6233230134158927,
+      "cost_per_item": 0.3105803334675021,
+      "coverage": 0.969
+     },
+     {
+      "acc_on_answered": 0.6309587573647564,
+      "cost_per_item": 0.3105803334675021,
+      "coverage": 0.9335
+     },
+     {
+      "acc_on_answered": 0.6346904629113218,
+      "cost_per_item": 0.3105803334675021,
+      "coverage": 0.8965
+     },
+     {
+      "acc_on_answered": 0.6313043478260869,
+      "cost_per_item": 0.3105803334675021,
+      "coverage": 0.8625
+     },
+     {
+      "acc_on_answered": 0.6269938650306748,
+      "cost_per_item": 0.3105803334675021,
+      "coverage": 0.815
+     },
+     {
+      "acc_on_answered": 0.6212218649517685,
+      "cost_per_item": 0.3105803334675021,
+      "coverage": 0.7775
+     },
+     {
+      "acc_on_answered": 0.6109979633401221,
+      "cost_per_item": 0.3105803334675021,
+      "coverage": 0.7365
+     },
+     {
+      "acc_on_answered": 0.5965665236051503,
+      "cost_per_item": 0.3105803334675021,
+      "coverage": 0.699
+     },
+     {
+      "acc_on_answered": 0.580742987111448,
+      "cost_per_item": 0.3105803334675021,
+      "coverage": 0.6595
+     },
+     {
+      "acc_on_answered": 0.5562805872756933,
+      "cost_per_item": 0.3105803334675021,
+      "coverage": 0.613
+     },
+     {
+      "acc_on_answered": 0.5414507772020725,
+      "cost_per_item": 0.3105803334675021,
+      "coverage": 0.579
+     },
+     {
+      "acc_on_answered": 0.5308863025962399,
+      "cost_per_item": 0.3105803334675021,
+      "coverage": 0.5585
+     },
+     {
+      "acc_on_answered": 0.6302605210420842,
+      "cost_per_item": 0.3359389834470053,
+      "coverage": 0.998
+     },
+     {
+      "acc_on_answered": 0.6388168137000518,
+      "cost_per_item": 0.3359389834470053,
+      "coverage": 0.9635
+     },
+     {
+      "acc_on_answered": 0.6487513572204127,
+      "cost_per_item": 0.3359389834470053,
+      "coverage": 0.921
+     },
+     {
+      "acc_on_answered": 0.6531660011409013,
+      "cost_per_item": 0.3359389834470053,
+      "coverage": 0.8765
+     },
+     {
+      "acc_on_answered": 0.6499701848539058,
+      "cost_per_item": 0.3359389834470053,
+      "coverage": 0.8385
+     },
+     {
+      "acc_on_answered": 0.6469465648854962,
+      "cost_per_item": 0.3359389834470053,
+      "coverage": 0.786
+     },
+     {
+      "acc_on_answered": 0.6402974983096688,
+      "cost_per_item": 0.3359389834470053,
+      "coverage": 0.7395
+     },
+     {
+      "acc_on_answered": 0.6298701298701299,
+      "cost_per_item": 0.3359389834470053,
+      "coverage": 0.693
+     },
+     {
+      "acc_on_answered": 0.6128284389489953,
+      "cost_per_item": 0.3359389834470053,
+      "coverage": 0.647
+     },
+     {
+      "acc_on_answered": 0.592809364548495,
+      "cost_per_item": 0.3359389834470053,
+      "coverage": 0.598
+     },
+     {
+      "acc_on_answered": 0.5627864344637947,
+      "cost_per_item": 0.3359389834470053,
+      "coverage": 0.5455
+     },
+     {
+      "acc_on_answered": 0.5446428571428572,
+      "cost_per_item": 0.3359389834470053,
+      "coverage": 0.504
+     },
+     {
+      "acc_on_answered": 0.5297805642633229,
+      "cost_per_item": 0.3359389834470053,
+      "coverage": 0.4785
+     },
+     {
+      "acc_on_answered": 0.643609022556391,
+      "cost_per_item": 0.36171697894850446,
+      "coverage": 0.9975
+     },
+     {
+      "acc_on_answered": 0.6549554273728369,
+      "cost_per_item": 0.36171697894850446,
+      "coverage": 0.9535
+     },
+     {
+      "acc_on_answered": 0.6670360110803324,
+      "cost_per_item": 0.36171697894850446,
+      "coverage": 0.9025
+     },
+     {
+      "acc_on_answered": 0.6735173223722841,
+      "cost_per_item": 0.36171697894850446,
+      "coverage": 0.8515
+     },
+     {
+      "acc_on_answered": 0.671003717472119,
+      "cost_per_item": 0.36171697894850446,
+      "coverage": 0.807
+     },
+     {
+      "acc_on_answered": 0.6702341137123746,
+      "cost_per_item": 0.36171697894850446,
+      "coverage": 0.7475
+     },
+     {
+      "acc_on_answered": 0.6635379061371841,
+      "cost_per_item": 0.36171697894850446,
+      "coverage": 0.6925
+     },
+     {
+      "acc_on_answered": 0.6544175136825645,
+      "cost_per_item": 0.36171697894850446,
+      "coverage": 0.6395
+     },
+     {
+      "acc_on_answered": 0.637213254035684,
+      "cost_per_item": 0.36171697894850446,
+      "coverage": 0.5885
+     },
+     {
+      "acc_on_answered": 0.6145930776426567,
+      "cost_per_item": 0.36171697894850446,
+      "coverage": 0.5345
+     },
+     {
+      "acc_on_answered": 0.578781512605042,
+      "cost_per_item": 0.36171697894850446,
+      "coverage": 0.476
+     },
+     {
+      "acc_on_answered": 0.5578703703703703,
+      "cost_per_item": 0.36171697894850446,
+      "coverage": 0.432
+     },
+     {
+      "acc_on_answered": 0.5380774032459426,
+      "cost_per_item": 0.36171697894850446,
+      "coverage": 0.4005
+     },
+     {
+      "acc_on_answered": 0.6616541353383458,
+      "cost_per_item": 0.3883611925925057,
+      "coverage": 0.9975
+     },
+     {
+      "acc_on_answered": 0.674565560821485,
+      "cost_per_item": 0.3883611925925057,
+      "coverage": 0.9495
+     },
+     {
+      "acc_on_answered": 0.6889763779527559,
+      "cost_per_item": 0.3883611925925057,
+      "coverage": 0.889
+     },
+     {
+      "acc_on_answered": 0.6984412470023981,
+      "cost_per_item": 0.3883611925925057,
+      "coverage": 0.834
+     },
+     {
+      "acc_on_answered": 0.6980891719745224,
+      "cost_per_item": 0.3883611925925057,
+      "coverage": 0.785
+     },
+     {
+      "acc_on_answered": 0.6986685353889278,
+      "cost_per_item": 0.3883611925925057,
+      "coverage": 0.7135
+     },
+     {
+      "acc_on_answered": 0.693783576362241,
+      "cost_per_item": 0.3883611925925057,
+      "coverage": 0.6515
+     },
+     {
+      "acc_on_answered": 0.6880811496196111,
+      "cost_per_item": 0.3883611925925057,
+      "coverage": 0.5915
+     },
+     {
+      "acc_on_answered": 0.6719924812030076,
+      "cost_per_item": 0.3883611925925057,
+      "coverage": 0.532
+     },
+     {
+      "acc_on_answered": 0.6497354497354497,
+      "cost_per_item": 0.3883611925925057,
+      "coverage": 0.4725
+     },
+     {
+      "acc_on_answered": 0.6086419753086421,
+      "cost_per_item": 0.3883611925925057,
+      "coverage": 0.405
+     },
+     {
+      "acc_on_answered": 0.5803698435277382,
+      "cost_per_item": 0.3883611925925057,
+      "coverage": 0.3515
+     },
+     {
+      "acc_on_answered": 0.5523809523809524,
+      "cost_per_item": 0.3883611925925057,
+      "coverage": 0.315
+     },
+     {
+      "acc_on_answered": 0.675187969924812,
+      "cost_per_item": 0.41134074064350423,
+      "coverage": 0.9975
+     },
+     {
+      "acc_on_answered": 0.6914498141263941,
+      "cost_per_item": 0.41134074064350423,
+      "coverage": 0.9415
+     },
+     {
+      "acc_on_answered": 0.7080957810718358,
+      "cost_per_item": 0.41134074064350423,
+      "coverage": 0.877
+     },
+     {
+      "acc_on_answered": 0.7204892966360856,
+      "cost_per_item": 0.41134074064350423,
+      "coverage": 0.8175
+     },
+     {
+      "acc_on_answered": 0.7201051248357424,
+      "cost_per_item": 0.41134074064350423,
+      "coverage": 0.761
+     },
+     {
+      "acc_on_answered": 0.7231555880204529,
+      "cost_per_item": 0.41134074064350423,
+      "coverage": 0.6845
+     },
+     {
+      "acc_on_answered": 0.7205523964256701,
+      "cost_per_item": 0.41134074064350423,
+      "coverage": 0.6155
+     },
+     {
+      "acc_on_answered": 0.7174111212397447,
+      "cost_per_item": 0.41134074064350423,
+      "coverage": 0.5485
+     },
+     {
+      "acc_on_answered": 0.703205791106515,
+      "cost_per_item": 0.41134074064350423,
+      "coverage": 0.4835
+     },
+     {
+      "acc_on_answered": 0.6782713085234093,
+      "cost_per_item": 0.41134074064350423,
+      "coverage": 0.4165
+     },
+     {
+      "acc_on_answered": 0.6317321688500728,
+      "cost_per_item": 0.41134074064350423,
+      "coverage": 0.3435
+     },
+     {
+      "acc_on_answered": 0.5989492119089317,
+      "cost_per_item": 0.41134074064350423,
+      "coverage": 0.2855
+     },
+     {
+      "acc_on_answered": 0.5617283950617284,
+      "cost_per_item": 0.41134074064350423,
+      "coverage": 0.243
+     },
+     {
+      "acc_on_answered": 0.681704260651629,
+      "cost_per_item": 0.4411855727785015,
+      "coverage": 0.9975
+     },
+     {
+      "acc_on_answered": 0.7025282409897795,
+      "cost_per_item": 0.4411855727785015,
+      "coverage": 0.9295
+     },
+     {
+      "acc_on_answered": 0.721865889212828,
+      "cost_per_item": 0.4411855727785015,
+      "coverage": 0.8575
+     },
+     {
+      "acc_on_answered": 0.7387729285262492,
+      "cost_per_item": 0.4411855727785015,
+      "coverage": 0.7905
+     },
+     {
+      "acc_on_answered": 0.7398205659075224,
+      "cost_per_item": 0.4411855727785015,
+      "coverage": 0.7245
+     },
+     {
+      "acc_on_answered": 0.75,
+      "cost_per_item": 0.4411855727785015,
+      "coverage": 0.642
+     },
+     {
+      "acc_on_answered": 0.7484444444444445,
+      "cost_per_item": 0.4411855727785015,
+      "coverage": 0.5625
+     },
+     {
+      "acc_on_answered": 0.7494887525562373,
+      "cost_per_item": 0.4411855727785015,
+      "coverage": 0.489
+     },
+     {
+      "acc_on_answered": 0.7353293413173653,
+      "cost_per_item": 0.4411855727785015,
+      "coverage": 0.4175
+     },
+     {
+      "acc_on_answered": 0.7090643274853801,
+      "cost_per_item": 0.4411855727785015,
+      "coverage": 0.342
+     },
+     {
+      "acc_on_answered": 0.6538461538461539,
+      "cost_per_item": 0.4411855727785015,
+      "coverage": 0.26
+     },
+     {
+      "acc_on_answered": 0.6077922077922078,
+      "cost_per_item": 0.4411855727785015,
+      "coverage": 0.1925
+     },
+     {
+      "acc_on_answered": 0.547945205479452,
+      "cost_per_item": 0.4411855727785015,
+      "coverage": 0.146
+     },
+     {
+      "acc_on_answered": 0.7002506265664161,
+      "cost_per_item": 0.4751703912215044,
+      "coverage": 0.9975
+     },
+     {
+      "acc_on_answered": 0.724119241192412,
+      "cost_per_item": 0.4751703912215044,
+      "coverage": 0.9225
+     },
+     {
+      "acc_on_answered": 0.7476359338061466,
+      "cost_per_item": 0.4751703912215044,
+      "coverage": 0.846
+     },
+     {
+      "acc_on_answered": 0.7691807542262679,
+      "cost_per_item": 0.4751703912215044,
+      "coverage": 0.769
+     },
+     {
+      "acc_on_answered": 0.7732181425485961,
+      "cost_per_item": 0.4751703912215044,
+      "coverage": 0.6945
+     },
+     {
+      "acc_on_answered": 0.7888611803823774,
+      "cost_per_item": 0.4751703912215044,
+      "coverage": 0.6015
+     },
+     {
+      "acc_on_answered": 0.7951219512195122,
+      "cost_per_item": 0.4751703912215044,
+      "coverage": 0.5125
+     },
+     {
+      "acc_on_answered": 0.8023121387283236,
+      "cost_per_item": 0.4751703912215044,
+      "coverage": 0.4325
+     },
+     {
+      "acc_on_answered": 0.7980225988700564,
+      "cost_per_item": 0.4751703912215044,
+      "coverage": 0.354
+     },
+     {
+      "acc_on_answered": 0.7813084112149533,
+      "cost_per_item": 0.4751703912215044,
+      "coverage": 0.2675
+     },
+     {
+      "acc_on_answered": 0.7225433526011561,
+      "cost_per_item": 0.4751703912215044,
+      "coverage": 0.173
+     },
+     {
+      "acc_on_answered": 0.6510416666666667,
+      "cost_per_item": 0.4751703912215044,
+      "coverage": 0.096
+     },
+     {
+      "acc_on_answered": 0.7071213640922769,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.997
+     },
+     {
+      "acc_on_answered": 0.7323177366702938,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.919
+     },
+     {
+      "acc_on_answered": 0.7590936195587359,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.8385
+     },
+     {
+      "acc_on_answered": 0.7851949768671513,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.7565
+     },
+     {
+      "acc_on_answered": 0.792341678939617,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.679
+     },
+     {
+      "acc_on_answered": 0.8130921619293712,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.5805
+     },
+     {
+      "acc_on_answered": 0.8259979529170931,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.4885
+     },
+     {
+      "acc_on_answered": 0.8391089108910891,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.404
+     },
+     {
+      "acc_on_answered": 0.8436532507739938,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.323
+     },
+     {
+      "acc_on_answered": 0.8426724137931034,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.232
+     },
+     {
+      "acc_on_answered": 0.8074074074074074,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.135
+     },
+     {
+      "acc_on_answered": 0.7946428571428572,
+      "cost_per_item": 0.4905090495120048,
+      "coverage": 0.056
+     }
+    ]
+   }
+  },
+  "risk_coverage": {
+   "L": [
+    [
+     0.0005,
+     0.0
+    ],
+    [
+     0.0085,
+     0.11764705882352941
+    ],
+    [
+     0.017,
+     0.14705882352941177
+    ],
+    [
+     0.0255,
+     0.17647058823529413
+    ],
+    [
+     0.034,
+     0.19117647058823528
+    ],
+    [
+     0.042,
+     0.19047619047619047
+    ],
+    [
+     0.0505,
+     0.18811881188118812
+    ],
+    [
+     0.059,
+     0.2033898305084746
+    ],
+    [
+     0.0675,
+     0.2074074074074074
+    ],
+    [
+     0.0755,
+     0.2251655629139073
+    ],
+    [
+     0.084,
+     0.22023809523809523
+    ],
+    [
+     0.0925,
+     0.20540540540540542
+    ],
+    [
+     0.101,
+     0.21287128712871287
+    ],
+    [
+     0.1095,
+     0.2009132420091324
+    ],
+    [
+     0.1175,
+     0.19148936170212766
+    ],
+    [
+     0.126,
+     0.19444444444444445
+    ],
+    [
+     0.1345,
+     0.19330855018587362
+    ],
+    [
+     0.143,
+     0.1888111888111888
+    ],
+    [
+     0.151,
+     0.18211920529801323
+    ],
+    [
+     0.1595,
+     0.18181818181818182
+    ],
+    [
+     0.168,
+     0.18452380952380953
+    ],
+    [
+     0.1765,
+     0.1813031161473088
+    ],
+    [
+     0.185,
+     0.1783783783783784
+    ],
+    [
+     0.193,
+     0.17616580310880828
+    ],
+    [
+     0.2015,
+     0.17121588089330025
+    ],
+    [
+     0.21,
+     0.16666666666666666
+    ],
+    [
+     0.2185,
+     0.16475972540045766
+    ],
+    [
+     0.2265,
+     0.16114790286975716
+    ],
+    [
+     0.235,
+     0.1574468085106383
+    ],
+    [
+     0.2435,
+     0.15811088295687886
+    ],
+    [
+     0.252,
+     0.1527777777777778
+    ],
+    [
+     0.26,
+     0.15384615384615385
+    ],
+    [
+     0.2685,
+     0.15456238361266295
+    ],
+    [
+     0.277,
+     0.15703971119133575
+    ],
+    [
+     0.2855,
+     0.15586690017513136
+    ],
+    [
+     0.294,
+     0.15476190476190477
+    ],
+    [
+     0.302,
+     0.152317880794702
+    ],
+    [
+     0.3105,
+     0.15458937198067632
+    ],
+    [
+     0.319,
+     0.15673981191222572
+    ],
+    [
+     0.3275,
+     0.15572519083969466
+    ],
+    [
+     0.3355,
+     0.15499254843517138
+    ],
+    [
+     0.344,
+     0.1613372093023256
+    ],
+    [
+     0.3525,
+     0.16028368794326242
+    ],
+    [
+     0.361,
+     0.15789473684210525
+    ],
+    [
+     0.3695,
+     0.15696887686062247
+    ],
+    [
+     0.3775,
+     0.15496688741721854
+    ],
+    [
+     0.386,
+     0.15414507772020725
+    ],
+    [
+     0.3945,
+     0.15716096324461343
+    ],
+    [
+     0.403,
+     0.1600496277915633
+    ],
+    [
+     0.411,
+     0.1630170316301703
+    ],
+    [
+     0.4195,
+     0.1632896305125149
+    ],
+    [
+     0.428,
+     0.1658878504672897
+    ],
+    [
+     0.4365,
+     0.16494845360824742
+    ],
+    [
+     0.4445,
+     0.16535433070866143
+    ],
+    [
+     0.453,
+     0.16666666666666666
+    ],
+    [
+     0.4615,
+     0.1668472372697725
+    ],
+    [
+     0.47,
+     0.16914893617021276
+    ],
+    [
+     0.4785,
+     0.1724137931034483
+    ],
+    [
+     0.4865,
+     0.17266187050359713
+    ],
+    [
+     0.495,
+     0.17474747474747473
+    ],
+    [
+     0.5035,
+     0.17477656405163852
+    ],
+    [
+     0.512,
+     0.1748046875
+    ],
+    [
+     0.52,
+     0.17596153846153847
+    ],
+    [
+     0.5285,
+     0.17691579943235572
+    ],
+    [
+     0.537,
+     0.17783985102420857
+    ],
+    [
+     0.5455,
+     0.1778185151237397
+    ],
+    [
+     0.554,
+     0.17779783393501805
+    ],
+    [
+     0.562,
+     0.18149466192170818
+    ],
+    [
+     0.5705,
+     0.1831726555652936
+    ],
+    [
+     0.579,
+     0.18566493955094993
+    ],
+    [
+     0.5875,
+     0.18723404255319148
+    ],
+    [
+     0.5955,
+     0.1897565071368598
+    ],
+    [
+     0.604,
+     0.19370860927152317
+    ],
+    [
+     0.6125,
+     0.19428571428571428
+    ],
+    [
+     0.621,
+     0.1964573268921095
+    ],
+    [
+     0.629,
+     0.1987281399046105
+    ],
+    [
+     0.6375,
+     0.2
+    ],
+    [
+     0.646,
+     0.20278637770897834
+    ],
+    [
+     0.6545,
+     0.2047364400305577
+    ],
+    [
+     0.663,
+     0.20588235294117646
+    ],
+    [
+     0.671,
+     0.20640834575260805
+    ],
+    [
+     0.6795,
+     0.20750551876379691
+    ],
+    [
+     0.688,
+     0.2056686046511628
+    ],
+    [
+     0.6965,
+     0.20459440057430006
+    ],
+    [
+     0.7045,
+     0.2044002838892832
+    ],
+    [
+     0.713,
+     0.2082748948106592
+    ],
+    [
+     0.7215,
+     0.2085932085932086
+    ],
+    [
+     0.73,
+     0.2095890410958904
+    ],
+    [
+     0.7385,
+     0.21259309410968177
+    ],
+    [
+     0.7465,
+     0.21232417950435364
+    ],
+    [
+     0.755,
+     0.2152317880794702
+    ],
+    [
+     0.7635,
+     0.21676489849377864
+    ],
+    [
+     0.772,
+     0.21955958549222798
+    ],
+    [
+     0.78,
+     0.22243589743589742
+    ],
+    [
+     0.7885,
+     0.2270133164235891
+    ],
+    [
+     0.797,
+     0.22772898368883313
+    ],
+    [
+     0.8055,
+     0.2309124767225326
+    ],
+    [
+     0.8135,
+     0.2329440688383528
+    ],
+    [
+     0.822,
+     0.23661800486618004
+    ],
+    [
+     0.8305,
+     0.23961468994581578
+    ],
+    [
+     0.839,
+     0.24076281287246723
+    ],
+    [
+     0.8475,
+     0.24365781710914455
+    ],
+    [
+     0.8555,
+     0.24605493863237873
+    ],
+    [
+     0.864,
+     0.2494212962962963
+    ],
+    [
+     0.8725,
+     0.2510028653295129
+    ],
+    [
+     0.881,
+     0.2542565266742338
+    ],
+    [
+     0.889,
+     0.25703037120359956
+    ],
+    [
+     0.8975,
+     0.26016713091922006
+    ],
+    [
+     0.906,
+     0.26379690949227375
+    ],
+    [
+     0.9145,
+     0.26517222525970474
+    ],
+    [
+     0.923,
+     0.2692307692307692
+    ],
+    [
+     0.931,
+     0.2722878625134264
+    ],
+    [
+     0.9395,
+     0.27408195848855776
+    ],
+    [
+     0.948,
+     0.27689873417721517
+    ],
+    [
+     0.9565,
+     0.2801881860951385
+    ],
+    [
+     0.9645,
+     0.28252980819077245
+    ],
+    [
+     0.973,
+     0.2867420349434738
+    ],
+    [
+     0.9815,
+     0.28833418237391745
+    ],
+    [
+     0.99,
+     0.2909090909090909
+    ],
+    [
+     1.0,
+     0.2945
+    ]
+   ],
+   "S": [
+    [
+     0.0005,
+     0.0
+    ],
+    [
+     0.0085,
+     0.058823529411764705
+    ],
+    [
+     0.0165,
+     0.09090909090909091
+    ],
+    [
+     0.0245,
+     0.10204081632653061
+    ],
+    [
+     0.033,
+     0.10606060606060606
+    ],
+    [
+     0.041,
+     0.10975609756097561
+    ],
+    [
+     0.049,
+     0.09183673469387756
+    ],
+    [
+     0.0575,
+     0.10434782608695652
+    ],
+    [
+     0.0655,
+     0.12213740458015267
+    ],
+    [
+     0.0735,
+     0.12244897959183673
+    ],
+    [
+     0.082,
+     0.11585365853658537
+    ],
+    [
+     0.09,
+     0.1388888888888889
+    ],
+    [
+     0.098,
+     0.14285714285714285
+    ],
+    [
+     0.1065,
+     0.15492957746478872
+    ],
+    [
+     0.1145,
+     0.1703056768558952
+    ],
+    [
+     0.1225,
+     0.17142857142857143
+    ],
+    [
+     0.1305,
+     0.18007662835249041
+    ],
+    [
+     0.139,
+     0.17625899280575538
+    ],
+    [
+     0.147,
+     0.18027210884353742
+    ],
+    [
+     0.155,
+     0.1870967741935484
+    ],
+    [
+     0.1635,
+     0.19571865443425077
+    ],
+    [
+     0.1715,
+     0.1924198250728863
+    ],
+    [
+     0.1795,
+     0.19220055710306408
+    ],
+    [
+     0.188,
+     0.19946808510638298
+    ],
+    [
+     0.196,
+     0.20153061224489796
+    ],
+    [
+     0.204,
+     0.2034313725490196
+    ],
+    [
+     0.2125,
+     0.2023529411764706
+    ],
+    [
+     0.2205,
+     0.20634920634920634
+    ],
+    [
+     0.2285,
+     0.20568927789934355
+    ],
+    [
+     0.237,
+     0.2088607594936709
+    ],
+    [
+     0.245,
+     0.2163265306122449
+    ],
+    [
+     0.253,
+     0.22332015810276679
+    ],
+    [
+     0.261,
+     0.2260536398467433
+    ],
+    [
+     0.2695,
+     0.22634508348794063
+    ],
+    [
+     0.2775,
+     0.23423423423423423
+    ],
+    [
+     0.2855,
+     0.24168126094570927
+    ],
+    [
+     0.294,
+     0.25170068027210885
+    ],
+    [
+     0.302,
+     0.2533112582781457
+    ],
+    [
+     0.31,
+     0.26129032258064516
+    ],
+    [
+     0.3185,
+     0.2684458398744113
+    ],
+    [
+     0.3265,
+     0.2679938744257274
+    ],
+    [
+     0.3345,
+     0.26905829596412556
+    ],
+    [
+     0.343,
+     0.27113702623906705
+    ],
+    [
+     0.351,
+     0.2720797720797721
+    ],
+    [
+     0.359,
+     0.26880222841225626
+    ],
+    [
+     0.367,
+     0.27111716621253407
+    ],
+    [
+     0.3755,
+     0.2729693741677763
+    ],
+    [
+     0.3835,
+     0.27640156453715775
+    ],
+    [
+     0.3915,
+     0.27458492975734355
+    ],
+    [
+     0.4,
+     0.2775
+    ],
+    [
+     0.408,
+     0.2757352941176471
+    ],
+    [
+     0.416,
+     0.27403846153846156
+    ],
+    [
+     0.4245,
+     0.27326266195524146
+    ],
+    [
+     0.4325,
+     0.2728323699421965
+    ],
+    [
+     0.4405,
+     0.2735527809307605
+    ],
+    [
+     0.449,
+     0.2795100222717149
+    ],
+    [
+     0.457,
+     0.2778993435448578
+    ],
+    [
+     0.465,
+     0.278494623655914
+    ],
+    [
+     0.4735,
+     0.2787750791974657
+    ],
+    [
+     0.4815,
+     0.2824506749740395
+    ],
+    [
+     0.4895,
+     0.2839632277834525
+    ],
+    [
+     0.4975,
+     0.2894472361809045
+    ],
+    [
+     0.506,
+     0.29446640316205536
+    ],
+    [
+     0.514,
+     0.29766536964980544
+    ],
+    [
+     0.522,
+     0.3045977011494253
+    ],
+    [
+     0.5305,
+     0.3081998114985862
+    ],
+    [
+     0.5385,
+     0.31012070566388117
+    ],
+    [
+     0.5465,
+     0.3119853613906679
+    ],
+    [
+     0.555,
+     0.3162162162162162
+    ],
+    [
+     0.563,
+     0.31705150976909413
+    ],
+    [
+     0.571,
+     0.31961471103327493
+    ],
+    [
+     0.5795,
+     0.3252804141501294
+    ],
+    [
+     0.5875,
+     0.33106382978723403
+    ],
+    [
+     0.5955,
+     0.3350125944584383
+    ],
+    [
+     0.604,
+     0.33857615894039733
+    ],
+    [
+     0.612,
+     0.3415032679738562
+    ],
+    [
+     0.62,
+     0.3443548387096774
+    ],
+    [
+     0.628,
+     0.3479299363057325
+    ],
+    [
+     0.6365,
+     0.35035349567949725
+    ],
+    [
+     0.6445,
+     0.352211016291699
+    ],
+    [
+     0.6525,
+     0.35325670498084294
+    ],
+    [
+     0.661,
+     0.35627836611195157
+    ],
+    [
+     0.669,
+     0.3579970104633782
+    ],
+    [
+     0.677,
+     0.36336779911373707
+    ],
+    [
+     0.6855,
+     0.3639679066374909
+    ],
+    [
+     0.6935,
+     0.3684210526315789
+    ],
+    [
+     0.7015,
+     0.37277263007840344
+    ],
+    [
+     0.71,
+     0.3767605633802817
+    ],
+    [
+     0.718,
+     0.38091922005571033
+    ],
+    [
+     0.726,
+     0.384297520661157
+    ],
+    [
+     0.734,
+     0.3869209809264305
+    ],
+    [
+     0.7425,
+     0.39057239057239057
+    ],
+    [
+     0.7505,
+     0.3930712858094604
+    ],
+    [
+     0.7585,
+     0.3948582729070534
+    ],
+    [
+     0.767,
+     0.3970013037809648
+    ],
+    [
+     0.775,
+     0.39806451612903226
+    ],
+    [
+     0.783,
+     0.4016602809706258
+    ],
+    [
+     0.7915,
+     0.40429564118761846
+    ],
+    [
+     0.7995,
+     0.4046278924327705
+    ],
+    [
+     0.8075,
+     0.4068111455108359
+    ],
+    [
+     0.816,
+     0.40931372549019607
+    ],
+    [
+     0.824,
+     0.41140776699029125
+    ],
+    [
+     0.832,
+     0.4128605769230769
+    ],
+    [
+     0.8405,
+     0.4146341463414634
+    ],
+    [
+     0.8485,
+     0.41484973482616383
+    ],
+    [
+     0.8565,
+     0.4144775248102744
+    ],
+    [
+     0.8645,
+     0.4164256795835743
+    ],
+    [
+     0.873,
+     0.41695303550973656
+    ],
+    [
+     0.881,
+     0.41827468785471056
+    ],
+    [
+     0.889,
+     0.42238470191226096
+    ],
+    [
+     0.8975,
+     0.42395543175487466
+    ],
+    [
+     0.9055,
+     0.42573163997791275
+    ],
+    [
+     0.9135,
+     0.42911877394636017
+    ],
+    [
+     0.922,
+     0.43058568329718006
+    ],
+    [
+     0.93,
+     0.43172043010752686
+    ],
+    [
+     0.938,
+     0.43176972281449894
+    ],
+    [
+     0.9465,
+     0.43475964078182777
+    ],
+    [
+     0.9545,
+     0.43635411210057623
+    ],
+    [
+     0.9625,
+     0.43896103896103894
+    ],
+    [
+     1.0,
+     0.4565
+    ]
+   ]
+  }
+ },
+ "energy": {
+  "cells": {
+   "L_q4km": {
+    "cv_below_10pct": true,
+    "cv_watts_across_blocks": 0.0006567587431227013,
+    "mean_watts_net": 37.49467800136309,
+    "n_blocks": 4,
+    "peak_vram_mib": 4697.0,
+    "state": "measured",
+    "throttled_blocks": 4
+   },
+   "S_q4km": {
+    "cv_below_10pct": true,
+    "cv_watts_across_blocks": 0.012117645864198823,
+    "mean_watts_net": 37.905581232656,
+    "n_blocks": 4,
+    "peak_vram_mib": 4697.0,
+    "state": "measured",
+    "throttled_blocks": 4
+   }
+  },
+  "joules_split0": {},
+  "scope": "GPU energy only (NVML/nvidia-smi, idle-subtracted); CPU/RAM not measured",
+  "state": "measured",
+  "wall_meter_crosscheck": "not available on Kaggle: treat joules as relative"
+ },
+ "h1": {
+  "alpha": 0.1,
+  "empty_fraction": 0.98,
+  "fail_min": 0.25,
+  "max_test_risk": 0.09848484848484848,
+  "mean_cost_per_correct": 1.8179216123305268,
+  "mean_coverage": 0.396,
+  "mean_escalation_rate": 0.952,
+  "mean_test_risk": 0.09848484848484848,
+  "n_certified": 1,
+  "n_empty": 49,
+  "n_splits": 50,
+  "n_violations": 0,
+  "pass_max": 0.15,
+  "violation_ci95": [
+   0.0,
+   0.975
+  ],
+  "violation_freq": 0.0
+ },
+ "hard_set": {
+  "state": "not_run"
+ },
+ "meta": {
+  "alpha": 0.1,
+  "commit": "bd276d1fddd40365b969d4e76e88a34cbc1f807e",
+  "config_hash": "8b8e27bc6be6a110b5a4b317418f6b74399f45394d056f8f98eec5f282970fb3",
+  "cost_unit": "seconds",
+  "created": "2026-11-03T15:47:36Z",
+  "dataset_hash": "f3a1c31f0e1c8f0916121704bd69618c72ec2e81efb08c941b3e820a66178b67",
+  "delta": 0.1,
+  "hardware": {
+   "gpu": "see nvidia-smi",
+   "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+   "python": "3.13.16"
+  },
+  "judge": "simpleqa-judge:unavailable",
+  "main_pair": "main",
+  "manifest_config_hash": "8b8e27bc6be6a110b5a4b317418f6b74399f45394d056f8f98eec5f282970fb3",
+  "n_boot": 10000,
+  "n_splits": 50,
+  "name": "sieve-v2-t4-squad",
+  "prereg_frozen_sha256": "ceee9dadba355cd3a57230472b52be9ba3d4a0d8b7ddf0848f379e7554b67c6f",
+  "sc_k": 5,
+  "split_sizes": [
+   2000,
+   2000,
+   2000
+  ],
+  "splits_index_hash": "d03e5c3d7d541d1df0077789562a6c0e302202c98f3166054b4394affca7d1e6",
+  "synthetic": false,
+  "synthetic_label": null,
+  "template_hash": "b2b180585d1187d5195484d923a5673324d4dd7ac12049dc6d0eea95c7c156d7",
+  "timing_source": "wall",
+  "ungraded_datasets": []
+ },
+ "methods": {
+  "L_only": {
+   "across_splits": {
+    "alpha": 0.1,
+    "empty_fraction": 0.98,
+    "max_test_risk": 0.08937823834196891,
+    "mean_cost_per_correct": 1.41232266533001,
+    "mean_coverage": 0.386,
+    "mean_escalation_rate": 1.0,
+    "mean_test_risk": 0.08937823834196891,
+    "n_certified": 1,
+    "n_empty": 49,
+    "n_splits": 50,
+    "n_violations": 0,
+    "violation_ci95": [
+     0.0,
+     0.975
+    ],
+    "violation_freq": 0.0
+   },
+   "split0": null
+  },
+  "S_only": {
+   "across_splits": {
+    "alpha": 0.1,
+    "empty_fraction": 1.0,
+    "max_test_risk": null,
+    "mean_cost_per_correct": null,
+    "mean_coverage": null,
+    "mean_escalation_rate": null,
+    "mean_test_risk": null,
+    "n_certified": 0,
+    "n_empty": 50,
+    "n_splits": 50,
+    "n_violations": 0,
+    "violation_ci95": [
+     null,
+     null
+    ],
+    "violation_freq": null
+   },
+   "split0": null
+  },
+  "gate:entropy": {
+   "across_splits": {
+    "alpha": 0.1,
+    "empty_fraction": 0.4,
+    "max_test_risk": 0.11189634864546526,
+    "mean_cost_per_correct": 2.3294390893952817,
+    "mean_coverage": 0.32370000000000004,
+    "mean_escalation_rate": 0.9982,
+    "mean_test_risk": 0.0780471925335074,
+    "n_certified": 30,
+    "n_empty": 20,
+    "n_splits": 50,
+    "n_violations": 1,
+    "violation_ci95": [
+     0.0008435709266304795,
+     0.17216945563341265
+    ],
+    "violation_freq": 0.03333333333333333
+   },
+   "split0": {
+    "accuracy_on_answered": 0.9343544857768052,
+    "certified": true,
+    "cost_per_correct": 3.100024149681513,
+    "cost_per_item": 0.6618551559570031,
+    "cost_total": 1323.710311914006,
+    "coverage": 0.2285,
+    "escalation_rate": 1.0,
+    "label": "gate:entropy",
+    "n": 2000,
+    "n_answered": 457,
+    "n_wrong_answered": 30,
+    "note": "",
+    "per_stratum": {
+     "answerable": {
+      "n_answered": 219,
+      "n_wrong": 6
+     },
+     "unanswerable": {
+      "n_answered": 238,
+      "n_wrong": 24
+     }
+    },
+    "risk": 0.06564551422319474,
+    "violates_alpha": false
+   }
+  },
+  "gate:margin": {
+   "across_splits": {
+    "alpha": 0.1,
+    "empty_fraction": 1.0,
+    "max_test_risk": null,
+    "mean_cost_per_correct": null,
+    "mean_coverage": null,
+    "mean_escalation_rate": null,
+    "mean_test_risk": null,
+    "n_certified": 0,
+    "n_empty": 50,
+    "n_splits": 50,
+    "n_violations": 0,
+    "violation_ci95": [
+     null,
+     null
+    ],
+    "violation_freq": null
+   },
+   "split0": null
+  },
+  "gate:max_softmax": {
+   "across_splits": {
+    "alpha": 0.1,
+    "empty_fraction": 0.94,
+    "max_test_risk": 0.1744186046511628,
+    "mean_cost_per_correct": 8.4592373019203,
+    "mean_coverage": 0.16983333333333336,
+    "mean_escalation_rate": 1.0,
+    "mean_test_risk": 0.1417609484382018,
+    "n_certified": 3,
+    "n_empty": 47,
+    "n_splits": 50,
+    "n_violations": 3,
+    "violation_ci95": [
+     0.29240177382128674,
+     1.0
+    ],
+    "violation_freq": 1.0
+   },
+   "split0": null
+  },
+  "gate:mean_logprob": {
+   "across_splits": {
+    "alpha": 0.1,
+    "empty_fraction": 0.42,
+    "max_test_risk": 0.10480887792848335,
+    "mean_cost_per_correct": 2.4064046333025524,
+    "mean_coverage": 0.31518965517241376,
+    "mean_escalation_rate": 0.9953793103448276,
+    "mean_test_risk": 0.07691258191410338,
+    "n_certified": 29,
+    "n_empty": 21,
+    "n_splits": 50,
+    "n_violations": 1,
+    "violation_ci95": [
+     0.0008726468835799228,
+     0.1776442954887229
+    ],
+    "violation_freq": 0.034482758620689655
+   },
+   "split0": {
+    "accuracy_on_answered": 0.9352678571428571,
+    "certified": true,
+    "cost_per_correct": 3.1592131549260287,
+    "cost_per_item": 0.6618551559570031,
+    "cost_total": 1323.710311914006,
+    "coverage": 0.224,
+    "escalation_rate": 1.0,
+    "label": "gate:mean_logprob",
+    "n": 2000,
+    "n_answered": 448,
+    "n_wrong_answered": 29,
+    "note": "",
+    "per_stratum": {
+     "answerable": {
+      "n_answered": 215,
+      "n_wrong": 5
+     },
+     "unanswerable": {
+      "n_answered": 233,
+      "n_wrong": 24
+     }
+    },
+    "risk": 0.06473214285714286,
+    "violates_alpha": false
+   }
+  },
+  "gate:primary": {
+   "across_splits": {
+    "alpha": 0.1,
+    "empty_fraction": 0.98,
+    "max_test_risk": 0.09848484848484848,
+    "mean_cost_per_correct": 1.8179216123305268,
+    "mean_coverage": 0.396,
+    "mean_escalation_rate": 0.952,
+    "mean_test_risk": 0.09848484848484848,
+    "n_certified": 1,
+    "n_empty": 49,
+    "n_splits": 50,
+    "n_violations": 0,
+    "violation_ci95": [
+     0.0,
+     0.975
+    ],
+    "violation_freq": 0.0
+   },
+   "split0": null
+  },
+  "query_router": {
+   "across_splits": {
+    "alpha": 0.1,
+    "empty_fraction": 1.0,
+    "max_test_risk": null,
+    "mean_cost_per_correct": null,
+    "mean_coverage": null,
+    "mean_escalation_rate": null,
+    "mean_test_risk": null,
+    "n_certified": 0,
+    "n_empty": 50,
+    "n_splits": 50,
+    "n_violations": 0,
+    "violation_ci95": [
+     null,
+     null
+    ],
+    "violation_freq": null
+   },
+   "split0": null
+  },
+  "random_router": {
+   "across_splits": {
+    "alpha": 0.1,
+    "empty_fraction": 0.98,
+    "max_test_risk": 0.08937823834196891,
+    "mean_cost_per_correct": 1.41232266533001,
+    "mean_coverage": 0.386,
+    "mean_escalation_rate": 1.0,
+    "mean_test_risk": 0.08937823834196891,
+    "n_certified": 1,
+    "n_empty": 49,
+    "n_splits": 50,
+    "n_violations": 0,
+    "violation_ci95": [
+     0.0,
+     0.975
+    ],
+    "violation_freq": 0.0
+   },
+   "split0": null
+  }
+ },
+ "nondeterminism": {
+  "S_q4km": {
+   "max_abs_logprob_diff": 0.0,
+   "n_repeat_generations": 200,
+   "text_flip_rate": 0.0
+  }
+ },
+ "oracles": {
+  "oracle_abstainer": {
+   "accuracy_on_answered": 1.0,
+   "certified": false,
+   "cost_per_correct": 0.695264421703763,
+   "cost_per_item": 0.4905090495120048,
+   "cost_total": 981.0180990240096,
+   "coverage": 0.7055,
+   "escalation_rate": 1.0,
+   "label": "oracle_abstainer",
+   "n": 2000,
+   "n_answered": 1411,
+   "n_wrong_answered": 0,
+   "note": "uses labels; descriptive upper bound, not deployable",
+   "per_stratum": {
+    "answerable": {
+     "n_answered": 695,
+     "n_wrong": 0
+    },
+    "unanswerable": {
+     "n_answered": 716,
+     "n_wrong": 0
+    }
+   },
+   "risk": 0.0,
+   "violates_alpha": false
+  },
+  "oracle_router": {
+   "accuracy_on_answered": 0.8,
+   "certified": false,
+   "cost_per_correct": 0.379616583785627,
+   "cost_per_item": 0.30369326702850163,
+   "cost_total": 607.3865340570032,
+   "coverage": 1.0,
+   "escalation_rate": 0.4565,
+   "label": "oracle_router",
+   "n": 2000,
+   "n_answered": 2000,
+   "n_wrong_answered": 400,
+   "note": "uses labels; descriptive upper bound, not deployable",
+   "per_stratum": {
+    "answerable": {
+     "n_answered": 951,
+     "n_wrong": 197
+    },
+    "unanswerable": {
+     "n_answered": 1049,
+     "n_wrong": 203
+    }
+   },
+   "risk": 0.2,
+   "violates_alpha": true
+  }
+ },
+ "per_stratum": {
+  "L_only": {
+   "answerable": {
+    "low_n": false,
+    "n_answered": 319,
+    "risk": 0.05956112852664577
+   },
+   "unanswerable": {
+    "low_n": false,
+    "n_answered": 453,
+    "risk": 0.11037527593818984
+   }
+  },
+  "S_only": {},
+  "gate:primary": {
+   "answerable": {
+    "low_n": false,
+    "n_answered": 325,
+    "risk": 0.05846153846153846
+   },
+   "unanswerable": {
+    "low_n": false,
+    "n_answered": 467,
+    "risk": 0.12633832976445397
+   }
+  }
+ },
+ "primary_signal_by_split": {
+  "0": "mean_margin",
+  "1": "max_prob",
+  "10": "mean_margin",
+  "11": "mean_margin",
+  "12": "mean_margin",
+  "13": "mean_margin",
+  "14": "mean_margin",
+  "15": "mean_margin",
+  "16": "mean_margin",
+  "17": "mean_margin",
+  "18": "mean_margin",
+  "19": "mean_margin",
+  "2": "mean_margin",
+  "20": "mean_margin",
+  "21": "mean_margin",
+  "22": "mean_margin",
+  "23": "mean_margin",
+  "24": "mean_margin",
+  "25": "mean_margin",
+  "26": "mean_margin",
+  "27": "mean_margin",
+  "28": "mean_margin",
+  "29": "mean_margin",
+  "3": "mean_margin",
+  "30": "mean_margin",
+  "31": "mean_logprob",
+  "32": "mean_margin",
+  "33": "mean_margin",
+  "34": "mean_margin",
+  "35": "mean_margin",
+  "36": "mean_margin",
+  "37": "mean_margin",
+  "38": "mean_margin",
+  "39": "mean_margin",
+  "4": "mean_logprob",
+  "40": "mean_margin",
+  "41": "mean_margin",
+  "42": "mean_margin",
+  "43": "mean_margin",
+  "44": "mean_margin",
+  "45": "mean_margin",
+  "46": "mean_margin",
+  "47": "mean_margin",
+  "48": "mean_margin",
+  "49": "mean_margin",
+  "5": "mean_margin",
+  "6": "mean_margin",
+  "7": "mean_margin",
+  "8": "mean_margin",
+  "9": "mean_margin"
+ },
+ "quant": {
+  "state": "not_run"
+ },
+ "self_consistency": {
+  "state": "not_run"
+ },
+ "shift": {},
+ "signals": {
+  "auroc": {
+   "L": {
+    "first_margin": {
+     "hi": 0.7464458741509671,
+     "lo": 0.6990686796971871,
+     "point": 0.7233072908832975
+    },
+    "max_prob": {
+     "hi": 0.7509874915985605,
+     "lo": 0.7034330153363978,
+     "point": 0.7278146842839249
+    },
+    "mean_logprob": {
+     "hi": 0.785116201771837,
+     "lo": 0.7411371812543437,
+     "point": 0.7633371797386289
+    },
+    "mean_margin": {
+     "hi": 0.7185758058713304,
+     "lo": 0.6665145980539472,
+     "point": 0.6924004817833203
+    },
+    "min_logprob": {
+     "hi": 0.8037857789459906,
+     "lo": 0.7602854202814462,
+     "point": 0.7824412600968139
+    },
+    "neg_first_entropy": {
+     "hi": 0.7536186189865507,
+     "lo": 0.7058919658511393,
+     "point": 0.7302392432007065
+    },
+    "neg_mean_entropy": {
+     "hi": 0.7789880588432989,
+     "lo": 0.7342214064156797,
+     "point": 0.7571524488045059
+    }
+   },
+   "S": {
+    "first_margin": {
+     "hi": 0.6848508606503466,
+     "lo": 0.6381245623598936,
+     "point": 0.6614515266048723
+    },
+    "max_prob": {
+     "hi": 0.6829312423170766,
+     "lo": 0.6355646315939482,
+     "point": 0.6592982282899265
+    },
+    "mean_logprob": {
+     "hi": 0.6917109989020264,
+     "lo": 0.645161908212853,
+     "point": 0.6687618585070397
+    },
+    "mean_margin": {
+     "hi": 0.7272637725207642,
+     "lo": 0.6814256555494097,
+     "point": 0.7047532775578352
+    },
+    "min_logprob": {
+     "hi": 0.7606301670460246,
+     "lo": 0.7175889438016358,
+     "point": 0.739299759882551
+    },
+    "neg_first_entropy": {
+     "hi": 0.6752463825642547,
+     "lo": 0.6271828086047951,
+     "point": 0.6516180973790621
+    },
+    "neg_mean_entropy": {
+     "hi": 0.6687632047398603,
+     "lo": 0.6210205810701709,
+     "point": 0.6454544446918727
+    }
+   }
+  },
+  "h2_delta_vs_max_prob": {
+   "first_margin": {
+    "hi": 0.012279656068323607,
+    "lo": -0.007765283608853524,
+    "point": 0.0021532983149458174
+   },
+   "mean_logprob": {
+    "hi": 0.025465526218518286,
+    "lo": -0.006319729110804254,
+    "point": 0.009463630217113272
+   },
+   "mean_margin": {
+    "hi": 0.07625211108903475,
+    "lo": 0.01404123146295693,
+    "point": 0.045455049267908776
+   },
+   "min_logprob": {
+    "hi": 0.09401286626912586,
+    "lo": 0.0662267342124869,
+    "point": 0.08000153159262458
+   },
+   "neg_first_entropy": {
+    "hi": -0.00024355102637034493,
+    "lo": -0.01536843518676661,
+    "point": -0.007680130910864391
+   },
+   "neg_mean_entropy": {
+    "hi": 0.005698420433174103,
+    "lo": -0.03361001256362027,
+    "point": -0.013843783598053716
+   }
+  },
+  "primary_signal": "mean_margin"
+ }
+}
