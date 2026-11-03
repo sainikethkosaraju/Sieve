@@ -253,7 +253,7 @@ def test_driver_dry_run_with_stand_in_server(
 
 
 def test_every_config_preregistration_is_embedded_in_the_kaggle_script() -> None:
-    """A config pinned to a pre-registration the kernel never receives fails at run time (v2 canary)."""
+    """A config pinned to a pre-registration the kernel never receives would fail at run time."""
     import importlib.util
 
     spec = importlib.util.spec_from_file_location("b", KAGGLE / "build_experiment_script.py")
