@@ -35,7 +35,7 @@ import urllib.request
 from pathlib import Path
 from typing import Any
 
-_PARAMS_JSON = r'''{"allow_build": false, "cells": null, "config": "t4_squad", "embedded_sha256": "f7962c8f25d71ef42f3bf4b4c1c28439c3e51183d18b978cc938cc04e4404733", "llama_cpp_commit": "fac3a894fc04901c3e5abaff457e024c6b52e04f", "llama_slug_hint": "sieve-llamacpp-t4-smoke", "max_minutes": 420.0, "repo_commit": "2666d1f534fe2d4a58ffd7454d66cf66d5b5d08e+dirty", "reserve_minutes": 8.0, "sanity_per_dataset": 6, "stages": ["bootstrap", "binary", "models", "probe", "prepare", "run", "analyse", "report", "sanity", "emit"], "workdir_name": "sieve_work_t4_squad"}'''
+_PARAMS_JSON = r'''{"allow_build": false, "cells": null, "config": "t4_squad", "embedded_sha256": "f7962c8f25d71ef42f3bf4b4c1c28439c3e51183d18b978cc938cc04e4404733", "llama_cpp_commit": "fac3a894fc04901c3e5abaff457e024c6b52e04f", "llama_slug_hint": "sieve-llamacpp-t4-smoke", "max_minutes": 420.0, "repo_commit": "8d8406c9d63be79fee0344dbed1169f7b8f87fb8", "reserve_minutes": 8.0, "sanity_per_dataset": 6, "stages": ["bootstrap", "binary", "models", "probe", "prepare", "run", "analyse", "report", "sanity", "emit"], "workdir_name": "sieve_work_t4_squad"}'''
 _EMBEDDED_B64 = """
 H4sIAAAAAAAC/+y93XIbx5Yu2Nf1FLnhdhvgBooE+CdBprspipLYpkiapOTtYDOAAlAgywSq4KoCKWxZ5+K8xMRETMxczcVMTMQ8
 wcRcnHc5MXczjzDrWyuzKqsAUJIta3fvJm2RQFZW/q5c/2vl4cHe/tHZ/j/8kT9r9LO1scF/6af8t0UPzWddvrW9ufEPau0fvsDP
@@ -2376,6 +2376,11 @@ def stage_bootstrap(p: dict[str, Any]) -> None:
         "datasets": "datasets",
         "matplotlib": "matplotlib",
         "pandas": "pandas",
+        # the serving demo mounts the deployed server application
+        "pydantic_settings": "pydantic-settings",
+        "prometheus_client": "prometheus-client",
+        "fastapi": "fastapi",
+        "pydantic": "pydantic",
     }
     missing = [pkg for mod, pkg in need.items() if importlib.util.find_spec(mod) is None]
     if missing and not os.environ.get("SIEVE_SKIP_PIP"):

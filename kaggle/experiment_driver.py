@@ -228,6 +228,11 @@ def stage_bootstrap(p: dict[str, Any]) -> None:
         "datasets": "datasets",
         "matplotlib": "matplotlib",
         "pandas": "pandas",
+        # the serving demo mounts the deployed server application
+        "pydantic_settings": "pydantic-settings",
+        "prometheus_client": "prometheus-client",
+        "fastapi": "fastapi",
+        "pydantic": "pydantic",
     }
     missing = [pkg for mod, pkg in need.items() if importlib.util.find_spec(mod) is None]
     if missing and not os.environ.get("SIEVE_SKIP_PIP"):
