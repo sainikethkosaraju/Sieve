@@ -51,6 +51,7 @@ STAGE_ORDER = (
     "probe",
     "prepare",
     "run",
+    "serve_demo",
     "analyse",
     "report",
     "sanity",
@@ -589,6 +590,34 @@ def stage_run(p: dict[str, Any], workdir: Path, deadline: float) -> bool:
     return True
 
 
+def stage_serve_demo(p: dict[str, Any], workdir: Path) -> bool:
+    """Serve the harness-certified artifact through the chat API on the real backends (demo)."""
+    cmd = [
+        sys.executable,
+        "-m",
+        "sieve.eval.serve_demo",
+        "--config",
+        cfg_path(p),
+        "--workdir",
+        str(workdir),
+        "--n",
+        os.environ.get("SIEVE_DEMO_N", "300"),
+    ]
+    env = child_env(
+        p,
+        {
+            "SIEVE_SERVER_LOG_DIR": str(workdir / "server_logs_demo"),
+            "SIEVE_MODELS_DIR": os.environ.get("SIEVE_MODELS_DIR", str(models_dir())),
+        },
+    )
+    rc, _, tail = run_cmd(cmd, tag="serve_demo", env=env, cwd=REPO, deadline=None)
+    SUMMARY["serve_demo_rc"] = rc
+    if rc != 0:
+        problem(f"serve_demo exited rc={rc}; tail: {tail[-700:]}")
+        return False
+    return True
+
+
 def stage_analyse(p: dict[str, Any], workdir: Path) -> bool:
     cmd = [
         sys.executable,
@@ -814,6 +843,8 @@ def main() -> int:
                         raise RuntimeError(f"not running: prerequisite stage(s) failed: {bad}")
                     ok = stage_run(p, workdir, run_deadline)
                     complete = complete and ok
+                elif st == "serve_demo":
+                    ok = stage_serve_demo(p, workdir)
                 elif st == "analyse":
                     if complete:
                         ok = stage_analyse(p, workdir)
