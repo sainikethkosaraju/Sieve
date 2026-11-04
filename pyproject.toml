@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "sieve-llm"
-version = "0.1.0.dev0"
+version = "0.1.0"
 description = "Confidence gate for LLM cascades: answer, escalate or abstain, with a calibrated selective-risk certificate."
 readme = "README.md"
 requires-python = ">=3.11"

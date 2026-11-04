@@ -13,10 +13,15 @@ by normalised-alias exact match*, a strict grader (see Limitations).
 
 ## Headline
 
-**The certified guarantee behaved as designed on in-distribution data, and failed under shift as expected.
-The cascade did not save cost: at a certified risk of 10% the small model's confidence was too weak to answer
-more than about 4% of queries on average across the 50 re-splits (none on the canonical split 0, where the certified small-tier threshold was "never"), so the system behaved almost like the large model alone, plus the price of the
-wasted small-model attempt.** That is a negative result for the cost claim, reported as measured.
+**Certified abstention cut the 7B model's wrong answers about 21-fold (from about 44% to 2.1% of all queries) and
+the error bound held in distribution; it failed under shift, as any marginal guarantee does, and the built-in drift
+alarm noticed. For this model pair the cascade did not save compute: at a certified risk of 10% the small model's
+confidence let it answer only about 4% of queries on average across the 50 re-splits (none on the canonical split
+0, where the certified small-tier threshold was "never"), so the system behaved like the large model alone plus the
+price of the wasted small-model attempt.** The positive result is in the section below; the cost result, and the
+break-even model that explains it, are reported as measured.
+
+![Abstaining when unsure turns a 56%-accurate model into a 93%-accurate one](assets/fig1_selective_accuracy.png)
 
 ## The positive result: certified abstention cuts wrong answers
 
@@ -27,12 +32,25 @@ TriviaQA, canonical split 0 test set (n = 2,000), alpha = delta = 0.10, large ti
 | 7B alone, no gate | 100% | 55.9% | about 44.1% |
 | 7B behind the certified gate | 30.8% (615 of 2,000) | 93.2% | 2.1% (42 of 2,000) |
 
-That is about 21 times fewer wrong answers, paid for with abstaining on about 69% of queries. Across the 50
+That is about 21 times fewer wrong answers, paid for with abstaining on about 69% of queries.
+
+![Wrong answers as a share of all questions, by share answered](assets/fig2_wrong_answer_rate.png) Across the 50
 re-splits the gate answered 25.8% on average with a mean error among answered of 7.4% (maximum 12.1%); the error
 exceeded 10% in 5 of 50. Caveats: in-distribution only (see H5), one model pair, strict exact-match grading (so
 "wrong" includes some correct paraphrases), and the 44% baseline is the large tier's accuracy over all 6,000
 TriviaQA items rather than the split-0 test set alone. This is the selective-prediction property the tool is built
 for. It is distinct from the cost claim (H3), which failed.
+
+## Why the cascade did not pay: a break-even model
+
+The cascade runs the small tier on every query and the large tier on the rest, so per query it costs
+`cost_small + (1 - c) * cost_large`, where `c` is the share the small tier resolves at the certified error level. It
+is cheaper than the large model alone only if `c > cost_small / cost_large`. Measured cost ratios were 3.1 (TriviaQA)
+and 2.9 (SQuAD 2.0), so the small tier had to resolve more than about 32% and 35% of queries; it resolved about 4%
+and 0.5%. The same formula says what a winning configuration needs: a small tier that resolves a large share at the
+target error, or a much cheaper small tier relative to the large one. `python -m sieve.breakeven` computes it.
+
+![When does a cascade pay? Break-even by cost ratio, with the two measured points](assets/fig3_cascade_breakeven.png)
 
 ## Verdicts on the pre-registered hypotheses
 
@@ -79,6 +97,8 @@ Correctness AUROC on TriviaQA (split 0 test): S 0.81 (max-softmax) to 0.84 (min-
   specific to this llama.cpp build, its flash-attention path and this model, not a general property of 4-bit KV. Q2_K left 14% of generations unterminated. The gate failed closed on these items as designed.
   An earlier guess that the 4-bit arm's slowness came from a missing build flag was wrong: every item ran to the
   token limit.
+
+![Shift and quantization effects](assets/fig4_boundaries.png)
 
 ## Validity checks that passed
 

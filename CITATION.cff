@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 title: "Sieve: confidence gating for LLM cascades"
 type: software
-version: 0.1.0.dev0
+version: 0.1.0
 date-released: 2026-11-03
 authors:
   - family-names: Kosaraju
@@ -10,5 +10,8 @@ authors:
 license: MIT
 repository-code: "https://github.com/sainikethkosaraju/Sieve"
 abstract: >-
-  Early-development library for answer / escalate / abstain decisions in LLM cascades with
-  calibrated selective-risk thresholds. No empirical results are claimed yet.
+  Confidence gate and OpenAI-compatible proxy for local LLM cascades: answer, escalate or abstain
+  using Learn-then-Test thresholds that certify an error bound, with a pre-registered evaluation on
+  two Tesla T4 GPUs. On TriviaQA the gate cut a 7B model's wrong answers about 21-fold by abstaining
+  on 69% of queries; the bound held in distribution and failed under shift, and the cascade did not
+  save compute for the tested model pair.
