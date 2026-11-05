@@ -14,10 +14,10 @@ What is done, what is next, and what would change the conclusions. Ordered by va
 
 ## Next, in order
 
-1. **Serve an evaluation-certified artifact end to end on a live GPU pair.** The shared prompt builder and template
-   hash are tested against a mock backend and real captured responses. What remains is carrying the evaluation
-   provider's stop-sequence and token-trimming behaviour into the server backend, reconciling the build identity
-   string, and recording a real transcript. This is the most valuable missing demonstration.
+1. **Serve over a real socket with the server's own adapter.** Done in a first form: the harness-certified
+   artifact was served through the deployed app on the T4s (`docs/RESULTS.md`, end-to-end demo). What remains is
+   carrying the harness backends' stop-sequence and token-trimming handling into the server's own llama-server
+   adapter, reconciling the build identity string it reports, and repeating the demo over a real TCP socket.
 2. **A stronger or cheaper small tier, pre-registered.** The break-even model says what is needed: a small tier that
    resolves more than `cost_small / cost_large` of queries at the target error. Candidate directions: a small model
    fine-tuned for the task, a larger quality gap with a much cheaper small tier, or an easier traffic mix. The

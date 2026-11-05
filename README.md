@@ -23,6 +23,7 @@ hashed before any data was generated. Full tables, intervals and caveats: **[doc
 | **21x fewer wrong answers** | On 2,000 held-out TriviaQA questions the 7B model alone is wrong on about 44% of them. Behind the gate, set to a 10% error target, it answered 31% of questions, **93% of them correctly**, so wrong answers fell to **2.1% of all queries** by abstaining on the rest. |
 | **The bound held in distribution** | Across 50 independent re-splits, error among answered exceeded the 10% target in 5 (10%; 95% CI 3% to 22%). Mean error was 7.4%. |
 | **Shift is detected, not hidden** | On a different question set (NQ-open) the error rose to 42% (50 of 50 re-splits), the documented failure of any marginal guarantee, and the built-in drift alarm fired on all 10 monitoring windows. |
+| **It serves, end to end** | The artifact the evaluation harness certified was loaded into the deployed server and sent 300 fresh TriviaQA questions through `/v1/chat/completions` on the T4s: it answered 76 (25%), abstained on 224, and **5 of the 76 answers were wrong (6.6%; 95% CI 2.2% to 14.7%; target 10%)**, so 1.7% of all queries. No identity, template or sampling mismatch; mean latency 0.38 s per request. A small demonstration, not a new experiment. |
 | **Signal quality, measured** | Length-normalised and minimum token logprob beat max-softmax by about +0.03 AUROC; self-consistency sampling was worse and slower. Correctness AUROC reached 0.84 (1.5B) and 0.87 (7B). |
 | **Quantization, quantified** | 8-bit and 4-bit weights keep the confidence ranking within about 0.014 AUROC of f16; 2-bit weights and an 8-bit KV cache cost about 0.02 to 0.04. Thresholds fitted at f16 still held the target on every other configuration tested (violated in at most 8.2% of re-splits). |
 | **A bug found and reproduced** | llama.cpp drops logprob entries for some multi-token UTF-8 characters (upstream issue 31451). Sieve's startup self-test caught it on the real 7B; affected answers fail closed. |
@@ -94,11 +95,11 @@ red-team, evaluation, governance and release audits are recorded in [docs/proces
 
 ## Status and next steps
 
-Released as v0.1.0: the library, server, harness and two pre-registered experiments. Not done yet, and listed in
-[docs/ROADMAP.md](docs/ROADMAP.md): serving an evaluation-certified artifact end to end on a real GPU backend
-(tested against real captured responses and a mock, not yet against a live pair), per-request backend identity
-checks, a judge model for SimpleQA, contamination probes, and a stronger small tier to test whether a cost win is
-reachable.
+Released as v0.1.0: the library, server, harness, two pre-registered experiments and an end-to-end serving demo.
+Not done yet, and listed in [docs/ROADMAP.md](docs/ROADMAP.md): carrying the harness backends' stop and
+token-trimming handling into the server's own llama-server adapter and demonstrating it over a real socket (the
+demo above calls the app in-process with the harness's backends), per-request backend identity checks, a judge model
+for SimpleQA, contamination probes, and a stronger small tier to test whether a cost win is reachable.
 
 ## Models, data and licences
 

@@ -41,6 +41,29 @@ exceeded 10% in 5 of 50. Caveats: in-distribution only (see H5), one model pair,
 TriviaQA items rather than the split-0 test set alone. This is the selective-prediction property the tool is built
 for. It is distinct from the cost claim (H3), which failed.
 
+## End-to-end serving demo
+
+The artifact the v1 harness certified on split 0 (`gate:primary`, alpha = delta = 0.10) was mounted in the deployed
+server application, with the real 1.5B and 7B backends on the T4s, and 300 fresh TriviaQA validation questions (none
+in the experiment's 6,000-item sample) were sent to `/v1/chat/completions`. Evidence:
+`results/evidence/serve_demo_2026-11-04/`.
+
+| Served result | Value |
+|---|---|
+| Answered / abstained | 76 (25.3%) / 224 (reason `low_confidence`) |
+| Answered by the large tier | 76 of 76 (the certified small-tier threshold on split 0 is "never") |
+| Wrong among answered | 5 of 76 = 6.6% (95% Clopper-Pearson 2.2% to 14.7%; target 10%) |
+| Wrong as a share of all questions | 5 of 300 = 1.7% (the 7B alone is wrong on about 44%) |
+| Latency per request | mean 0.38 s, p50 0.37 s, p95 0.52 s (2 concurrent requests; includes the small-tier attempt) |
+| Mismatch reasons | none: no identity, template-hash or sampling mismatch |
+
+What it establishes: an artifact certified by the evaluation harness is accepted by the serving stack and behaves,
+on fresh items from the calibration distribution, in line with its certificate. What it does not: 76 answers give a
+wide interval that straddles the target on its upper end; the application was called in-process over ASGI and the
+backends were the harness's own (with its stop-sequence and token-trimming handling), not the server's own
+llama-server adapter; the server's startup self-test was not re-run (the provider ran it on each backend); and it is
+one artifact at one error target. It is a demonstration, not an additional experiment.
+
 ## Why the cascade did not pay: a break-even model
 
 The cascade runs the small tier on every query and the large tier on the rest, so per query it costs

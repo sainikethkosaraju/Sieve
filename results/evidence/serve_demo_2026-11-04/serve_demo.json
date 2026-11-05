@@ -1,0 +1,38 @@
+{
+ "synthetic": false,
+ "n_requested": 300,
+ "n_responses": 300,
+ "decisions": {
+  "abstain": 224,
+  "answer": 76
+ },
+ "reasons": {
+  "low_confidence": 224,
+  "confident": 76
+ },
+ "answered": 76,
+ "answered_share": 0.25333333333333335,
+ "answered_from_tier": {
+  "2": 76
+ },
+ "wrong_among_answered": 5,
+ "error_among_answered": 0.06578947368421052,
+ "wrong_share_of_all": 0.016666666666666666,
+ "alpha_target": 0.1,
+ "delta": 0.1,
+ "artifact_id": "8009f7d54c507d93",
+ "latency_s": {
+  "mean": 0.3767963358599972,
+  "p50": 0.36614266599997336,
+  "p95": 0.5154794709999351
+ },
+ "wall_s": 56.638339685999995,
+ "readyz_status": 200,
+ "models_status": 200,
+ "grader": "alias exact match (strict)",
+ "note": "small fresh held-out sample from the calibration distribution; wide intervals",
+ "error_among_answered_ci95_clopper_pearson": [
+  0.0217,
+  0.1469
+ ]
+}
